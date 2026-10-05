@@ -23,7 +23,10 @@ npm start
 ```
 
 `npm run build` regenera `content/guias_index.json` desde el frontmatter de
-`content/*.md` + `content/winrates.csv` (contrato §2).
+`content/*.md` + `content/winrates.csv` (contrato §2) y lo copia a
+`public/guias_index.json` — queda descargable en
+`https://<sitio>/guias_index.json`, que es de donde la API siembra su catálogo
+(`wr-guides-api/scripts/seed-guides.mjs`) sin necesidad de rutas hermanas.
 
 ## Actualizar contenido desde el lab
 

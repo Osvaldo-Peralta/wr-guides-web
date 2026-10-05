@@ -61,4 +61,9 @@ const index = {
   guias,
 };
 fs.writeFileSync(path.join(CONTENT, "guias_index.json"), JSON.stringify(index, null, 1));
-console.log(`✔ guias_index.json: ${guias.length} guías`);
+// copia pública: la API siembra su catálogo descargando este archivo del sitio
+// desplegado (repos independientes — sin rutas hermanas)
+const pub = path.join(process.cwd(), "public");
+fs.mkdirSync(pub, { recursive: true });
+fs.writeFileSync(path.join(pub, "guias_index.json"), JSON.stringify(index, null, 1));
+console.log(`✔ guias_index.json: ${guias.length} guías (content/ + public/)`);

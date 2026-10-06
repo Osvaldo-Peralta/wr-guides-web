@@ -4,6 +4,10 @@ Frontend del ecosistema **WR-LAB** (Fase 2 del plan de migración —
 `wr-lab/deploy/PLAN_MIGRACION_VERCEL.md`). Consume los reportes Markdown del
 laboratorio bajo el contrato `wr-lab/deploy/CONTRATO_MARKDOWN_FRONTEND.md` v1.2.
 
+> 🧭 **Runbook completo** (montaje desde cero + flujo diario para agregar/modificar
+> guías + troubleshooting de errores reales): ver **`OPERACIONES.md`** en el repo
+> **wr-guides-api**.
+
 ## Principios (heredados del plan)
 
 1. **Markdown = fuente editorial.** Este repo NO edita guías: las recibe de

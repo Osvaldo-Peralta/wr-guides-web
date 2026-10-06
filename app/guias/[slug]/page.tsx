@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { allSlugs, loadGuide, PUBLISHABLE } from "@/lib/guides";
 import Markdown from "@/components/Markdown";
 import { BadgesGuia } from "@/components/Badges";
+import { StatsBar, LikeCta } from "@/components/GuideStats";
 
 export function generateStaticParams() {
   return allSlugs().map((slug) => ({ slug }));
@@ -24,8 +25,10 @@ export default function GuiaPage({ params }: { params: { slug: string } }) {
     <article className="guide-page">
       <div className="guide-badges-top">
         <BadgesGuia g={g!} />
+        <StatsBar slug={g!.slug} />
       </div>
       <Markdown source={g!.body} />
+      <LikeCta slug={g!.slug} />
     </article>
   );
 }

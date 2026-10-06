@@ -46,25 +46,55 @@ npm run build
 ```
 app/
 ├── page.tsx              # home: guías por rol, agrupadas por campeón, con badges
-├── guias/[slug]/page.tsx # guía completa (SSG, generateStaticParams)
+├── guias/[slug]/page.tsx # guía completa (SSG) + widget 👁/❤ (Fase 5)
 ├── meta/page.tsx         # win rates Diamond+ (desde el índice)
 └── layout.tsx            # chrome del sitio + pie legal (siempre visible)
 components/
 ├── Markdown.tsx          # react-markdown + GFM + callouts [!NOTE|TIP|WARNING|DANGER|VERIF]
-└── Badges.tsx            # Status · verificación · custom · rol · WR/tier
-lib/guides.ts             # loader + pre-procesado (WRLAB-VERIF → callout; contrato §3.1)
+├── Badges.tsx            # Status · verificación · custom · rol · WR/tier
+└── GuideStats.tsx        # Fase 5: StatsBar (👁/❤ arriba) + LikeCta (botón al final)
+lib/
+├── guides.ts             # loader + pre-procesado (WRLAB-VERIF → callout; contrato §3.1)
+└── api.ts                # Fase 5: cliente de la API de comunidad (visitor id, fetch)
 styles/globals.css        # tema minimalista (port de wr-lab/deploy/quartz-theme)
 scripts/gen-index.mjs     # generador del índice (contrato §2)
 content/                  # guías + winrates.csv (fuente: wr-lab)
+.env.example              # NEXT_PUBLIC_API_URL (Fase 5)
 ```
+
+## Widget de comunidad (Fase 5: vistas + likes)
+
+Cada página de guía monta dos widgets que comparten estado (un solo beacon por
+carga): **`<StatsBar>`** arriba (👁 vistas · ❤ likes) y **`<LikeCta>`** al final
+(boton "Me gusta" con UI optimista).
+
+- **API:** habla SOLO con `wr-guides-api` (`NEXT_PUBLIC_API_URL`, ver
+  `.env.example`). La secret key de Supabase jamás toca el navegador.
+- **Visitante anónimo:** UUID en `localStorage` (`wrg_visitor_id`) enviado como
+  header `x-visitor-id`. Se prefiere a la cookie porque es inmune al bloqueo de
+  cookies third-party; la API la acepta como prioridad nº1 (`lib/visitor.ts`).
+- **Dedupe:** 1 vista por visitante cada 1 h (lo aplica el servidor; el cliente
+  puede disparar el beacon en cada carga sin inflar números).
+- **Degradación silenciosa:** si la API está caída/lenta, el widget no se
+  renderiza y la guía se lee igual. Nunca hay errores visibles para el lector.
+- **Like que falla:** el widget re-sincroniza con `GET /like` (la verdad del
+  servidor) en vez de asumir rollback — cubre incluso el bug histórico de la
+  API v0.3.1 ("502 pero persistido", corregido en v0.3.2).
+
+Dev local del widget: levantar la API (`cd ../wr-guides-api && npm run dev`,
+puerto 3002) y un `.env.local` acá con `NEXT_PUBLIC_API_URL=http://localhost:3002`
+(así las pruebas no ensucian las stats de producción).
 
 ## Despliegue en Vercel (Fase 6 del plan)
 
 1. Importar este repo en vercel.com (framework: **Next.js** — autodetectado).
 2. Build command: `npm run build` (ya incluye gen-index) · Output: por defecto.
-3. Sin variables de entorno en Fase 2 (llegan en Fase 3-5: `NEXT_PUBLIC_API_URL`,
-   Supabase en el repo del API).
-4. Dominio: `*.vercel.app` al inicio; si hay dominio propio, actualizar metadata.
+3. Environment variable (Fase 5): `NEXT_PUBLIC_API_URL` =
+   `https://wr-guides-api.vercel.app` (Production y Preview). Es pública por
+   diseño (se incrusta en el JS del navegador); tras cambiarla, **Redeploy**.
+   Sin ella el sitio funciona igual: `lib/api.ts` usa esa URL como fallback.
+4. Dominio: `*.vercel.app` al inicio; si hay dominio propio, actualizar metadata
+   **y** el `ALLOWED_ORIGINS` de la API (CORS).
 5. Mantener GitHub Pages activo como respaldo durante la transición (plan §Fase 6.7).
 
 ## Estándares de render (contrato §3)

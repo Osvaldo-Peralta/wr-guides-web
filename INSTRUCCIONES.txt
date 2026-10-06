@@ -1,0 +1,47 @@
+Web Fase 5 — widget de comunidad 👁 vistas / ❤ likes (2026-10-06)
+══════════════════════════════════════════════════════════════════
+
+QUÉ AGREGA
+  · StatsBar arriba de cada guía: 👁 vistas · ❤ likes
+  · LikeCta al final: botón "🤍/❤️ Me gusta" con UI optimista
+  · Visitante anónimo: UUID en localStorage, header x-visitor-id
+  · Dedupe de vistas: 1 por visitante cada 1 h (lo aplica la API)
+  · Degradación silenciosa: si la API está caída, el widget no se
+    muestra y la guía se lee igual (nunca rompe la lectura)
+
+ARCHIVOS
+  nuevos:    lib/api.ts · components/GuideStats.tsx · .env.example
+  tocados:   app/guias/[slug]/page.tsx · styles/globals.css · README.md
+
+PASOS (en tu máquina)
+  0. PRIMERO: la API v0.3.2 debe estar desplegada (zip hermano) — sin ese
+     fix, el like responde 502.
+  1. Descomprimí este zip DENTRO de tu clon local, sobreescribiendo:
+       cd "/home/morningstar/Proyectos/Sitio Web/wr-guides-web"
+       unzip -o ruta/al/wr-guides-web-fase5.zip
+  2. (Opcional, recomendado) build local de control:
+       npm install && npm run build     # → 22 páginas, sin errores de tipos
+  3. Vercel → proyecto wr-guides-web → Settings → Environment Variables:
+       NEXT_PUBLIC_API_URL = https://wr-guides-api.vercel.app
+       (entornos: Production + Preview. Es pública por diseño: se incrusta
+        en el JS del navegador. Si no la cargás, el sitio usa esa misma URL
+        como fallback — pero mejor explícita.)
+  4. Commit + push (Vercel redeploya solo):
+       git add lib/api.ts components/GuideStats.tsx "app/guias/[slug]/page.tsx" styles/globals.css README.md .env.example
+       git commit -m "Fase 5: widget de comunidad (vistas + likes) conectado a wr-guides-api"
+       git push
+     Ojo: si cargaste la env var DESPUÉS de un deploy, hace falta Redeploy
+     para que se incruste (NEXT_PUBLIC_* se fija en tiempo de build).
+  5. Verificación en producción:
+       a. Abrí https://wr-guides-web.vercel.app/guias/jinx
+       b. Deben aparecer "👁 n" y "❤ n" bajo los badges (1-2 s tras cargar)
+       c. Click en "🤍 Me gusta" al final → cambia a "❤️ Me gusta" y suma 1
+       d. Recargá (F5) → el like PERSISTE (mismo navegador = mismo visitor id)
+       e. Las vistas suben de a 1 por hora por visitante (dedupe del servidor)
+
+DEV LOCAL (para probar sin tocar producción)
+  Terminal 1: cd ../wr-guides-api && npm run dev          (puerto 3002)
+  Terminal 2: cd wr-guides-web
+              echo "NEXT_PUBLIC_API_URL=http://localhost:3002" > .env.local
+              npm run dev                                  (puerto 3000)
+  El CORS de la API ya permite http://localhost:3000 por defecto.

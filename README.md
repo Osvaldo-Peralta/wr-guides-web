@@ -34,12 +34,34 @@ npm start
 
 ## Actualizar contenido desde el lab
 
+**Automático (Fase 6):** el workflow `.github/workflows/sync-from-lab.yml`
+espeja `wr-lab/reportes/*.md` → `content/` y el `champion_winrates.csv` del lab
+→ `content/winrates.csv` a las **08:35 y 20:35 UTC** (35 min después del
+patch-watch del lab), valida que el sitio compila (`npm run build`) y solo
+entonces commitea + pushea → Vercel redeploya sola. También se puede disparar a
+mano: pestaña **Actions → Sync lab → web → Run workflow**.
+
+Detalles de diseño:
+- Es **PULL** (este repo lee el repo público `wr-lab`): no necesita PAT ni
+  tokens cruzados, solo el `GITHUB_TOKEN` estándar.
+- Semántica de espejo: guías eliminadas en el lab también se eliminan acá.
+  `reportes/_auto/` NO se publica.
+- Si el contenido nuevo rompe el build, el workflow FALLA y no pushea nada:
+  producción queda intacta con la última versión buena.
+- **Re-siembra de la API** (opcional pero recomendada): tras un sync con
+  cambios, `scripts/reseed-api.mjs` actualiza el catálogo de `wr-guides-api`
+  para que las guías nuevas acepten vistas/likes de inmediato. Requiere el
+  secret **`ADMIN_TOKEN`** en este repo (Settings → Secrets and variables →
+  Actions) con el mismo valor que la env var `ADMIN_TOKEN` de la API en Vercel.
+  Sin el secret, el sync funciona igual y el re-seed se puede hacer manual:
+  `cd ../wr-guides-api && WR_API=https://wr-guides-api.vercel.app npm run seed`.
+
+**Manual (desde tu máquina, con los repos hermanos):**
+
 ```bash
-cp ../wr-lab/reportes/*.md content/
-cp ../wr-lab/data/estructurada/champion_winrates.csv content/winrates.csv
-npm run build
+node scripts/sync-from-lab.mjs --lab ../wr-lab   # espejo + reporte de cambios
+npm run build                                     # regenera el índice y valida
 ```
-(Fase 6: GitHub Action en wr-lab haciendo esto automáticamente en cada push.)
 
 ## Estructura
 
@@ -52,12 +74,18 @@ app/
 components/
 ├── Markdown.tsx          # react-markdown + GFM + callouts [!NOTE|TIP|WARNING|DANGER|VERIF]
 ├── Badges.tsx            # Status · verificación · custom · rol · WR/tier
-└── GuideStats.tsx        # Fase 5: StatsBar (👁/❤ arriba) + LikeCta (botón al final)
+├── GuideStats.tsx        # Fase 5: StatsBar (👁/❤ arriba) + LikeCta (botón al final)
+└── ThemeToggle.tsx       # interruptor de tema: 💥 Jinx (neón) ↔ 🧪 Clásico
 lib/
 ├── guides.ts             # loader + pre-procesado (WRLAB-VERIF → callout; contrato §3.1)
 └── api.ts                # Fase 5: cliente de la API de comunidad (visitor id, fetch)
-styles/globals.css        # tema minimalista (port de wr-lab/deploy/quartz-theme)
-scripts/gen-index.mjs     # generador del índice (contrato §2)
+styles/globals.css        # tema clásico + tema Jinx (variables CSS, §1 y §8)
+scripts/
+├── gen-index.mjs         # generador del índice (contrato §2)
+├── sync-from-lab.mjs     # Fase 6: espejo de contenido lab → web
+└── reseed-api.mjs        # Fase 6: re-siembra del catálogo de la API tras el sync
+.github/workflows/
+└── sync-from-lab.yml     # Fase 6: sync automático (cron 08:35/20:35 UTC + manual)
 content/                  # guías + winrates.csv (fuente: wr-lab)
 .env.example              # NEXT_PUBLIC_API_URL (Fase 5)
 ```
@@ -85,6 +113,38 @@ Dev local del widget: levantar la API (`cd ../wr-guides-api && npm run dev`,
 puerto 3002) y un `.env.local` acá con `NEXT_PUBLIC_API_URL=http://localhost:3002`
 (así las pruebas no ensucian las stats de producción).
 
+## Analytics (Fase 7 — Vercel Web Analytics)
+
+- `<Analytics />` en `app/layout.tsx` (paquete `@vercel/analytics`): cuenta
+  pageviews por ruta (/guias/[slug], /meta) sin cookies ni banner de consentimiento.
+- Evento custom **`guide_like`** (`components/GuideStats.tsx`): se dispara solo
+  cuando el like/unlike confirma con el servidor; propiedades `{ slug, liked }`.
+- **Requiere activarlo en Vercel**: proyecto web → pestaña **Analytics →
+  Enable Web Analytics**. Sin activar, el código es no-op (no rompe nada).
+- Plan Hobby: 2.5K eventos/mes incluidos (pageviews + eventos custom). Si se
+  supera, simplemente deja de contar hasta el ciclo siguiente.
+- Las vistas/likes "de verdad" (contador por guía, dedupe 1 h) siguen viviendo
+  en Supabase vía la API — Vercel Analytics es la capa de tráfico agregado
+  (páginas más visitadas, países, dispositivos, referentes).
+
+## Tema visual: 💥 Jinx (neón) ↔ 🧪 Clásico
+
+Rediseño experimental inspirado en la paleta de Jinx (rosa neón `#ff3d9e`,
+cian hextech `#2de2e6`, amarillo cohete `#ffd93d` sobre azul noche `#0b0d1c`):
+títulos con gradiente, cards con glow al hover, badges neón, botón de like con
+"heart pop" y scrollbar custom.
+
+- **Default: tema Jinx.** El interruptor (header, botón 🎨) alterna con el tema
+  clásico minimalista (que sigue el modo claro/oscuro del sistema). La elección
+  persiste en `localStorage` (`wrg_theme`) y se aplica antes del primer paint
+  (sin parpadeo).
+- Implementación: solo CSS (`styles/globals.css` §1b y §8 — variables +
+  decoración scopeada a `html[data-theme="jinx"]`) + `ThemeToggle.tsx` +
+  script inline en `layout.tsx`. Cero dependencias nuevas.
+- **Volver al diseño anterior para todos:** cambiar `"jinx"` por `"auto"` en el
+  `themeScript` y el `data-theme` de `layout.tsx` (o revertir el commit del
+  rediseño — no toca lógica ni contenido).
+
 ## Despliegue en Vercel (Fase 6 del plan)
 
 1. Importar este repo en vercel.com (framework: **Next.js** — autodetectado).
@@ -93,6 +153,10 @@ puerto 3002) y un `.env.local` acá con `NEXT_PUBLIC_API_URL=http://localhost:30
    `https://wr-guides-api.vercel.app` (Production y Preview). Es pública por
    diseño (se incrusta en el JS del navegador); tras cambiarla, **Redeploy**.
    Sin ella el sitio funciona igual: `lib/api.ts` usa esa URL como fallback.
+   ⚠ Vercel NO permite crear `NEXT_PUBLIC_*` como variable **Sensitive** (lo
+   sensible no puede incrustarse en el JS del cliente): creala como variable
+   normal. Una variable `API_URL` (sin prefijo) es inofensiva pero el cliente
+   no la lee — el nombre que importa es `NEXT_PUBLIC_API_URL`.
 4. Dominio: `*.vercel.app` al inicio; si hay dominio propio, actualizar metadata
    **y** el `ALLOWED_ORIGINS` de la API (CORS).
 5. Mantener GitHub Pages activo como respaldo durante la transición (plan §Fase 6.7).

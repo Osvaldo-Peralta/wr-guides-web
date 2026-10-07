@@ -22,6 +22,7 @@
 // → se renderiza null en ambos lados → sin mismatch de hidratación.
 
 import { useCallback, useEffect, useState } from "react";
+import { track } from "@vercel/analytics/react";
 import { api } from "@/lib/api";
 
 interface StatsState {
@@ -78,6 +79,9 @@ function useGuideStats(slug: string) {
     const res = await api.votar(slug, deseado ? "like" : "unlike");
     if (res) {
       set(slug, { liked: res.liked, likes: res.likes, busy: false });
+      // Fase 7: evento custom de Vercel Web Analytics (solo se registra si el
+      // like/unlike confirmó con el servidor; track es no-op fuera de Vercel).
+      try { track("guide_like", { slug, liked: res.liked }); } catch { /* noop */ }
       return;
     }
     // El POST falló: preguntar la verdad al servidor antes de decidir

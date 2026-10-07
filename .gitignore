@@ -5,3 +5,6 @@ out/
 *.tsbuildinfo
 next-env.d.ts
 .DS_Store
+
+# Fase 6: checkout del lab dentro del repo (solo en GitHub Actions)
+.lab/

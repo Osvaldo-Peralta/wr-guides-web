@@ -1,47 +1,82 @@
-Web Fase 5 — widget de comunidad 👁 vistas / ❤ likes (2026-10-06)
+WR-GUIDES-WEB · FASES 6 + 7 + REDISEÑO JINX  (2026-10-07)
 ══════════════════════════════════════════════════════════════════
 
-QUÉ AGREGA
-  · StatsBar arriba de cada guía: 👁 vistas · ❤ likes
-  · LikeCta al final: botón "🤍/❤️ Me gusta" con UI optimista
-  · Visitante anónimo: UUID en localStorage, header x-visitor-id
-  · Dedupe de vistas: 1 por visitante cada 1 h (lo aplica la API)
-  · Degradación silenciosa: si la API está caída, el widget no se
-    muestra y la guía se lee igual (nunca rompe la lectura)
-
-ARCHIVOS
-  nuevos:    lib/api.ts · components/GuideStats.tsx · .env.example
-  tocados:   app/guias/[slug]/page.tsx · styles/globals.css · README.md
+QUÉ INCLUYE ESTE PAQUETE
+  · Fase 6 — Sync automático lab → web (GitHub Action, diseño PULL: este repo
+      lee el repo PÚBLICO wr-lab, sin PAT ni tokens cruzados)
+      .github/workflows/sync-from-lab.yml  cron 08:35 y 20:35 UTC + botón manual
+      scripts/sync-from-lab.mjs            espejo reportes/*.md → content/ +
+                                           champion_winrates.csv → winrates.csv
+      scripts/reseed-api.mjs               re-siembra el catálogo de la API
+                                           tras un sync (opcional, con secret)
+  · Fase 7 — Vercel Web Analytics
+      app/layout.tsx                       <Analytics /> (pageviews por ruta)
+      components/GuideStats.tsx            evento custom "guide_like" {slug, liked}
+  · Rediseño JINX (experimental, con interruptor para volver al clásico)
+      styles/globals.css                   tema neón completo (§1b y §8 del CSS);
+                                           el tema clásico queda intacto
+      components/ThemeToggle.tsx           botón 🎨 del header (💥 Jinx ↔ 🧪 Clásico)
+      app/layout.tsx                       script de tema inline (sin parpadeo)
+  · Contenido ya sincronizado con el lab al 06-OCT (winrates + índice)
+  · README.md (docs de fases 6/7 y tema), .env.example (aclaración
+      NEXT_PUBLIC_API_URL), .gitignore (.lab/), package.json + lock
+      (+ dependencia @vercel/analytics v2)
 
 PASOS (en tu máquina)
-  0. PRIMERO: la API v0.3.2 debe estar desplegada (zip hermano) — sin ese
-     fix, el like responde 502.
-  1. Descomprimí este zip DENTRO de tu clon local, sobreescribiendo:
-       cd "/home/morningstar/Proyectos/Sitio Web/wr-guides-web"
-       unzip -o ruta/al/wr-guides-web-fase5.zip
-  2. (Opcional, recomendado) build local de control:
-       npm install && npm run build     # → 22 páginas, sin errores de tipos
-  3. Vercel → proyecto wr-guides-web → Settings → Environment Variables:
-       NEXT_PUBLIC_API_URL = https://wr-guides-api.vercel.app
-       (entornos: Production + Preview. Es pública por diseño: se incrusta
-        en el JS del navegador. Si no la cargás, el sitio usa esa misma URL
-        como fallback — pero mejor explícita.)
+  0. Prerrequisito: wr-guides-api v0.3.2 ya desplegada ✓ (este paquete NO toca
+     el repo de la API).
+  1. Descomprimí el zip DENTRO de tu clon, sobreescribiendo:
+       cd "<tu-clon>/wr-guides-web"
+       unzip -o ruta/al/wr-guides-web-fase6-7-jinx.zip
+  2. Instalá la dependencia nueva:
+       npm install
+  3. (Opcional, recomendado) build de control:
+       npm run build          → 22 páginas, sin errores de tipos
   4. Commit + push (Vercel redeploya solo):
-       git add lib/api.ts components/GuideStats.tsx "app/guias/[slug]/page.tsx" styles/globals.css README.md .env.example
-       git commit -m "Fase 5: widget de comunidad (vistas + likes) conectado a wr-guides-api"
+       git add -A
+       git commit -m "Fases 6-7: sync lab→web automático + Vercel Analytics + tema Jinx"
        git push
-     Ojo: si cargaste la env var DESPUÉS de un deploy, hace falta Redeploy
-     para que se incruste (NEXT_PUBLIC_* se fija en tiempo de build).
-  5. Verificación en producción:
-       a. Abrí https://wr-guides-web.vercel.app/guias/jinx
-       b. Deben aparecer "👁 n" y "❤ n" bajo los badges (1-2 s tras cargar)
-       c. Click en "🤍 Me gusta" al final → cambia a "❤️ Me gusta" y suma 1
-       d. Recargá (F5) → el like PERSISTE (mismo navegador = mismo visitor id)
-       e. Las vistas suben de a 1 por hora por visitante (dedupe del servidor)
+  5. VERCEL — activar Web Analytics (Fase 7):
+       Proyecto wr-guides-web → pestaña ANALYTICS → "Enable Web Analytics".
+       Sin este paso el sitio funciona igual (el código es no-op); con él, en
+       ~24 h ves páginas más visitadas, países, dispositivos y el evento
+       guide_like. Plan Hobby: 2.5K eventos/mes incluidos.
+  6. (RECOMENDADO) Secret para la re-siembra de la API tras cada sync:
+       GitHub → repo wr-guides-web → Settings → Secrets and variables → Actions
+       → New repository secret → Name: ADMIN_TOKEN
+       Value: el MISMO valor que la env var ADMIN_TOKEN del proyecto API en Vercel.
+       Sin el secret el sync de contenido funciona igual; solo que una guía
+       NUEVA quedaría sin stats hasta un seed manual
+       (cd ../wr-guides-api && WR_API=https://wr-guides-api.vercel.app npm run seed).
+  7. Probá la Action sin esperar al cron:
+       GitHub → wr-guides-web → Actions → "Sync lab → web" → Run workflow.
+       (El contenido 06-OCT ya viene en este paquete, así que la primera
+       corrida probablemente diga "Sin cambios" — es el resultado correcto.)
+  8. Tema: abrí https://wr-guides-web.vercel.app → abre con el tema JINX.
+     El botón 🎨 del header alterna con el clásico y la elección queda guardada
+     en tu navegador. Para que el clásico sea el default global: README §
+     "Tema visual" (un string en layout.tsx).
 
-DEV LOCAL (para probar sin tocar producción)
-  Terminal 1: cd ../wr-guides-api && npm run dev          (puerto 3002)
-  Terminal 2: cd wr-guides-web
-              echo "NEXT_PUBLIC_API_URL=http://localhost:3002" > .env.local
-              npm run dev                                  (puerto 3000)
-  El CORS de la API ya permite http://localhost:3000 por defecto.
+VERIFICACIÓN EN PRODUCCIÓN (checklist)
+  a. / y /guias/jinx con estética Jinx: h1 con gradiente rosa→amarillo→cian,
+     línea caótica bajo el header, cards oscuras con glow al hover, badges neón.
+  b. Botón 🎨 → cambia a clásico pixel-idéntico al de hoy; recargá → persiste.
+  c. Like (Fase 5) intacto: click ❤ → +1 y F5 persiste.
+  d. Vercel → Analytics: tras algunas visitas reales aparecen datos y eventos.
+  e. Actions → "Sync lab → web": corridas 08:35/20:35 UTC con summary legible;
+     cuando el lab publique win rates nuevas, verás el commit "chore(sync): …".
+
+NOTAS IMPORTANTES
+  · NEXT_PUBLIC_API_URL en Vercel: creala como variable NORMAL — Vercel bloquea
+    el modo "Sensitive" para NEXT_PUBLIC_* por diseño (lo sensible no puede
+    incrustarse en el JS del navegador; una URL pública no es secreto). La
+    variable API_URL que cargaste NO la lee el cliente: es inofensiva pero
+    inútil; podés borrarla sin impacto (el fallback hardcodeado de lib/api.ts
+    ya apunta a producción). Detalles en .env.example y README.
+  · El like huérfano de las pruebas de verificación (Cho'Gath jungla, +1) se
+    limpia con este SQL en Supabase → SQL Editor (afecta exactamente 1 fila):
+      delete from public.guide_likes
+      where created_at between '2026-10-06 23:39:00+00' and '2026-10-06 23:41:00+00';
+  · Rollback del rediseño sin tocar fases 6/7: revertí solo styles/globals.css,
+    components/ThemeToggle.tsx y app/layout.tsx (o cambiá el default del
+    themeScript a "auto"). El resto (sync + analytics) es independiente.

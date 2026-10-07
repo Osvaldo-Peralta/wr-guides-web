@@ -166,7 +166,12 @@ contenido (todo SSG + interacción cliente en memoria).
   (`IntersectionObserver`), barra de progreso de lectura, anclas `#` al hover
   en cada h2/h3 (ids estables SSR=cliente vía `lib/slug.ts`), y guías
   relacionadas al final (mismo campeón + top del rol).
-- **/meta:** tiers con color (S+…D) + leyenda de distribución + nota de lectura.
+- **/meta (Paso 9.1):** board de 5 cards (una por rol) con el top 5/10 del
+  roster COMPLETO que vigila el lab (`content/winrates.csv`), no solo los
+  campeones con guía: los que sí la tienen linkean con ⚗️. Ranking por tier
+  y win rate, tendencia ↑/↓ vs el refresh anterior, pick/ban/confianza al
+  hover, toggle Top 5/Top 10. Lectura del CSV: `lib/winratesLoader.ts`
+  (server) + `lib/winrates.ts` (tipos/orden, client-safe).
 - **404** con identidad (`app/not-found.tsx`), también para guías no publicables.
 - **Impresión:** TOC, barra, relacionados y toolbar quedan fuera del papel.
 - **Responsive:** la columna TOC se oculta bajo 1000 px (el contenido queda a

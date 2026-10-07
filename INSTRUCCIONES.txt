@@ -1,51 +1,45 @@
-WR-GUIDES-WEB · PASO 9 — EXPERIENCIA DE LECTURA Y CATÁLOGO VIVO  (2026-10-07)
-══════════════════════════════════════════════════════════════════
-Cierre de la migración (plan Fases 0-8 + este paso 9 de UX).
+WR-GUIDES-WEB · PASO 9.1 — BOARD DE META POR ROL  (2026-10-07)
+══════════════════════════════════════════════════════════════
+Complemento del Paso 9: /meta deja de listar "los mejores campeones CON guía"
+y pasa a mostrar el META COMPLETO del laboratorio, por rol.
 
 QUÉ INCLUYE
-  · Home = catálogo vivo: buscador instantáneo, chips de rol y orden
-    (por rol · win rate · más nuevas · A–Z)          components/Catalogo.tsx
-  · Página de guía: título propio + ficha de datos clave (FichaGuia),
-    tabla de contenidos sticky con scroll-spy (TablaContenidos), barra de
-    progreso de lectura (ProgresoLectura), anclas "#" en h2/h3 (Markdown.tsx
-    + lib/slug.ts + lib/toc.ts) y guías relacionadas (GuiasRelacionadas)
-  · /meta: tiers con color + leyenda + nota de lectura
-  · 404 con identidad (app/not-found.tsx)
-  · globals.css: estilos de todo lo anterior en AMBOS temas (Jinx y clásico)
-    + reglas de impresión (la TOC/toolbar no salen en papel)
-  · README.md actualizado
+  · lib/winrates.ts         tipos + roles + orden por tier (client-safe, sin fs)
+  · lib/winratesLoader.ts   lectura server-side de content/winrates.csv
+                            (roster completo vigilado por el lab: incluye
+                            campeones SIN guía, p. ej. Ahri, Karma, Malphite)
+  · components/MetaBoard.tsx  5 cards (ADC/Jungla/Mid/Top/Support) con top N,
+                            toggle Top 5 / Top 10, tendencia ↑/↓ coloreada,
+                            pick/ban/confianza al hover, y ⚗️ + link en los
+                            campeones que sí tienen guía publicada
+  · app/meta/page.tsx       página nueva: intro, conteo de roster vigilado,
+                            board, leyenda de tiers y nota de lectura
+  · styles/globals.css      §12: estilos del board en ambos temas + Jinx
+  · README.md               sección /meta actualizada
 
-NO TOCA: contenido (content/), API, wr-lab, temas existentes, contrato
-Markdown §3 (callouts/tablas/VERIF se renderizan igual; solo se agregan
-anclas y estructura). Cero dependencias nuevas.
+FUENTE DE DATOS (sin trabajo extra tuyo)
+  content/winrates.csv ← champion_winrates.csv del lab ← patch-watch (2×/día)
+  ← sync automático Fase 6. El board se actualiza solo con cada sync.
+  Mañana, si el lab agrega columnas o buckets nuevos, el parser es
+  header-driven: se agregan al tipo WinRow y a la UI sin tocar el resto.
 
-PASOS (en tu máquina)
-  1. Descomprimí el zip DENTRO de tu clon del web, sobreescribiendo:
-       cd "<tu-clon>/wr-guides-web"
-       unzip -o ruta/al/wr-guides-web-paso9.zip
-  2. Build de control (opcional, recomendado):
-       npm install && npm run build     → 22 páginas, sin errores
-  3. Commit + push (Vercel redeploya solo):
-       git add -A
-       git commit -m "Paso 9: catálogo vivo + experiencia de lectura (TOC, ficha, relacionadas, 404)"
-       git push
+PASOS
+  1. cd "<tu-clon>/wr-guides-web" && unzip -o ruta/al/wr-guides-web-meta-board.zip
+  2. (Opcional) npm run build   → 22 páginas, sin errores
+  3. git add -A && git commit -m "Paso 9.1: board de meta por rol con roster completo del lab" && git push
 
-VERIFICACIÓN EN PRODUCCIÓN (checklist)
-  a. Home: escribí "jinx" en el buscador → queda 1 guía al instante; chip
-     "Jungla" → solo jungla; orden "win rate" → Rammus/Nocturne arriba.
-     Borrá todo → vuelve el catálogo agrupado por rol de siempre.
-  b. /guias/jinx: ficha de datos bajo los badges; TOC a la derecha que
-     resalta la sección visible al scrollear; barra de progreso arriba;
-     hover sobre un h2 → aparece "#" (click = link compartible a la sección).
-  c. Al final de la guía: "Lo más fuerte de ADC" (relacionadas) y el like de
-     siempre intacto (Fase 5).
-  d. /meta: pills de tier con color (S+ rojo, S ámbar, A verde, B azul) y
-     leyenda de distribución arriba de la tabla.
-  e. /guias/esta-no-existe → 404 con el 404 en gradiente y links al catálogo.
-  f. Celular (<1000 px): la TOC desaparece y todo queda a una columna.
-  g. Tema clásico (botón 🎨 → 🧪 Clásico): todos los componentes nuevos tienen
-     su versión clara/oscura; nada queda "neón atrapado en tema claro".
+VERIFICACIÓN EN PRODUCCIÓN
+  a. /meta muestra 5 cards (una por rol), no la tabla larga de siempre.
+  b. Aparecen campeones SIN guía (Ahri, Malphite, Orianna…) — la prueba de que
+     el board no depende del catálogo.
+  c. Los campeones con guía tienen ⚗️ y clic → su guía.
+  d. Toggle Top 5 → Top 10: las cards crecen (Support muestra lo que haya:
+     hoy 4 pares campeón-rol en ese rol).
+  e. Orden: S+ primero, luego S, A… con desempate por win rate; ↑ verde / ↓ rojo.
+  f. Tema clásico y Jinx: ambos maquetados; imprimir sigue sin toolbar/TOC.
 
-ROLLBACK
-  Cada pieza es independiente: si algo del paso 9 no te convence, se revierte
-  el commit completo sin tocar Fases 5-8 (widgets, sync, analytics, admin).
+NOTA DE DISEÑO
+  El ranking usa tier → win rate (no win rate crudo): un S+ con 51 % manda
+  sobre un A con 52 % porque el tier ya pondera pick/ban del bucket Diamond+.
+  Si preferís orden puramente por win rate, es una línea: ordenMeta() en
+  lib/winrates.ts.

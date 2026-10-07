@@ -72,13 +72,20 @@ app/
 ├── meta/page.tsx         # win rates Diamond+ (desde el índice)
 └── layout.tsx            # chrome del sitio + pie legal (siempre visible)
 components/
-├── Markdown.tsx          # react-markdown + GFM + callouts [!NOTE|TIP|WARNING|DANGER|VERIF]
+├── Markdown.tsx          # react-markdown + GFM + callouts + anclas h2/h3 (Paso 9)
 ├── Badges.tsx            # Status · verificación · custom · rol · WR/tier
 ├── GuideStats.tsx        # Fase 5: StatsBar (👁/❤ arriba) + LikeCta (botón al final)
-└── ThemeToggle.tsx       # interruptor de tema: 💥 Jinx (neón) ↔ 🧪 Clásico
+├── ThemeToggle.tsx       # interruptor de tema: 💥 Jinx (neón) ↔ 🧪 Clásico
+├── Catalogo.tsx          # Paso 9: buscador + filtros por rol + orden (home)
+├── FichaGuia.tsx         # Paso 9: ficha de datos clave arriba de cada guía
+├── TablaContenidos.tsx   # Paso 9: TOC sticky con scroll-spy
+├── ProgresoLectura.tsx   # Paso 9: barra de progreso de lectura
+└── GuiasRelacionadas.tsx # Paso 9: variantes del campeón + top del rol
 lib/
 ├── guides.ts             # loader + pre-procesado (WRLAB-VERIF → callout; contrato §3.1)
-└── api.ts                # Fase 5: cliente de la API de comunidad (visitor id, fetch)
+├── api.ts                # Fase 5: cliente de la API de comunidad (visitor id, fetch)
+├── slug.ts               # Paso 9: slugify compartido (anclas ↔ TOC)
+└── toc.ts                # Paso 9: extractor de tabla de contenidos (ignora code fences)
 styles/globals.css        # tema clásico + tema Jinx (variables CSS, §1 y §8)
 scripts/
 ├── gen-index.mjs         # generador del índice (contrato §2)
@@ -144,6 +151,29 @@ títulos con gradiente, cards con glow al hover, badges neón, botón de like co
 - **Volver al diseño anterior para todos:** cambiar `"jinx"` por `"auto"` en el
   `themeScript` y el `data-theme` de `layout.tsx` (o revertir el commit del
   rediseño — no toca lógica ni contenido).
+
+## Paso 9 — experiencia de lectura y catálogo vivo
+
+Cierre de la migración: el sitio deja de ser "la vista estática de Quartz" y
+pasa a ser una experiencia de lectura moderna, sin backend nuevo ni cambios de
+contenido (todo SSG + interacción cliente en memoria).
+
+- **Home:** buscador instantáneo (campeón/variante/arquetipo/slug), chips de
+  rol y orden (por rol · win rate · más nuevas · A–Z). Con sin filtros, se ve
+  el catálogo agrupado por rol de siempre (`components/Catalogo.tsx`).
+- **Guía:** título propio + ficha de datos clave (rol, arquetipo, parche,
+  versión, fechas), tabla de contenidos sticky con scroll-spy
+  (`IntersectionObserver`), barra de progreso de lectura, anclas `#` al hover
+  en cada h2/h3 (ids estables SSR=cliente vía `lib/slug.ts`), y guías
+  relacionadas al final (mismo campeón + top del rol).
+- **/meta:** tiers con color (S+…D) + leyenda de distribución + nota de lectura.
+- **404** con identidad (`app/not-found.tsx`), también para guías no publicables.
+- **Impresión:** TOC, barra, relacionados y toolbar quedan fuera del papel.
+- **Responsive:** la columna TOC se oculta bajo 1000 px (el contenido queda a
+  una columna); toolbar y grids ya eran fluidos.
+
+Nada de esto toca el contrato Markdown (§3): los callouts, tablas y bloques
+VERIF se renderizan igual; solo se AGREGAN anclas y estructura de página.
 
 ## Despliegue en Vercel (Fase 6 del plan)
 

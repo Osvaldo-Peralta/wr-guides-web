@@ -372,7 +372,9 @@ html[data-theme="jinx"] .site-footer { border-top-color: #21264a; }
 
 /* ── 10. Impresión (ambos temas imprimen en claro) ── */
 @media print {
-  .site-header, .site-footer, .guide-badges-top, .like-cta { display: none; }
+  .site-header, .site-footer, .guide-badges-top, .like-cta,
+  .read-progress, .guide-side, .related, .catalogo-bar { display: none; }
+  .guide-layout { grid-template-columns: 1fr; }
   body { background: #fff; }
   html[data-theme="jinx"] {
     --wrlab-gold: #8a743f; --wrlab-gold-soft: rgba(200, 170, 110, 0.14);
@@ -391,3 +393,145 @@ html[data-theme="jinx"] .site-footer { border-top-color: #21264a; }
   html[data-theme="jinx"] .like-cta { background: #fff; box-shadow: none; transform: none; }
   html[data-theme="jinx"] .like-btn.liked { animation: none; background: #fff; color: #b04a6a; border-color: #d0708a; }
 }
+
+/* ═══════════════ 11. PASO 9 — catálogo vivo, lectura y 404 ═══════════════
+   Reglas compartidas (variables de cada tema) — el decorado Jinx va en §11b. */
+
+/* 11.1 Barra de progreso de lectura */
+.read-progress { position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 20; pointer-events: none; }
+.read-progress span {
+  display: block; height: 100%; transform-origin: 0 50%; transform: scaleX(0);
+  background: linear-gradient(90deg, var(--wrlab-gold), var(--wrlab-info));
+}
+
+/* 11.2 Home: kicker y meta del hero */
+.hero-kicker {
+  text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.74rem;
+  font-weight: 700; color: var(--wrlab-ink-soft); margin: 0 0 0.4rem;
+}
+.hero-meta { font-size: 0.82rem; color: var(--wrlab-ink-soft); }
+
+/* 11.3 Catálogo: barra de buscar/filtrar/ordenar */
+.catalogo-bar { display: flex; flex-wrap: wrap; gap: 0.6rem 0.8rem; align-items: center; margin: 0 0 1.4rem; }
+.catalogo-search {
+  flex: 1 1 240px; font: inherit; font-size: 0.92rem; color: var(--wrlab-ink);
+  background: var(--wrlab-card); border: 1px solid var(--wrlab-line); border-radius: 999px;
+  padding: 0.5rem 1rem; outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.2s ease;
+}
+.catalogo-search:focus { border-color: var(--wrlab-gold); box-shadow: 0 0 0 3px var(--wrlab-gold-soft); }
+.chips { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.chip {
+  font: inherit; font-size: 0.78rem; font-weight: 600; cursor: pointer;
+  border: 1px solid var(--wrlab-line); background: var(--wrlab-card); color: var(--wrlab-ink-soft);
+  border-radius: 999px; padding: 0.28rem 0.75rem; transition: all 0.15s ease;
+}
+.chip:hover { border-color: var(--wrlab-gold); color: var(--wrlab-ink); }
+.chip-activo { border-color: var(--wrlab-gold); color: var(--wrlab-ink); background: var(--wrlab-gold-soft); }
+.catalogo-orden { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.82rem; color: var(--wrlab-ink-soft); }
+.catalogo-orden select {
+  font: inherit; font-size: 0.85rem; color: var(--wrlab-ink); background: var(--wrlab-card);
+  border: 1px solid var(--wrlab-line); border-radius: 8px; padding: 0.3rem 0.5rem;
+}
+.catalogo-count { font-size: 0.8rem; color: var(--wrlab-ink-soft); margin-left: auto; font-variant-numeric: tabular-nums; }
+.catalogo-vacio { color: var(--wrlab-ink-soft); padding: 1rem 0; }
+
+/* 11.4 Guía: hero + ficha de datos clave */
+.guide-hero { margin-bottom: 1.6rem; }
+.guide-hero h1 { margin: 0 0 0.5rem; }
+.ficha {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0.5rem 0.8rem;
+  margin: 0.9rem 0 0; padding: 0.8rem 0.95rem;
+  border: 1px solid var(--wrlab-line); border-radius: var(--wrlab-radius); background: var(--wrlab-card);
+}
+.ficha-item { display: flex; flex-direction: column; gap: 0.05rem; }
+.ficha dt { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--wrlab-ink-soft); }
+.ficha dd { margin: 0; font-size: 0.88rem; font-weight: 600; }
+
+/* 11.5 Guía: dos columnas con TOC sticky + scroll-spy */
+.guide-layout { display: grid; grid-template-columns: minmax(0, 1fr) 240px; gap: 2rem; align-items: start; }
+.guide-side { position: sticky; top: 4.2rem; max-height: calc(100vh - 5rem); overflow-y: auto; }
+@media (max-width: 1000px) {
+  .guide-layout { grid-template-columns: 1fr; }
+  .guide-side { display: none; }
+}
+.toc { font-size: 0.82rem; line-height: 1.45; }
+.toc-titulo {
+  font-weight: 700; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--wrlab-ink-soft); margin: 0 0 0.5rem;
+}
+.toc ul { list-style: none; margin: 0; padding: 0; border-left: 2px solid var(--wrlab-line); }
+.toc a {
+  display: block; padding: 0.22rem 0.7rem; margin-left: -2px; border-left: 2px solid transparent;
+  color: var(--wrlab-ink-soft); text-decoration: none;
+}
+.toc a:hover { color: var(--wrlab-ink); }
+.toc-h3 a { padding-left: 1.5rem; font-size: 0.78rem; }
+.toc-activo { border-left-color: var(--wrlab-gold); color: var(--wrlab-ink); font-weight: 600; }
+.md-anchor-link { opacity: 0; margin-left: 0.4rem; font-weight: 400; text-decoration: none; color: var(--wrlab-gold); }
+h2:hover .md-anchor-link, h3:hover .md-anchor-link { opacity: 0.8; }
+
+/* 11.6 Guías relacionadas */
+.related { margin-top: 2.4rem; }
+.related-grid {
+  list-style: none; padding: 0; margin: 0.6rem 0 1rem;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 0.7rem;
+}
+.related-card {
+  border: 1px solid var(--wrlab-line); border-radius: var(--wrlab-radius);
+  background: var(--wrlab-card); padding: 0.7rem 0.85rem;
+}
+.related-card a { text-decoration: none; display: flex; flex-direction: column; gap: 0.2rem; }
+.related-titulo { font-weight: 650; font-size: 0.92rem; }
+.related-sub { color: var(--wrlab-ink-soft); font-size: 0.78rem; }
+
+/* 11.7 Tiers con color (/meta y donde aparezcan) */
+.tier {
+  display: inline-block; font-size: 0.74rem; font-weight: 700; padding: 0.1rem 0.55rem;
+  border-radius: 999px; border: 1px solid var(--wrlab-line); color: var(--wrlab-ink-soft);
+}
+.tier-splus { color: var(--wrlab-danger); border-color: var(--wrlab-danger); background: color-mix(in srgb, var(--wrlab-danger) 10%, transparent); }
+.tier-s     { color: var(--wrlab-warn);   border-color: var(--wrlab-warn);   background: color-mix(in srgb, var(--wrlab-warn) 10%, transparent); }
+.tier-a     { color: var(--wrlab-ok);     border-color: var(--wrlab-ok);     background: color-mix(in srgb, var(--wrlab-ok) 10%, transparent); }
+.tier-b     { color: var(--wrlab-info);   border-color: var(--wrlab-info);   background: color-mix(in srgb, var(--wrlab-info) 10%, transparent); }
+.tier-leyenda { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.meta-nota { color: var(--wrlab-ink-soft); font-size: 0.82rem; }
+
+/* 11.8 404 con identidad */
+.nf { text-align: center; padding: 3rem 1rem 4rem; }
+.nf-codigo { font-size: 4.5rem; font-weight: 800; margin: 0; line-height: 1; }
+.nf h1 { margin: 0.4rem 0 0.6rem; }
+.nf p { color: var(--wrlab-ink-soft); max-width: 46ch; margin: 0.3rem auto; }
+.nf-links { margin-top: 1.2rem; }
+
+/* ── 11b. Decorado Jinx del Paso 9 ── */
+html[data-theme="jinx"] .read-progress span {
+  background: linear-gradient(90deg, var(--jinx-pink), var(--jinx-yellow), var(--jinx-cyan));
+}
+html[data-theme="jinx"] .hero-kicker { color: var(--jinx-cyan); }
+html[data-theme="jinx"] .catalogo-search { background: #10132a; border-color: var(--jinx-border); }
+html[data-theme="jinx"] .catalogo-search:focus {
+  border-color: var(--jinx-cyan); box-shadow: 0 0 0 3px rgba(45, 226, 230, 0.12);
+}
+html[data-theme="jinx"] .chip { background: rgba(255, 255, 255, 0.03); border-color: #2c3160; }
+html[data-theme="jinx"] .chip:hover { border-color: var(--jinx-pink); color: #fff; }
+html[data-theme="jinx"] .chip-activo {
+  background: linear-gradient(120deg, rgba(255, 61, 158, 0.22), rgba(255, 61, 158, 0.10));
+  border-color: var(--jinx-pink); color: #ffd7ea;
+  box-shadow: 0 0 12px rgba(255, 61, 158, 0.25);
+}
+html[data-theme="jinx"] .catalogo-orden select { background: #10132a; border-color: var(--jinx-border); }
+html[data-theme="jinx"] .ficha { background: var(--jinx-panel); border-color: var(--jinx-border); }
+html[data-theme="jinx"] .toc ul { border-left-color: var(--jinx-border); }
+html[data-theme="jinx"] .toc-activo { border-left-color: var(--jinx-pink); color: #fff; }
+html[data-theme="jinx"] .md-anchor-link { color: var(--jinx-cyan); }
+html[data-theme="jinx"] .related-card { background: var(--jinx-panel); border-color: var(--jinx-border); }
+html[data-theme="jinx"] .related-card:hover {
+  border-color: rgba(255, 61, 158, 0.6); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+html[data-theme="jinx"] .nf-codigo {
+  background: linear-gradient(100deg, #ff3d9e, #ffd93d, #2de2e6);
+  -webkit-background-clip: text; background-clip: text;
+  color: transparent; -webkit-text-fill-color: transparent;
+}
+html[data-theme="jinx"] .tier-splus { box-shadow: 0 0 10px rgba(255, 84, 112, 0.35); }

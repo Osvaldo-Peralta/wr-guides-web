@@ -229,6 +229,12 @@ El sitio deja la columna central de 860 px y usa hasta 1280 px:
   `type: article`, url canónica). Los links a guías en WhatsApp/Discord/Reddit
   muestran card grande con la marca del sitio.
 - `metadataBase` configurado: las URLs relativas de OG se resuelven solas.
+- **OG dinámica por guía/campeón** (`app/guias/[slug]/opengraph-image.tsx`,
+  next/og): card generada con nombre del campeón, rol, parche, versión y
+  tier/WR reales del índice; Next la publica en `/guias/<slug>/opengraph-image`
+  y la inyecta sola en `og:image`/`twitter:image`. Guías nuevas heredan su
+  card sin tocar nada. Runtime nodejs fijado (el wasm de resvg muere en edge
+  local); en Vercel corre igual. Home y /meta conservan `og-cover.png`.
 
 ## Despliegue en Vercel (Fase 6 del plan)
 

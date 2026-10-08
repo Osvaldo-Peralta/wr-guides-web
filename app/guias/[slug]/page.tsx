@@ -40,14 +40,10 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   return {
     title: titulo,
     description: desc,
-    openGraph: {
-      type: "article",
-      title: titulo,
-      description: desc,
-      url: `/guias/${g.slug}`,
-      images: [{ url: "/og-cover.png", width: 1200, height: 630, alt: titulo }],
-    },
-    twitter: { card: "summary_large_image", title: titulo, description: desc, images: ["/og-cover.png"] },
+    // La imagen OG la pone el route opengraph-image.tsx (card por campeón);
+    // no se declara acá para no duplicar/pegarle arriba.
+    openGraph: { type: "article", title: titulo, description: desc, url: `/guias/${g.slug}` },
+    twitter: { card: "summary_large_image", title: titulo, description: desc },
   };
 }
 

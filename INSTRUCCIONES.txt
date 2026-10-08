@@ -1,51 +1,32 @@
-WR-GUIDES-WEB · PASO 10 — REDISEÑO UX PROFUNDO (LAYOUT ANCHO)  (2026-10-08)
-══════════════════════════════════════════════════════════════════════
+WR-GUIDES-WEB · PASO 10 + OG POR CAMPEÓN (acumulado)  (2026-10-08)
+══════════════════════════════════════════════════════════════
+Este zip ES ACUMULATIVO: incluye el Paso 10 completo + el pulido de OG.
+Aplicalo tal cual aunque ya hayas desplegado el Paso 10 (sobreescribe igual).
 
 QUÉ INCLUYE
-  · Layout de 1280 px: se acabó la columna central de 860 px.
-  · Guía en 3 columnas: TOC sticky izq · contenido al centro · rail der
-    (ficha rápida vertical + caja win rate + relacionadas compactas).
-    ≤1200 px: rail baja como banda · ≤900 px: una columna, sin TOC.
-  · Secciones plegables por h2 (chevrón, aria-expanded, animación):
-    apéndices cerrados por defecto; si entrás por ancla/TOC se abren solas;
-    en impresión se abren todas a la fuerza; el contenido sigue en el DOM
-    (SEO y búsqueda del navegador intactos).
-  · Breadcrumb Guías / Rol / Campeón — el rol abre el catálogo ya filtrado
-    (/?rol=jungla).
-  · Cards del catálogo con acento de color por rol (borde + badge), en ambos
-    temas; grilla más ancha.
-  · /meta y home heredan el ancho nuevo.
-
-ARCHIVOS
-  nuevos:   lib/sections.ts · components/SeccionGuia.tsx · components/GuideRail.tsx
-  tocados:  components/Markdown.tsx (prop colas: anclas = verdad de la TOC) ·
-            components/GuiasRelacionadas.tsx (modo compacto para el rail) ·
-            components/Catalogo.tsx (?rol= al montar, acentos) ·
-            components/Badges.tsx (badge roloado) · app/page.tsx ·
-            app/guias/[slug]/page.tsx (layout 3 col + breadcrumb) ·
-            styles/globals.css (§14) · README.md
+  Paso 10 (layout ancho):
+  · Contenedores de 1280 px; guía en 3 columnas (TOC izq · contenido · rail der
+    con ficha/win-rate/relacionadas); ≤1200 px rail como banda; ≤900 px 1 col.
+  · Secciones plegables por h2 (apéndices cerrados; auto-apertura por ancla;
+    abiertas a la fuerza en impresión; contenido siempre en el DOM).
+  · Breadcrumb Guías/Rol/Campeón con rol filtrando el catálogo (/?rol=…).
+  · Cards con acento de color por rol (borde + badge), grilla más ancha.
+  OG por campeón (pulido):
+  · app/guias/[slug]/opengraph-image.tsx: card PNG generada por guía con
+    campeón, rol, parche, versión y tier/WR reales; og:image la pone Next sola.
+    Guías nuevas = card nueva automáticamente.
 
 PASOS
-  1. cd "<tu-clon>/wr-guides-web" && unzip -o ruta/al/wr-guides-web-paso10.zip
-  2. (Opcional) npm run build → 22 páginas
-  3. git add -A && git commit -m "Paso 10: layout ancho, secciones plegables, rail y breadcrumb" && git push
+  1. cd "<tu-clon>/wr-guides-web" && unzip -o ruta/al/wr-guides-web-paso10-og.zip
+  2. (Opcional) npm run build → 22 páginas + ruta opengraph-image
+  3. git add -A && git commit -m "Paso 10 + OG por campeón: layout ancho, plegables, rail, breadcrumb y cards OG" && git push
 
 VERIFICACIÓN EN PRODUCCIÓN
-  a. /guias/jinx en pantalla ancha: 3 columnas visibles; el rail derecho con
-     ficha/win-rate/relacionadas queda fijo mientras scrolleás.
-  b. Cada h2 es una tarjeta con chevrón: click colapsa/expande; "APÉNDICE A/B"
-     arrancan cerrados; click en la TOC sobre una sección cerrada → se abre
-     sola y scrollea.
-  c. Breadcrumb arriba: Guías / ADC / Jinx — click en "ADC" → home con el
-     catálogo ya filtrado por ADC (chip activo).
-  d. Cards del catálogo con borde izquierdo de color por rol.
-  e. Ctrl+P en una guía: sale abierta completa, sin rail ni TOC ni chevrons.
-  f. Ventana a 800 px: una columna, todo accesible scrolleando.
-  g. Ambos temas: plegables y rail con su versión clásica y Jinx.
-
-POR QUÉ ES SEGURO PARA TUS GUÍAS NUEVAS
-  Nada del pipeline de contenido cambia: el sync (Fase 6) sigue espejando
-  markdown crudo; las secciones se derivan de los h2 al renderizar, así que
-  cualquier guía nueva (o reescrita) hereda plegables, TOC, rail y breadcrumb
-  sin tocar una coma del lab. Si una guía no tiene h2, se renderiza como
-  intro sin secciones (degradación natural).
+  a. /guias/jinx en monitor ancho: 3 columnas; rail sticky con ficha/WR/relacionadas.
+  b. Chevrón de cada h2 colapsa/expande; APÉNDICE A/B cerrados; click en TOC de
+     una sección cerrada → se abre y scrollea.
+  c. Breadcrumb: click en "ADC" → home con chip ADC activo.
+  d. OG: abrí https://wr-guides-web.vercel.app/guias/jinx/opengraph-image →
+     PNG 1200×630 con "Jinx", tier y WR. Y en el HTML: og:image apunta a esa URL.
+  e. Ctrl+P: guía completa abierta, sin rail/TOC/chevrons.
+  f. Ambos temas OK; /meta en una fila de 5 cards en pantalla ancha.

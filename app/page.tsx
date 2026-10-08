@@ -3,6 +3,7 @@
 // solo Status publicable: Aprobado/Beta.
 import { loadIndex, PUBLISHABLE } from "@/lib/guides";
 import Catalogo from "@/components/Catalogo";
+import HomePersonal from "@/components/HomePersonal";
 
 export const dynamic = "force-static";
 
@@ -24,6 +25,7 @@ export default function Home() {
           {publicables.length} guías publicadas · índice generado el {idx.generado || "—"}
         </p>
       </section>
+      <HomePersonal guias={publicables} />
       <Catalogo guias={publicables} />
     </>
   );

@@ -3,8 +3,9 @@
 // búsqueda instantánea (campeón/variante/arquetipo/slug), filtros por rol y
 // ordenamiento (rol · win rate · novedad · A–Z). Todo en memoria del navegador
 // sobre el índice SSG: sin backend, sin requests, sin loading states.
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
+import { api } from "@/lib/api";
 import { BadgesGuia } from "@/components/Badges";
 import type { GuideMeta } from "@/lib/guides";
 
@@ -16,12 +17,15 @@ const ROLES: [string, string][] = [
   ["support", "Support"],
 ];
 
-function Tarjeta({ g }: { g: GuideMeta }) {
+function Tarjeta({ g, fav }: { g: GuideMeta; fav: boolean }) {
   const titulo = g.variant ? `${g.champion} — ${g.variant.replace(/-/g, " ")}` : g.champion;
   return (
     <li className="guide-card">
       <Link href={`/guias/${g.slug}`}>
-        <span className="guide-title">{titulo}</span>
+        <span className="guide-title">
+          {titulo}
+          {fav && <span className="card-fav" title="En tus favoritos"> ★</span>}
+        </span>
         <span className="guide-sub">
           v{g.version} · parche {g.patch ?? "—"}
           {g.archetype ? ` · ${g.archetype}` : ""}
@@ -34,6 +38,10 @@ function Tarjeta({ g }: { g: GuideMeta }) {
 
 export default function Catalogo({ guias }: { guias: GuideMeta[] }) {
   const [q, setQ] = useState("");
+  const [favs, setFavs] = useState<Set<string>>(new Set());
+  useEffect(() => {
+    api.misFavoritos().then((r) => r && setFavs(new Set(r.slugs)));
+  }, []);
   const [rol, setRol] = useState("todos");
   const [orden, setOrden] = useState("rol");
 
@@ -107,7 +115,7 @@ export default function Catalogo({ guias }: { guias: GuideMeta[] }) {
               <h2>{titulo}</h2>
               <ul className="guide-grid">
                 {champs.map((c) =>
-                  delRol.filter((g) => g.champion === c).map((g) => <Tarjeta key={g.slug} g={g} />)
+                  delRol.filter((g) => g.champion === c).map((g) => <Tarjeta key={g.slug} g={g} fav={favs.has(g.slug)} />)
                 )}
               </ul>
             </section>
@@ -117,7 +125,7 @@ export default function Catalogo({ guias }: { guias: GuideMeta[] }) {
         <section>
           <ul className="guide-grid">
             {filtradas.map((g) => (
-              <Tarjeta key={g.slug} g={g} />
+              <Tarjeta key={g.slug} g={g} fav={favs.has(g.slug)} />
             ))}
           </ul>
           {!filtradas.length && (

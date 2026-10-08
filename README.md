@@ -180,6 +180,21 @@ contenido (todo SSG + interacción cliente en memoria).
 Nada de esto toca el contrato Markdown (§3): los callouts, tablas y bloques
 VERIF se renderizan igual; solo se AGREGAN anclas y estructura de página.
 
+## V2 producto — favoritos anónimos + seguir leyendo
+
+- **⭐ FavButton** en cada guía (`components/FavButton.tsx`): favorito anónimo
+  por visitor-id (migration 002 de la API), toggle optimista con
+  resincronización si el POST falla, y evento custom `guide_favorite` en
+  Vercel Analytics.
+- **Home personal** (`components/HomePersonal.tsx`): secciones "★ Tus
+  favoritas" (API `GET /api/favorites`) y "📖 Seguir leyendo" (historial LOCAL
+  en `localStorage` clave `wrg_recent`, máx. 8, sin backend). Si no hay nada
+  que mostrar, el home queda idéntico a siempre.
+- **Estrellas en el catálogo:** `Catalogo.tsx` marca con ★ las guías que ya
+  tenés favoritas (fetch único al montar).
+- **Degradación:** si la API no tiene la migration 002 o está caída, el botón
+  no se renderiza y el resto vive igual (misma filosofía Fase 5).
+
 ## SEO y cards para compartir (post-migración)
 
 - `app/sitemap.ts` → `/sitemap.xml` generado en build: home + /meta + guías

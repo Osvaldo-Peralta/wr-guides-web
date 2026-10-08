@@ -12,6 +12,8 @@ import FichaGuia from "@/components/FichaGuia";
 import TablaContenidos from "@/components/TablaContenidos";
 import ProgresoLectura from "@/components/ProgresoLectura";
 import GuiasRelacionadas from "@/components/GuiasRelacionadas";
+import FavButton from "@/components/FavButton";
+import RecentTracker from "@/components/RecentTracker";
 
 const ROLES: Record<string, string> = {
   adc: "ADC", support: "Support", jungla: "Jungla", mid: "Mid", top: "Top",
@@ -60,7 +62,9 @@ export default function GuiaPage({ params }: { params: { slug: string } }) {
         <div className="guide-badges-top">
           <BadgesGuia g={g!} />
           <StatsBar slug={g!.slug} />
+          <FavButton slug={g!.slug} />
         </div>
+        <RecentTracker slug={g!.slug} />
         <FichaGuia g={g!} />
       </header>
       <div className="guide-layout">

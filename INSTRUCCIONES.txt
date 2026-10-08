@@ -1,36 +1,40 @@
-WR-GUIDES-WEB · SEO + CARDS PARA COMPARTIR  (2026-10-08)
-══════════════════════════════════════════════════════
+WR-GUIDES-WEB · V2 PRODUCTO — FAVORITOS + SEGUIR LEYENDO  (2026-10-08)
+══════════════════════════════════════════════════════════════════
+
+REQUISITO: la API v0.5.0 desplegada Y la migration 002 aplicada en Supabase
+(sin eso, el botón ★ no aparece: degradación silenciosa, el resto intacto).
 
 QUÉ INCLUYE
-  · app/sitemap.ts        /sitemap.xml en build: home + /meta + guías
-                          publicables con lastModified del frontmatter
-                          (se refresca solo con cada redeploy, sync incluido)
-  · app/robots.ts         /robots.txt: allow * + pointer al sitemap
-  · app/layout.tsx        metadataBase + OpenGraph/Twitter default del sitio
-                          con la card public/og-cover.png (1200×630, Jinx)
-  · app/guias/[slug]/…    OG por guía: type article, título, descripción con
-                          rol/parche/WR-tier, url canónica e imagen
-  · public/og-cover.png   card de marca para shares (WhatsApp/Discord/Reddit)
-  · README.md             sección SEO
+  · lib/api.ts               cliente: favorito(), setFavorito(), misFavoritos()
+  · lib/recientes.ts         historial LOCAL (localStorage "wrg_recent", máx 8)
+  · components/FavButton.tsx  ☆ Guardar / ★ En favoritos · N (toggle optimista
+                             con resincronización si el POST falla + evento
+                             guide_favorite en Vercel Analytics)
+  · components/RecentTracker.tsx  registra la visita en el historial local
+  · components/HomePersonal.tsx   home: "★ Tus favoritas" (API) +
+                             "📖 Seguir leyendo" (local); sin datos → no pinta
+  · components/Catalogo.tsx  ★ en las cards que ya tenés favoritas
+  · app/page.tsx, app/guias/[slug]/page.tsx, styles/globals.css (ambos temas)
+  · README.md
 
 PASOS
-  1. cd "<tu-clon>/wr-guides-web" && unzip -o ruta/al/wr-guides-web-seo.zip
-  2. (Opcional) npm run build  → 22 páginas + sitemap.xml/robots.txt en output
-  3. git add -A && git commit -m "SEO: sitemap, robots y OpenGraph/Twitter con card de marca" && git push
+  1. cd "<tu-clon>/wr-guides-web" && unzip -o ruta/al/wr-guides-web-v2.zip
+  2. (Opcional) npm run build → 22 páginas
+  3. git add -A && git commit -m "V2: favoritos anónimos + seguir leyendo + estrellas en catálogo" && git push
 
 VERIFICACIÓN EN PRODUCCIÓN
-  a. https://wr-guides-web.vercel.app/sitemap.xml → 19 URLs (home + meta + 17 guías)
-  b. https://wr-guides-web.vercel.app/robots.txt → allow + sitemap
-  c. Ver una guía → ver código fuente: meta og:title/og:description/og:image +
-     twitter:card por guía.
-  d. Prueba real de share: pegá https://wr-guides-web.vercel.app/guias/jinx en
-     un chat de WhatsApp o en el Slack/Discord que uses → la card aparece con
-     la imagen neón y el título de la guía (los crawlers de cada plataforma
-     pueden tardar minutos en cachear la primera vez).
+  a. /guias/jinx → "☆ Guardar · N" junto a los badges; click → ★ amarillo;
+     F5 persiste; otro navegador/incógnito → contador igual, estrella apagada
+     (el favorito es por visitante).
+  b. Home con favorito existente → sección "★ Tus favoritas".
+  c. Visitá 2-3 guías y volvé al home → "📖 Seguir leyendo" (solo tu navegador).
+  d. Catálogo: ★ al lado del título de tus favoritas.
+  e. Tema clásico: botón y estrellas con paleta dorada suave; Jinx: glow amarillo.
+  f. Vercel Analytics → evento guide_favorite apareciendo con los toggles.
 
 NOTAS
-  · La card es única de marca (no por guía): título y descripción sí son por
-    guía, que es lo que lee la gente en el share. Cards dinámicas por campeón
-    (con su nombre en la imagen) quedan como pulido futuro vía opengraph-image.tsx.
-  · metadataBase apunta al dominio vercel.app: si algún día hay dominio
-    propio, cambiar ahí + en sitemap.ts/robots.ts (3 líneas).
+  · El historial "seguir leyendo" es 100 % local: no viaja a ningún servidor
+    (ni a la API): borrar datos del navegador lo resetea.
+  · Los favoritos viven en Supabase (tabla guide_favorites) atados al
+    visitor-id: mismo navegador = mismo favorito; cambiar de dispositivo no
+    los lleva (eso sería V2-cuentas, fuera de alcance por diseño).

@@ -75,6 +75,8 @@ export async function apiFetch<T>(
 export interface ViewRes { counted: boolean; views: number }
 export interface LikeRes { liked: boolean; likes: number }
 export interface StatsRes { slug: string; views: number; likes: number }
+export interface FavRes { favorite: boolean; favorites: number }
+export interface FavListRes { slugs: string[] }
 
 export const api = {
   /** Beacon de vista. El servidor deduplica (1 por visitante cada 1 h). */
@@ -95,4 +97,16 @@ export const api = {
       method: "POST",
       body: JSON.stringify({ action }),
     }),
+  // ── V2: favoritos anónimos (migration 002 de la API) ──
+  /** { favorite, favorites } del visitante actual. */
+  favorito: (slug: string) =>
+    apiFetch<FavRes>(`/api/guides/${encodeURIComponent(slug)}/favorite`),
+  /** Toggle de favorito: action "add" | "remove". */
+  setFavorito: (slug: string, add: boolean) =>
+    apiFetch<FavRes>(`/api/guides/${encodeURIComponent(slug)}/favorite`, {
+      method: "POST",
+      body: JSON.stringify({ action: add ? "add" : "remove" }),
+    }),
+  /** slugs favoritos del visitante (home: "tus favoritas" + estrellas). */
+  misFavoritos: () => apiFetch<FavListRes>(`/api/favorites`),
 };

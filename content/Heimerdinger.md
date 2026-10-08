@@ -7,16 +7,16 @@ Status: Beta
 champion: Heimerdinger
 slug: heimerdinger
 role: mid
-patch: 7.3a
-archetype: Mago de zona (turrets) — control de mapa y presión de oleadas
+patch: "7.3a"
+archetype: "Mago de zona (turrets) — control de mapa y presión de oleadas"
 engine: none
 custom: false
 generate: manual
 mode: sr
-published_at: 2026-10-08
-updated_at: 2026-10-08
+published_at: "2026-10-08"
+updated_at: "2026-10-08"
 verification: AL_DIA
-verified_patch: 7.3a
+verified_patch: "7.3a"
 ---
 **Fecha del análisis:** 08/10/2026
 **Parche:** 7.3 (21-sep-2026) + hotfix 7.3a (29-sep-2026)

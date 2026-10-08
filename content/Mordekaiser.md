@@ -7,15 +7,15 @@ champion: Mordekaiser
 slug: mordekaiser
 role: jungla
 patch: "7.3"
-archetype: AP Juggernaut — daño mágico sostenido
+archetype: "AP Juggernaut — daño mágico sostenido"
 engine: none
 custom: false
 generate: manual
 mode: sr
-published_at: 2026-09-28
-updated_at: 2026-10-04
-verification: AL_DIA
-verified_patch: 7.3a
+published_at: "2026-09-28"
+updated_at: "2026-10-08"
+verification: ANOTAR
+verified_patch: "7.3a"
 ---
 **Fecha del análisis:** 28/09/2026
 **Parche:** 7.3 (21-sep-2026)

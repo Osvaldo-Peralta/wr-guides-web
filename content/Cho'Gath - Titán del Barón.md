@@ -16,7 +16,7 @@ custom: "true"
 generate: manual
 mode: sr
 published_at: "2026-09-28"
-updated_at: "2026-10-04"
+updated_at: "2026-10-08"
 verification: ANOTAR
 verified_patch: "7.3a"
 ---

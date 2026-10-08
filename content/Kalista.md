@@ -10,16 +10,16 @@ Status: Beta
 champion: Kalista
 slug: kalista
 role: adc
-patch: 7.3a
-archetype: On-hit ejecutor (sin crítico, DPS sostenido + E Rend)
+patch: "7.3a"
+archetype: "On-hit ejecutor (sin crítico, DPS sostenido + E Rend)"
 engine: onhit
 custom: false
 generate: manual
 mode: sr
-published_at: 2026-10-08
-updated_at: 2026-10-08
+published_at: "2026-10-08"
+updated_at: "2026-10-08"
 verification: AL_DIA
-verified_patch: 7.3a
+verified_patch: "7.3a"
 ---
 **Fecha del análisis:** 08/10/2026
 **Parche:** 7.3 (21-sep-2026) + hotfix 7.3a (29-sep-2026)

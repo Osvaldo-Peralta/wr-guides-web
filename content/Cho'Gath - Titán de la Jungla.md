@@ -16,7 +16,7 @@ custom: "true"
 generate: manual
 mode: sr
 published_at: "2026-09-28"
-updated_at: "2026-10-04"
+updated_at: "2026-10-08"
 verification: ANOTAR
 verified_patch: "7.3a"
 ---
@@ -372,6 +372,19 @@ Cho'Gath tiene un win rate sólido (~51 %) en Top y Jungla. Su presencia es medi
 - Notas oficiales del parche 7.3 (21/09/2026) — © Riot Games, Inc. (wildrift.leagueoflegends.com). Fuente primaria de cambios de items, Smite y campeones.
 - Base de datos de ítems, runas y fichas de campeón — wr-meta.com (proyecto comunitario de JLVD DEV), sincronizada al 24/09/2026. Fuente secundaria para stats base y meta.
 - Modelo matemático, Leyes 0-7 y validaciones — WR-LAB (laboratorio propio), construido sobre las fuentes anteriores.
+
+**Aviso legal:** Wild Rift y League of Legends son marcas registradas de Riot Games, Inc. Este documento es una guía de comunidad con fines educativos, **no está afiliado, patrocinado ni respaldado por Riot Games**. Los nombres de ítems, campeones y estadísticas pertenecen a sus respectivos dueños. El análisis y las conclusiones son trabajo original del autor apoyado en WR-LAB.
+
+---
+
+## Pie de página
+
+*Reporte generado el 28/09/2026 con datos del parche 7.3 (21/09/2026). WR-LAB v1.4. Las cifras de EHP, R execute y DPS son estimaciones pre-mitigación y comparativas — el valor absoluto importa menos que las diferencias relativas entre builds, que son robustas a los supuestos. Si Riot publica un 7.3a/b (hotfix), regenerar datos antes de publicar.*
+
+**Referencias y créditos**
+- Notas oficiales del parche 7.3 (21/09/2026), 7.2 (08/07/2026) y 7.2C (buff Cho'Gath) — © Riot Games, Inc. (wildrift.leagueoflegends.com). Fuente primaria: apéndice de Attack Speed, sistema de botas T3, Smite escalado con stats, torretas 7 000 HP, Crystalline Overgrowth, cambios a épicos.
+- Base de datos de ítems, runas y ficha de campeón — wr-meta.com (proyecto comunitario de JLVD DEV), sincronizada al 24/09/2026. Fuente secundaria: valores de Q/W/E/R con ratios, change history completo, build y meta.
+- Modelo matemático, Leyes 0-7, apéndice de escalado de tamaño y validaciones — WR-LAB (laboratorio propio, construido sobre las fuentes anteriores.
 
 **Aviso legal:** Wild Rift y League of Legends son marcas registradas de Riot Games, Inc. Este documento es una guía de comunidad con fines educativos, **no está afiliado, patrocinado ni respaldado por Riot Games**. Los nombres de ítems, campeones y estadísticas pertenecen a sus respectivos dueños. El análisis y las conclusiones son trabajo original del autor apoyado en WR-LAB.
 

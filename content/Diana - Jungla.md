@@ -9,15 +9,15 @@ slug: diana-jungla
 role: jungla
 variant: jungla
 patch: "7.3"
-archetype: AP-Assassin de rotación sostenida
+archetype: "AP-Assassin de rotación sostenida"
 engine: rotacion
 custom: false
 generate: manual
 mode: sr
-published_at: 2026-09-29
-updated_at: 2026-10-08
-verification: ANOTAR
-verified_patch: 7.3a
+published_at: "2026-09-29"
+updated_at: "2026-10-08"
+verification: AL_DIA
+verified_patch: "7.3a"
 ---
 **Fecha del análisis:** 08/10/2026
 **Parche:** 7.3 (21-sep-2026) + hotfix 7.3a (29-sep-2026)

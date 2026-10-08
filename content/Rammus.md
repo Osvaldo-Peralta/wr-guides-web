@@ -9,16 +9,16 @@ Status: Beta
 champion: Rammus
 slug: rammus
 role: jungla
-patch: 7.3a
-archetype: Tanque de armadura — CC y mitigación
+patch: "7.3a"
+archetype: "Tanque de armadura — CC y mitigación"
 engine: none
 custom: false
 generate: manual
 mode: sr
-published_at: 2026-10-05
-updated_at: 2026-10-05
+published_at: "2026-10-05"
+updated_at: "2026-10-08"
 verification: AL_DIA
-verified_patch: 7.3a
+verified_patch: "7.3a"
 ---
 **Fecha del análisis:** 05/10/2026 (regeneración post-7.3a)
 **Parche:** 7.3 (21-sep-2026) + hotfix 7.3a (29-sep-2026)

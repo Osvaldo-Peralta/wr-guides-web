@@ -180,6 +180,19 @@ contenido (todo SSG + interacción cliente en memoria).
 Nada de esto toca el contrato Markdown (§3): los callouts, tablas y bloques
 VERIF se renderizan igual; solo se AGREGAN anclas y estructura de página.
 
+## SEO y cards para compartir (post-migración)
+
+- `app/sitemap.ts` → `/sitemap.xml` generado en build: home + /meta + guías
+  publicables con `lastModified` del frontmatter. Se refresca solo con cada
+  redeploy (incluidos los del sync Fase 6).
+- `app/robots.ts` → `/robots.txt` (allow * + pointer al sitemap).
+- OpenGraph/Twitter: default del sitio en `layout.tsx` (con la card
+  `public/og-cover.png`, 1200×630, paleta Jinx) y por guía en
+  `guias/[slug]/page.tsx` (título, descripción con rol/parche/WR-tier,
+  `type: article`, url canónica). Los links a guías en WhatsApp/Discord/Reddit
+  muestran card grande con la marca del sitio.
+- `metadataBase` configurado: las URLs relativas de OG se resuelven solas.
+
 ## Despliegue en Vercel (Fase 6 del plan)
 
 1. Importar este repo en vercel.com (framework: **Next.js** — autodetectado).

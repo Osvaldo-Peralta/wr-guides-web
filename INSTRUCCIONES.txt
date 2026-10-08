@@ -1,45 +1,36 @@
-WR-GUIDES-WEB · PASO 9.1 — BOARD DE META POR ROL  (2026-10-07)
-══════════════════════════════════════════════════════════════
-Complemento del Paso 9: /meta deja de listar "los mejores campeones CON guía"
-y pasa a mostrar el META COMPLETO del laboratorio, por rol.
+WR-GUIDES-WEB · SEO + CARDS PARA COMPARTIR  (2026-10-08)
+══════════════════════════════════════════════════════
 
 QUÉ INCLUYE
-  · lib/winrates.ts         tipos + roles + orden por tier (client-safe, sin fs)
-  · lib/winratesLoader.ts   lectura server-side de content/winrates.csv
-                            (roster completo vigilado por el lab: incluye
-                            campeones SIN guía, p. ej. Ahri, Karma, Malphite)
-  · components/MetaBoard.tsx  5 cards (ADC/Jungla/Mid/Top/Support) con top N,
-                            toggle Top 5 / Top 10, tendencia ↑/↓ coloreada,
-                            pick/ban/confianza al hover, y ⚗️ + link en los
-                            campeones que sí tienen guía publicada
-  · app/meta/page.tsx       página nueva: intro, conteo de roster vigilado,
-                            board, leyenda de tiers y nota de lectura
-  · styles/globals.css      §12: estilos del board en ambos temas + Jinx
-  · README.md               sección /meta actualizada
-
-FUENTE DE DATOS (sin trabajo extra tuyo)
-  content/winrates.csv ← champion_winrates.csv del lab ← patch-watch (2×/día)
-  ← sync automático Fase 6. El board se actualiza solo con cada sync.
-  Mañana, si el lab agrega columnas o buckets nuevos, el parser es
-  header-driven: se agregan al tipo WinRow y a la UI sin tocar el resto.
+  · app/sitemap.ts        /sitemap.xml en build: home + /meta + guías
+                          publicables con lastModified del frontmatter
+                          (se refresca solo con cada redeploy, sync incluido)
+  · app/robots.ts         /robots.txt: allow * + pointer al sitemap
+  · app/layout.tsx        metadataBase + OpenGraph/Twitter default del sitio
+                          con la card public/og-cover.png (1200×630, Jinx)
+  · app/guias/[slug]/…    OG por guía: type article, título, descripción con
+                          rol/parche/WR-tier, url canónica e imagen
+  · public/og-cover.png   card de marca para shares (WhatsApp/Discord/Reddit)
+  · README.md             sección SEO
 
 PASOS
-  1. cd "<tu-clon>/wr-guides-web" && unzip -o ruta/al/wr-guides-web-meta-board.zip
-  2. (Opcional) npm run build   → 22 páginas, sin errores
-  3. git add -A && git commit -m "Paso 9.1: board de meta por rol con roster completo del lab" && git push
+  1. cd "<tu-clon>/wr-guides-web" && unzip -o ruta/al/wr-guides-web-seo.zip
+  2. (Opcional) npm run build  → 22 páginas + sitemap.xml/robots.txt en output
+  3. git add -A && git commit -m "SEO: sitemap, robots y OpenGraph/Twitter con card de marca" && git push
 
 VERIFICACIÓN EN PRODUCCIÓN
-  a. /meta muestra 5 cards (una por rol), no la tabla larga de siempre.
-  b. Aparecen campeones SIN guía (Ahri, Malphite, Orianna…) — la prueba de que
-     el board no depende del catálogo.
-  c. Los campeones con guía tienen ⚗️ y clic → su guía.
-  d. Toggle Top 5 → Top 10: las cards crecen (Support muestra lo que haya:
-     hoy 4 pares campeón-rol en ese rol).
-  e. Orden: S+ primero, luego S, A… con desempate por win rate; ↑ verde / ↓ rojo.
-  f. Tema clásico y Jinx: ambos maquetados; imprimir sigue sin toolbar/TOC.
+  a. https://wr-guides-web.vercel.app/sitemap.xml → 19 URLs (home + meta + 17 guías)
+  b. https://wr-guides-web.vercel.app/robots.txt → allow + sitemap
+  c. Ver una guía → ver código fuente: meta og:title/og:description/og:image +
+     twitter:card por guía.
+  d. Prueba real de share: pegá https://wr-guides-web.vercel.app/guias/jinx en
+     un chat de WhatsApp o en el Slack/Discord que uses → la card aparece con
+     la imagen neón y el título de la guía (los crawlers de cada plataforma
+     pueden tardar minutos en cachear la primera vez).
 
-NOTA DE DISEÑO
-  El ranking usa tier → win rate (no win rate crudo): un S+ con 51 % manda
-  sobre un A con 52 % porque el tier ya pondera pick/ban del bucket Diamond+.
-  Si preferís orden puramente por win rate, es una línea: ordenMeta() en
-  lib/winrates.ts.
+NOTAS
+  · La card es única de marca (no por guía): título y descripción sí son por
+    guía, que es lo que lee la gente en el share. Cards dinámicas por campeón
+    (con su nombre en la imagen) quedan como pulido futuro vía opengraph-image.tsx.
+  · metadataBase apunta al dominio vercel.app: si algún día hay dominio
+    propio, cambiar ahí + en sitemap.ts/robots.ts (3 líneas).

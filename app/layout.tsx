@@ -5,10 +5,27 @@ import ThemeToggle from "@/components/ThemeToggle";
 import "@/styles/globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://wr-guides-web.vercel.app"),
   title: { default: "WR Guías — Wild Rift", template: "%s · WR Guías" },
   description:
     "Guías de Wild Rift generadas y verificadas con WR-LAB: builds matemáticas, " +
     "leyes de slots, verificación por hotfix y win rates actualizadas.",
+  openGraph: {
+    type: "website",
+    locale: "es_ES",
+    siteName: "WR Guías",
+    title: "WR Guías — Wild Rift verificadas por laboratorio",
+    description:
+      "Builds de 6 slots validadas matemáticamente, verificación contra cada " +
+      "hotfix y win rates Diamond+ actualizadas a diario.",
+    images: [{ url: "/og-cover.png", width: 1200, height: 630, alt: "WR Guías — builds de Wild Rift verificadas por WR-LAB" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "WR Guías — Wild Rift verificadas por laboratorio",
+    description: "Builds validadas matemáticamente por WR-LAB + win rates Diamond+ al día.",
+    images: ["/og-cover.png"],
+  },
 };
 
 // Fija el tema ANTES del primer paint (lee localStorage; default: "jinx").

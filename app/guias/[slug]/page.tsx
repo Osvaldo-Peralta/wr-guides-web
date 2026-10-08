@@ -13,6 +13,10 @@ import TablaContenidos from "@/components/TablaContenidos";
 import ProgresoLectura from "@/components/ProgresoLectura";
 import GuiasRelacionadas from "@/components/GuiasRelacionadas";
 
+const ROLES: Record<string, string> = {
+  adc: "ADC", support: "Support", jungla: "Jungla", mid: "Mid", top: "Top",
+};
+
 export function generateStaticParams() {
   return allSlugs().map((slug) => ({ slug }));
 }
@@ -21,7 +25,22 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   const g = loadGuide(params.slug);
   if (!g) return { title: "Guía no encontrada" };
   const titulo = g.variant ? `${g.champion} — ${g.variant}` : `${g.champion} — Build optimizada`;
-  return { title: titulo, description: `Guía de ${g.champion} (parche ${g.patch}) — WR-LAB` };
+  const desc =
+    `Guía de ${g.champion} (${ROLES[g.role] || g.role}, parche ${g.patch ?? "—"}) verificada por ` +
+    `WR-LAB: build de 6 slots válida, números reproducibles` +
+    (g.win ? ` y WR ${g.win.win_pct} % (tier ${g.win.tier}) en Diamond+.` : ".");
+  return {
+    title: titulo,
+    description: desc,
+    openGraph: {
+      type: "article",
+      title: titulo,
+      description: desc,
+      url: `/guias/${g.slug}`,
+      images: [{ url: "/og-cover.png", width: 1200, height: 630, alt: titulo }],
+    },
+    twitter: { card: "summary_large_image", title: titulo, description: desc, images: ["/og-cover.png"] },
+  };
 }
 
 export default function GuiaPage({ params }: { params: { slug: string } }) {

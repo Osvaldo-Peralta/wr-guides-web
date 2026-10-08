@@ -71,12 +71,15 @@ const components: Partial<Components> = {
   },
 };
 
-// h2/h3 con id estable + ancla visible al hover. El Map vive por render:
-// SSR y cliente recorren los títulos en el mismo orden → mismos ids.
-function hacerHeading(nivel: 2 | 3, vistos: Map<string, number>) {
+// h2/h3 con id estable + ancla visible al hover. Paso 10: los ids se CONSUMEN
+// de colas precomputadas desde la TOC (lib/toc.ts) → coincidan o no los
+// limpiezos de texto, el ancla es la misma que usa la tabla de contenidos.
+// Fallback: dedupe propio si no hay cola (Markdown usado sin TOC).
+function hacerHeading(nivel: 2 | 3, vistos: Map<string, number>, colas?: Map<string, string[]>) {
   return function Heading({ children, ...props }: any) {
     const base = slugify(aTexto(children)) || "seccion";
-    const id = idUnico(vistos, base);
+    const cola = colas?.get(base);
+    const id = cola && cola.length ? (cola.shift() as string) : idUnico(vistos, base);
     const Tag = (`h${nivel}` as "h2" | "h3");
     return (
       <Tag id={id} {...props}>
@@ -89,12 +92,22 @@ function hacerHeading(nivel: 2 | 3, vistos: Map<string, number>) {
   };
 }
 
-export default function Markdown({ source }: { source: string }) {
-  const vistos = new Map<string, number>();
+export default function Markdown({
+  source,
+  vistos,
+  colas,
+}: {
+  source: string;
+  vistos?: Map<string, number>;
+  colas?: Map<string, string[]>;
+}) {
+  // `vistos`/`colas` compartidos: en el Paso 10 la guía se renderiza por
+  // secciones (un <Markdown> por tramo) y las anclas deben ser GLOBALES.
+  const map = vistos || new Map<string, number>();
   const conAnclas: Partial<Components> = {
     ...components,
-    h2: hacerHeading(2, vistos) as any,
-    h3: hacerHeading(3, vistos) as any,
+    h2: hacerHeading(2, map, colas) as any,
+    h3: hacerHeading(3, map, colas) as any,
   };
   return (
     <ReactMarkdown remarkPlugins={[remarkGfm]} components={conAnclas as Components}>

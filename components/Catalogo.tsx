@@ -20,7 +20,7 @@ const ROLES: [string, string][] = [
 function Tarjeta({ g, fav }: { g: GuideMeta; fav: boolean }) {
   const titulo = g.variant ? `${g.champion} — ${g.variant.replace(/-/g, " ")}` : g.champion;
   return (
-    <li className="guide-card">
+    <li className={`guide-card role-${g.role}`}>
       <Link href={`/guias/${g.slug}`}>
         <span className="guide-title">
           {titulo}
@@ -43,6 +43,14 @@ export default function Catalogo({ guias }: { guias: GuideMeta[] }) {
     api.misFavoritos().then((r) => r && setFavs(new Set(r.slugs)));
   }, []);
   const [rol, setRol] = useState("todos");
+  // Deep-link del breadcrumb (?rol=jungla): se aplica al montar, en el
+  // navegador, para no romper el SSR estático del catálogo (SEO/no-JS).
+  useEffect(() => {
+    try {
+      const r = new URLSearchParams(window.location.search).get("rol");
+      if (r && ROLES.some(([key]) => key === r)) setRol(r);
+    } catch { /* sin location (SSR) */ }
+  }, []);
   const [orden, setOrden] = useState("rol");
 
   const filtradas = useMemo(() => {

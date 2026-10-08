@@ -180,6 +180,28 @@ contenido (todo SSG + interacción cliente en memoria).
 Nada de esto toca el contrato Markdown (§3): los callouts, tablas y bloques
 VERIF se renderizan igual; solo se AGREGAN anclas y estructura de página.
 
+## Paso 10 — rediseño UX profundo (layout ancho)
+
+El sitio deja la columna central de 860 px y usa hasta 1280 px:
+
+- **Guía en 3 columnas:** TOC sticky izquierda · contenido legible al centro ·
+  rail derecho con ficha rápida vertical, caja de win rate (tier/pick/ban) y
+  relacionadas compactas. En ≤1200 px el rail baja como banda; en ≤900 px la
+  TOC se oculta y todo queda a una columna.
+- **Secciones plegables:** cada h2 es una tarjeta con chevrón (`SeccionGuia`),
+  apéndices cerrados por defecto, auto-apertura al entrar por ancla/TOC
+  (hashchange), contenido siempre en el DOM (SEO) y abierto a la fuerza en
+  impresión. Los ids de ancla se consumen de colas precomputadas desde la TOC
+  (`lib/sections.ts` + prop `colas` de `Markdown`): TOC, scroll-spy y hashes
+  comparten una sola verdad.
+- **Breadcrumb** `Guías / Rol / Campeón`: el rol linkea al catálogo ya
+  filtrado (`/?rol=jungla`, aplicado al montar en el navegador para no tocar
+  el SSR estático).
+- **Cards con acento de rol** (borde izquierdo + badge roloado, paleta por
+  tema) y grilla del catálogo más ancha.
+- `/meta` y home heredan el contenedor de 1280 px (el board de 5 roles por fin
+  cabe en una fila).
+
 ## V2 producto — favoritos anónimos + seguir leyendo
 
 - **⭐ FavButton** en cada guía (`components/FavButton.tsx`): favorito anónimo

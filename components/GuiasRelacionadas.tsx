@@ -1,6 +1,7 @@
-// WR-GUIDES-WEB · components/GuiasRelacionadas.tsx (Paso 9) — al terminar una
-// guía: otras variantes del mismo campeón + top del mismo rol por win rate.
-// Server component: lee el índice en build time (cero costo cliente).
+// WR-GUIDES-WEB · components/GuiasRelacionadas.tsx (Paso 9, rev. Paso 10) —
+// otras variantes del mismo campeón + top del mismo rol. Dos presentaciones:
+//   · default:  secciones con grid de cards al final de la guía
+//   · compacto: lista densa para el rail derecho (GuideRail)
 import Link from "next/link";
 import { loadIndex, PUBLISHABLE, type GuideMeta } from "@/lib/guides";
 
@@ -23,7 +24,13 @@ function MiniCard({ g }: { g: GuideMeta }) {
   );
 }
 
-export default function GuiasRelacionadas({ slug }: { slug: string }) {
+export default function GuiasRelacionadas({
+  slug,
+  compacto = false,
+}: {
+  slug: string;
+  compacto?: boolean;
+}) {
   const idx = loadIndex();
   const pub = idx.guias.filter((g) => PUBLISHABLE.has(g.status));
   const actual = pub.find((g) => g.slug === slug);
@@ -36,6 +43,29 @@ export default function GuiasRelacionadas({ slug }: { slug: string }) {
     .slice(0, 3);
 
   if (!mismoChamp.length && !mismoRol.length) return null;
+  const todos = [...mismoChamp, ...mismoRol];
+
+  if (compacto) {
+    return (
+      <div className="rail-box">
+        <p className="rail-titulo">🔗 Relacionadas</p>
+        <ul className="rail-list">
+          {todos.map((g) => {
+            const titulo = g.variant ? `${g.champion} — ${g.variant.replace(/-/g, " ")}` : g.champion;
+            return (
+              <li key={g.slug}>
+                <Link href={`/guias/${g.slug}`}>
+                  {titulo}
+                  <span className="rail-list-sub">{ROLES[g.role] || g.role}{g.win ? ` · ${g.win.tier}` : ""}</span>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    );
+  }
+
   return (
     <section className="related" aria-label="Guías relacionadas">
       {mismoChamp.length > 0 && (

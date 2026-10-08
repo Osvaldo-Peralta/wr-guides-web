@@ -1,40 +1,51 @@
-WR-GUIDES-WEB · V2 PRODUCTO — FAVORITOS + SEGUIR LEYENDO  (2026-10-08)
-══════════════════════════════════════════════════════════════════
-
-REQUISITO: la API v0.5.0 desplegada Y la migration 002 aplicada en Supabase
-(sin eso, el botón ★ no aparece: degradación silenciosa, el resto intacto).
+WR-GUIDES-WEB · PASO 10 — REDISEÑO UX PROFUNDO (LAYOUT ANCHO)  (2026-10-08)
+══════════════════════════════════════════════════════════════════════
 
 QUÉ INCLUYE
-  · lib/api.ts               cliente: favorito(), setFavorito(), misFavoritos()
-  · lib/recientes.ts         historial LOCAL (localStorage "wrg_recent", máx 8)
-  · components/FavButton.tsx  ☆ Guardar / ★ En favoritos · N (toggle optimista
-                             con resincronización si el POST falla + evento
-                             guide_favorite en Vercel Analytics)
-  · components/RecentTracker.tsx  registra la visita en el historial local
-  · components/HomePersonal.tsx   home: "★ Tus favoritas" (API) +
-                             "📖 Seguir leyendo" (local); sin datos → no pinta
-  · components/Catalogo.tsx  ★ en las cards que ya tenés favoritas
-  · app/page.tsx, app/guias/[slug]/page.tsx, styles/globals.css (ambos temas)
-  · README.md
+  · Layout de 1280 px: se acabó la columna central de 860 px.
+  · Guía en 3 columnas: TOC sticky izq · contenido al centro · rail der
+    (ficha rápida vertical + caja win rate + relacionadas compactas).
+    ≤1200 px: rail baja como banda · ≤900 px: una columna, sin TOC.
+  · Secciones plegables por h2 (chevrón, aria-expanded, animación):
+    apéndices cerrados por defecto; si entrás por ancla/TOC se abren solas;
+    en impresión se abren todas a la fuerza; el contenido sigue en el DOM
+    (SEO y búsqueda del navegador intactos).
+  · Breadcrumb Guías / Rol / Campeón — el rol abre el catálogo ya filtrado
+    (/?rol=jungla).
+  · Cards del catálogo con acento de color por rol (borde + badge), en ambos
+    temas; grilla más ancha.
+  · /meta y home heredan el ancho nuevo.
+
+ARCHIVOS
+  nuevos:   lib/sections.ts · components/SeccionGuia.tsx · components/GuideRail.tsx
+  tocados:  components/Markdown.tsx (prop colas: anclas = verdad de la TOC) ·
+            components/GuiasRelacionadas.tsx (modo compacto para el rail) ·
+            components/Catalogo.tsx (?rol= al montar, acentos) ·
+            components/Badges.tsx (badge roloado) · app/page.tsx ·
+            app/guias/[slug]/page.tsx (layout 3 col + breadcrumb) ·
+            styles/globals.css (§14) · README.md
 
 PASOS
-  1. cd "<tu-clon>/wr-guides-web" && unzip -o ruta/al/wr-guides-web-v2.zip
+  1. cd "<tu-clon>/wr-guides-web" && unzip -o ruta/al/wr-guides-web-paso10.zip
   2. (Opcional) npm run build → 22 páginas
-  3. git add -A && git commit -m "V2: favoritos anónimos + seguir leyendo + estrellas en catálogo" && git push
+  3. git add -A && git commit -m "Paso 10: layout ancho, secciones plegables, rail y breadcrumb" && git push
 
 VERIFICACIÓN EN PRODUCCIÓN
-  a. /guias/jinx → "☆ Guardar · N" junto a los badges; click → ★ amarillo;
-     F5 persiste; otro navegador/incógnito → contador igual, estrella apagada
-     (el favorito es por visitante).
-  b. Home con favorito existente → sección "★ Tus favoritas".
-  c. Visitá 2-3 guías y volvé al home → "📖 Seguir leyendo" (solo tu navegador).
-  d. Catálogo: ★ al lado del título de tus favoritas.
-  e. Tema clásico: botón y estrellas con paleta dorada suave; Jinx: glow amarillo.
-  f. Vercel Analytics → evento guide_favorite apareciendo con los toggles.
+  a. /guias/jinx en pantalla ancha: 3 columnas visibles; el rail derecho con
+     ficha/win-rate/relacionadas queda fijo mientras scrolleás.
+  b. Cada h2 es una tarjeta con chevrón: click colapsa/expande; "APÉNDICE A/B"
+     arrancan cerrados; click en la TOC sobre una sección cerrada → se abre
+     sola y scrollea.
+  c. Breadcrumb arriba: Guías / ADC / Jinx — click en "ADC" → home con el
+     catálogo ya filtrado por ADC (chip activo).
+  d. Cards del catálogo con borde izquierdo de color por rol.
+  e. Ctrl+P en una guía: sale abierta completa, sin rail ni TOC ni chevrons.
+  f. Ventana a 800 px: una columna, todo accesible scrolleando.
+  g. Ambos temas: plegables y rail con su versión clásica y Jinx.
 
-NOTAS
-  · El historial "seguir leyendo" es 100 % local: no viaja a ningún servidor
-    (ni a la API): borrar datos del navegador lo resetea.
-  · Los favoritos viven en Supabase (tabla guide_favorites) atados al
-    visitor-id: mismo navegador = mismo favorito; cambiar de dispositivo no
-    los lleva (eso sería V2-cuentas, fuera de alcance por diseño).
+POR QUÉ ES SEGURO PARA TUS GUÍAS NUEVAS
+  Nada del pipeline de contenido cambia: el sync (Fase 6) sigue espejando
+  markdown crudo; las secciones se derivan de los h2 al renderizar, así que
+  cualquier guía nueva (o reescrita) hereda plegables, TOC, rail y breadcrumb
+  sin tocar una coma del lab. Si una guía no tiene h2, se renderiza como
+  intro sin secciones (degradación natural).

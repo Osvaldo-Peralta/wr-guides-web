@@ -373,8 +373,13 @@ html[data-theme="jinx"] .site-footer { border-top-color: #21264a; }
 /* ── 10. Impresión (ambos temas imprimen en claro) ── */
 @media print {
   .site-header, .site-footer, .guide-badges-top, .like-cta,
-  .read-progress, .guide-side, .related, .catalogo-bar { display: none; }
-  .guide-layout { grid-template-columns: 1fr; }
+  .read-progress, .guide-side, .guide-side-left, .guide-rail, .related,
+  .catalogo-bar, .breadcrumb, .md-section-toggle { display: none; }
+  .guide-layout, .guide-layout3 { grid-template-columns: 1fr; }
+  /* secciones plegables: abiertas a la fuerza en papel */
+  .md-section { border: none; background: none; }
+  .md-section-body { grid-template-rows: 1fr !important; }
+  .md-section-inner > * { padding-left: 0; padding-right: 0; }
   body { background: #fff; }
   html[data-theme="jinx"] {
     --wrlab-gold: #8a743f; --wrlab-gold-soft: rgba(200, 170, 110, 0.14);
@@ -607,3 +612,127 @@ html[data-theme="jinx"] .fav-on {
   box-shadow: 0 0 14px rgba(255, 217, 61, 0.35);
 }
 html[data-theme="jinx"] .card-fav { filter: drop-shadow(0 0 5px rgba(255, 217, 61, 0.6)); }
+
+/* ═══════════ 14. PASO 10 — layout ancho, secciones plegables, rail ═══════════ */
+
+/* 14.0 Acentos por rol (variables por tema) */
+:root {
+  --rol-adc: #2b7f8c; --rol-jungla: #3d8b5f; --rol-mid: #7a5fb8;
+  --rol-top: #b7791f; --rol-support: #b0568a;
+}
+html[data-theme="jinx"] {
+  --rol-adc: #2de2e6; --rol-jungla: #3ddc97; --rol-mid: #b18cff;
+  --rol-top: #ffb454; --rol-support: #ff7ac3;
+}
+
+/* 14.1 Contenedores anchos: el sitio deja de vivir en 860 px */
+.site-main { max-width: 1280px; }
+.site-footer { max-width: 1280px; }
+.site-header-inner { max-width: 1280px; }
+
+/* 14.2 Breadcrumb */
+.breadcrumb { display: flex; align-items: center; gap: 0.45rem; font-size: 0.8rem; color: var(--wrlab-ink-soft); margin: 0 0 0.8rem; }
+.breadcrumb a { text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+.breadcrumb-actual { font-weight: 650; color: var(--wrlab-ink); }
+
+/* 14.3 Guía: 3 columnas (TOC izq · contenido · rail der) */
+.guide-layout3 {
+  display: grid; grid-template-columns: 230px minmax(0, 1fr) 290px;
+  gap: 2rem; align-items: start;
+}
+.guide-side-left { position: sticky; top: 4.2rem; max-height: calc(100vh - 5rem); overflow-y: auto; }
+.guide-body { max-width: 860px; }
+.guide-intro { margin-bottom: 1.2rem; }
+.guide-rail {
+  position: sticky; top: 4.2rem; max-height: calc(100vh - 5rem); overflow-y: auto;
+  display: flex; flex-direction: column; gap: 0.9rem;
+}
+@media (max-width: 1200px) {
+  .guide-layout3 { grid-template-columns: 220px minmax(0, 1fr); }
+  .guide-rail {
+    grid-column: 1 / -1; position: static; max-height: none;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); align-items: start;
+  }
+}
+@media (max-width: 900px) {
+  .guide-layout3 { grid-template-columns: 1fr; }
+  .guide-side-left { display: none; }
+}
+
+/* 14.4 Rail: cajas */
+.rail-box {
+  border: 1px solid var(--wrlab-line); border-radius: var(--wrlab-radius);
+  background: var(--wrlab-card); padding: 0.8rem 0.95rem;
+}
+.rail-titulo {
+  margin: 0 0 0.5rem; font-size: 0.74rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.08em; color: var(--wrlab-ink-soft);
+}
+.guide-rail .ficha { grid-template-columns: 1fr; gap: 0.35rem; margin: 0; padding: 0; border: none; background: none; }
+.guide-rail .ficha-item { flex-direction: row; justify-content: space-between; align-items: baseline; gap: 0.6rem; }
+.guide-rail .ficha dt { font-size: 0.72rem; }
+.guide-rail .ficha dd { font-size: 0.84rem; text-align: right; }
+.rail-win-num { display: flex; align-items: center; gap: 0.5rem; margin: 0.1rem 0 0.2rem; font-size: 1.05rem; }
+.rail-win-num strong { font-size: 1.25rem; }
+.rail-win-sub { margin: 0; color: var(--wrlab-ink-soft); font-size: 0.76rem; line-height: 1.5; }
+.rail-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.3rem; }
+.rail-list a { display: flex; justify-content: space-between; gap: 0.6rem; font-size: 0.85rem; text-decoration: none; padding: 0.18rem 0.3rem; border-radius: 6px; }
+.rail-list a:hover { background: var(--wrlab-gold-soft); }
+.rail-list-sub { color: var(--wrlab-ink-soft); font-size: 0.74rem; white-space: nowrap; }
+
+/* 14.5 Secciones plegables */
+.md-section {
+  margin: 1.1rem 0; border: 1px solid var(--wrlab-line);
+  border-radius: var(--wrlab-radius); background: var(--wrlab-card); overflow: hidden;
+}
+.md-section-head {
+  display: flex; align-items: center; gap: 0.45rem; margin: 0; padding: 0.55rem 0.9rem;
+  font-size: 1.12rem; border-bottom: 1px solid transparent;
+}
+.md-section.abierta .md-section-head { border-bottom-color: var(--wrlab-line); }
+.md-section-toggle {
+  background: none; border: none; cursor: pointer; padding: 0.15rem 0.3rem;
+  color: var(--wrlab-ink-soft); font-size: 0.95rem; line-height: 1; border-radius: 6px;
+}
+.md-section-toggle:hover { color: var(--wrlab-ink); background: var(--wrlab-gold-soft); }
+.md-section-chevron { display: inline-block; transition: transform 0.2s ease; }
+.md-section:not(.abierta) .md-section-chevron { transform: rotate(-90deg); }
+.md-section-titulo { flex: 1; min-width: 0; }
+.md-section-head .md-anchor-link { margin-left: 0; }
+.md-section-body { display: grid; grid-template-rows: 1fr; transition: grid-template-rows 0.25s ease; }
+.md-section:not(.abierta) .md-section-body { grid-template-rows: 0fr; }
+.md-section-inner { min-height: 0; overflow: hidden; }
+.md-section-inner > * { padding-left: 1.1rem; padding-right: 1.1rem; }
+.md-section-inner > *:first-child { padding-top: 0.7rem; }
+.md-section-inner > *:last-child { padding-bottom: 1rem; }
+/* h2/h3 dentro de secciones: sin márgenes gigantes del flujo plano */
+.md-section h3 { margin-top: 1.4rem; }
+
+/* 14.6 Cards con acento de rol */
+.guide-card { border-left: 3px solid var(--wrlab-line); }
+.guide-card.role-adc { border-left-color: var(--rol-adc); }
+.guide-card.role-jungla { border-left-color: var(--rol-jungla); }
+.guide-card.role-mid { border-left-color: var(--rol-mid); }
+.guide-card.role-top { border-left-color: var(--rol-top); }
+.guide-card.role-support { border-left-color: var(--rol-support); }
+.badge-role-adc { color: var(--rol-adc); border-color: color-mix(in srgb, var(--rol-adc) 45%, var(--wrlab-line)); }
+.badge-role-jungla { color: var(--rol-jungla); border-color: color-mix(in srgb, var(--rol-jungla) 45%, var(--wrlab-line)); }
+.badge-role-mid { color: var(--rol-mid); border-color: color-mix(in srgb, var(--rol-mid) 45%, var(--wrlab-line)); }
+.badge-role-top { color: var(--rol-top); border-color: color-mix(in srgb, var(--rol-top) 45%, var(--wrlab-line)); }
+.badge-role-support { color: var(--rol-support); border-color: color-mix(in srgb, var(--rol-support) 45%, var(--wrlab-line)); }
+
+/* 14.7 Home: grilla más ancha y hero con más aire */
+.guide-grid { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+.hero { margin: 1.4rem 0 2rem; }
+
+/* ── 14b. Decorado Jinx del Paso 10 ── */
+html[data-theme="jinx"] .md-section { background: var(--jinx-panel); border-color: var(--jinx-border); }
+html[data-theme="jinx"] .md-section-head { background: rgba(255, 255, 255, 0.02); }
+html[data-theme="jinx"] .md-section.abierta .md-section-head { border-bottom-color: var(--jinx-border); }
+html[data-theme="jinx"] .md-section-toggle:hover { background: rgba(255, 61, 158, 0.12); color: #fff; }
+html[data-theme="jinx"] .md-section-chevron { color: var(--jinx-pink); }
+html[data-theme="jinx"] .rail-box { background: var(--jinx-panel); border-color: var(--jinx-border); }
+html[data-theme="jinx"] .rail-list a:hover { background: rgba(255, 61, 158, 0.08); }
+html[data-theme="jinx"] .breadcrumb-actual { color: var(--jinx-cyan); }
+html[data-theme="jinx"] .rail-win-num strong { color: var(--jinx-cyan); }

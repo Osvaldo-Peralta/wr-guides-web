@@ -10,6 +10,7 @@ export const dynamic = "force-static";
 export default function Home() {
   const idx = loadIndex();
   const publicables = idx.guias.filter((g) => PUBLISHABLE.has(g.status));
+  const campeones = new Set(publicables.map((g) => g.champion)).size;
 
   return (
     <>
@@ -22,7 +23,7 @@ export default function Home() {
           y win rates Diamond+ actualizadas a diario.
         </p>
         <p className="hero-meta">
-          {publicables.length} guías publicadas · índice generado el {idx.generado || "—"}
+          {publicables.length} guías · {campeones} campeones · 5 roles · índice al {idx.generado || "—"}
         </p>
       </section>
       <HomePersonal guias={publicables} />

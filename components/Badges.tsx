@@ -33,7 +33,7 @@ export function BadgeStatus({ g }: { g: GuideMeta }) {
 export function BadgesGuia({ g }: { g: GuideMeta }) {
   return (
     <span className="badges">
-      {ROLES[g.role] && <span className="badge badge-role">{ROLES[g.role]}</span>}
+      {ROLES[g.role] && <span className={`badge badge-role badge-role-${g.role}`}>{ROLES[g.role]}</span>}
       {g.custom && <span className="badge badge-custom">★ Custom</span>}
       {g.generate === "auto" && <span className="badge badge-muted">auto</span>}
       {g.verification && <BadgeVerificacion g={g} />}

@@ -370,7 +370,14 @@
    "updated_at": "2026-10-11",
    "verification": "AL_DIA",
    "verified_patch": "7.3a",
-   "win": null
+   "win": {
+    "win_pct": "53.63",
+    "pick_pct": "12.92",
+    "ban_pct": "34.63",
+    "tier": "S+",
+    "role": "SUPPORT",
+    "actualizado": "2026-10-11"
+   }
   },
   {
    "slug": "seraphine",

@@ -18,7 +18,7 @@ custom: false
 generate: manual
 mode: sr
 published_at: "2026-10-08"
-updated_at: "2026-10-09"
+updated_at: "2026-10-11"
 verification: AL_DIA
 verified_patch: "7.3a"
 ---

@@ -16,7 +16,7 @@ custom: false
 generate: manual
 mode: sr
 published_at: "2026-10-05"
-updated_at: "2026-10-11"
+updated_at: "2026-10-12"
 verification: AL_DIA
 verified_patch: "7.3a"
 ---
@@ -25,15 +25,6 @@ verified_patch: "7.3a"
 **Rol principal:** Jungla
 **Arquetipo:** Tanque de armadura — CC, mitigación física y utilidad de engage
 **Enfoque:** Maximizar EHP físico con armadura escalada (W + ítems) y CC de taunt para anular carries AD.
-
-<!-- WRLAB-VERIF:7.3a:START — generado por model/update_reports.py · no editar a mano -->
-> [!NOTE] ❌ REGENERAR Verificación automática (08/10/2026) — **❌ REQUIERE REGENERACIÓN — hotfix 7.3a**
-> **Cambio directo:** NERF — Armor base 45→**40** · W bonus armor 45/50/55/60→**30/40/50/60 %**.
-> **Modelo:** sin hook cuantitativo (sin modelo cuantitativo para este campeón/arquetipo) → triage por intersección (champion/ítems/sistemas). Métricas publicadas sin cambios medibles.
-> **Build publicada (6 slots, Ley 0):** Plated Steelcaps + Sunfire Aegis + Thornmail + Dead Man's Plate + Force of Nature + Gargoyle Stoneplate — **sin cambios**.
-> **Sistema (7.3a):** Smite burn vs monstruos: 30–198/s → **22–162/s** → Jungla early más lenta → Diana jungla: Nashor's 1.º aún más correcto; Shyvana/Volibear/Cho'Gath jungla: clear early −15-20 %
-> **Veredicto:** ❌ REGENERAR — regenerar por el flujo FRAMEWORK (10 pasos, con apoyo de model/optimize_build.py para re-derivar la build óptima) y re-baselinar.
-<!-- WRLAB-VERIF:7.3a:END -->
 
 > [!NOTE]
 > **Estado Meta Actual (Diamond+, 05/10/2026):**

@@ -17,7 +17,7 @@ custom: false
 generate: manual
 mode: sr
 published_at: "2026-10-08"
-updated_at: "2026-10-11"
+updated_at: "2026-10-12"
 verification: AL_DIA
 verified_patch: "7.3a"
 ---
@@ -26,17 +26,6 @@ verified_patch: "7.3a"
 **Rol principal:** ADC (Dragon Lane)
 **Arquetipo:** Crítico AoE — sus habilidades **Q (Boomerang Blade)** y **W (Ricochet)** ahora escalan con crítico en 7.3, lo que consolida el crítico como único stat de daño
 **Enfoque:** Maximizar el DPS en área (AoE) con críticos al 230 % y el escalado de Q/W. La build prioriza el umbral exacto de 100 % crit y la sinergia Runaan's + IE, aprovechando que los rayos de Runaan's **critican** y que Q ahora multiplica ×1.52 con IE a 100 % crit.
-
-<!-- WRLAB-VERIF:7.3a:START — generado por model/update_reports.py · no editar a mano -->
-> [!NOTE] ✅ ANOTAR Verificación automática (08/10/2026) — **NO requiere regeneración — hotfix 7.3a**
-> **Cambios directos a Sivir:** ninguno en 7.3a.
-> **Modelo:** sin hook cuantitativo (sin modelo cuantitativo para este campeón/arquetipo) → triage por intersección (champion/ítems/sistemas). Métricas publicadas sin cambios medibles.
-> **Build publicada (6 slots, Ley 0):** Gunmetal Greaves + Hexoptics C44 + Runaan's Hurricane + Infinity Edge + Lord Dominik's Regards + Situacional — **sin cambios**.
-> **Ítems cambiados fuera de la build final:** Yun Tal Wildarrows (BUFF) — verificar variantes/rechazados del reporte.
-> **Sistema (7.3a):** Nexus: 5 500 → **4 000 HP** → Partidas terminan antes tras inhibidores
-> **Sistema (7.3a):** Placas de torreta: Al perder placa: +30→**+20** arm/MR y 20→**10 s** → **Siege más fácil** → sube el valor de Jinx/Kalista/Yunara (siege) y de Runaan's/Energized
-> **Veredicto:** ✅ ANOTAR — build, ruta de compra y veredictos siguen vigentes; este bloque es la constancia de verificación.
-<!-- WRLAB-VERIF:7.3a:END -->
 
 > [!NOTE]
 > **Estado Meta Actual (Diamond+, 05/10/2026):**

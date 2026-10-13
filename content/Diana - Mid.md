@@ -16,7 +16,7 @@ custom: false
 generate: manual
 mode: sr
 published_at: "2026-10-08"
-updated_at: "2026-10-11"
+updated_at: "2026-10-12"
 verification: AL_DIA
 verified_patch: "7.3a"
 ---
@@ -26,14 +26,6 @@ verified_patch: "7.3a"
 **Arquetipo:** AP-Assassin de rotación sostenida con ventanas de burst tras combo Q→E→W→R
 **Enfoque:** Lethal Tempo + Dusk and Dawn + Nashor's Tooth para explotar el ratio AS 0.694 de Diana y la pasiva Moonsilver Blade (+30-100 % AS 4 s tras habilidad) → DPS sostenido +30 % sobre Empowerment.
 
-<!-- WRLAB-VERIF:7.3a:START — generado por model/update_reports.py · no editar a mano -->
-> [!NOTE] ✅ SIN IMPACTO Verificación automática (08/10/2026) — **NO requiere regeneración — hotfix 7.3a**
-> **Cambios directos a Diana:** ninguno en 7.3a.
-> **Δ del modelo:** 0 % — ningún input del campeón/build cambió en el motor.
-> **Build publicada (6 slots, Ley 0):** Spellslinger's Shoes + Dusk and Dawn + Nashor's Tooth + Rabadon's Deathcap + Zhonya's Hourglass + Infinity Orb — **sin cambios**.
-> **Nota del lab (diff 7.3a):** Smite burn −18 % → clear early más lento (refuerza Nashor's 1.º en jungla) → Anotado
-> **Veredicto:** ✅ SIN IMPACTO — build, ruta de compra y veredictos siguen vigentes; este bloque es la constancia de verificación.
-<!-- WRLAB-VERIF:7.3a:END -->
 
 > [!NOTE]
 > **Estado Meta Actual (Diamond+, 05/10/2026):**

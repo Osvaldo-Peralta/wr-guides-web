@@ -13,7 +13,7 @@ custom: false
 generate: manual
 mode: sr
 published_at: "2026-09-29"
-updated_at: "2026-10-11"
+updated_at: "2026-10-12"
 verification: AL_DIA
 verified_patch: "7.3a"
 ---
@@ -26,7 +26,7 @@ verified_patch: "7.3a"
 > [!NOTE]
 > **Estado Meta Actual (Diamond+, 28/09/2026 — pre-hotfix 7.3a):**
 > Win Rate 51.41 % | Pick Rate 35.85 % | Ban 42.81 % | Tendencia ↑ | Rol: ADC Bot Lane.
-> ⚠️ Datos previos al nerf 7.3a; se espera ajuste a la baja en los próximos días.
+> ⚠️ Datos previos al nerf 7.3a;
 
 ---
 

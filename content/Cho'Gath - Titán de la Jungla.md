@@ -4,7 +4,7 @@ tags:
   - Tank
   - AP-vida
   - Jungle
-version: 1.3
+version: 1.4
 Status: Beta
 champion: Cho'Gath
 slug: chogath-titan-de-la-jungla
@@ -24,31 +24,36 @@ verified_patch: "7.3a"
 **Fecha del análisis:** 11/10/2026 (regeneración v1.3 con motor dedicado batch4)
 **Parche:** 7.3 (21-sep-2026) + hotfix 7.3a (29-sep-2026)
 **Rol principal:** Jungla (variante Top en `chogath-titan-del-baron`)
-**Arquetipo:** Tanque de rotación AP %-vida: el daño es Q/W/E + R verdadero + % de vida máxima; el tamaño es CONSECUENCIA de daño+durabilidad.
-**Enfoque:** Maximizar la ventana de supervivencia (EHP en ventana de 5 s) y el execute de R sin sacrificar daño de rotación.
+**Arquetipo:** Tanque de rotación AP %-vida: el daño es Q/W/E + R verdadero + % de vida máxima; el tamaño es CONSECUENCIA de daño+durabilidad, no objetivo (ver §0.2).
+**Enfoque:** Maximizar la ventana de supervivencia (EHP en ventana de 5 s) y el execute de R sin sacrificar daño de rotación: el cuarteto Unending Despair + Gargoyle + Amaranth's Twinguard + Force of Nature aparece en las 10 mejores builds de 122 632 evaluadas y sobrevive a todas las sensibilidades.
 
 > [!NOTE]
-> **Estado Meta Actual (Diamond+, 09/10/2026):** JUNGLE Win Rate 50.85 % | Pick Rate 8.52 % | Ban 35.10 % | Tendencia ↑1 | Tier S (Confidence High).
+> **Estado Meta Actual (Diamond+, 09/10/2026):** JUNGLE Win Rate 50.85 % | Pick Rate 8.52 % | Ban 35.10 % | Tendencia ↑1 | Tier S (Confidence High). SOLO (hermano): 50.46 % | 11.10 % | ban 35.10 % | ↑3. Fuente: `data/estructurada/champion_winrates.csv` (vigía 2×/día).
 
 > [!TIP]
-> **Variante de presión de mapa:** cambiar Force of Nature por **Warmog's Armor** sube la ventana a **56 377** (la más alta de toda la búsqueda: escudo de Gargoyle 5 150 → 6 695 por Blessed +30 %) y el sustain fuera de pelea a 3.5 %/s entre camps.
+> **Variante de ventanas/teamfight:** si tu comp necesita frontline de pelea larga en vez de tempo de objetivos, usá la óptima del hermano barón (Armored Advance + Heartsteel + Unending + Twinguard + Gargoyle + FoN): VENT 55 591 vs 24 798, a cambio de clear 10.6 s vs 6.5 s y dragón 7.5 s vs 5.7 s. El punto medio (VENT 37 649 · clear 7.4 s) es Chainlaced + Sunfire + Liandry + FoN + Unending + Twinguard (#5 del motor jungla).
+>
+> **Variante de presión de mapa:** cambiar Force of Nature por **Warmog's Armor** sube la ventana a **56 377** (la más alta de toda la búsqueda: escudo de Gargoyle 5 150 → 6 695 por Blessed +30 %) y el sustain fuera de pelea a 3.5 %/s entre camps: −1.7 % de score vs la default, legítima cuando vas arriba en el marcador.
+
+> [!WARNING]
+> Verificación en juego pendiente (motor nuevo, supuestos A1–A14): **D2** (Twinguard Endurance ×1.3 a resistencias TOTALES vs solo bonus — en el peor caso Twinguard sale y entra Kaenic Rookern), **D1** (cap del %-vida de E vs minions/monstruos), **D3** (Feast retroactivo al subir R), **D4** (Axiom Arcanist sobre daño verdadero de R: −9 % de R si no).
 
 ---
 
 ## 0. RESUMEN EJECUTIVO
 
-### Tabla A — BUILD FINAL (jungla, óptima del motor batch4)
+### Tabla A — BUILD FINAL (jungla, óptima del MÓDULO JUNGLA batch4 — deriva de la de barón)
 
 | Slot | Ítem | Oro | Rol en la build |
 |---|---|---|---|
-| 1 (botas) | **Plated Steelcaps → ⬆️ Armored Advance** (min 10:00, MISMO slot; Mercury's/Chainlaced vs AP) | 2 200 | Block 10 % + escudo físico 722 (CD 12 s) |
-| 2 | **Heartsteel** | 3 000 | 700 HP + proc + **growth +15 %/proc: +425 HP a min 20** que alimentan R, Gargoyle y E |
-| 3 | **Unending Despair** | 3 000 | Anguish: 243 mágico AoE/4 s + **cura 607**: el sustain de pelea que ninguna build publicada tenía |
-| 4 | **Amaranth's Twinguard** | 3 200 | Endurance: resistencias ×1.3 en pelea + 20 % tenacidad + 20 % tamaño |
-| 5 | **Gargoyle Stoneplate** | 2 900 | Activo: escudo 100 + 90 % HP bonus = **5 150** (2.5 s) |
-| 6 | **Force of Nature** | 2 800 | 400 HP + 60 MR (+70 Absorb en pelea) + 11 % MS: mejor paquete MR del parche |
+| 1 (botas) | **Mercury's Treads → ⬆️ Chainlaced Crushers** (min 10:00, MISMO slot; Armored Advance vs AD) | 2 200 | Tenacidad 30 % + 150 HP: el clear no teme CC pero los skips sí |
+| 2 | **Heartsteel** | 3 000 | Growth +15 %/proc: en jungla proca SOLO en campeones/épicos → se completa 3.º, no 2.º |
+| 3 | **Sunfire Aegis** | 2 900 | Immolate ×1.3 vs monstruos: el clear pasa de 10.6 s a ~7 s |
+| 4 | **Liandry's Torment** | 3 000 | Torment 2 % máx/s en camps Y campeones: el motor de clear+daño del rol |
+| 5 | **Riftmaker** | 3 100 | Void Corruption ×1.054 + omnivamp 10 %: netHP positivo en clears largos |
+| 6 | **Unending Despair** | 3 000 | Anguish en campeones (no en camps): el sustain de pelea que cierra el score |
 
-> **Oro total: 17 100 g** · HP **8 093** · arm 274 · MR 316 · AH 50 · AP 0 · tamaño **+110 %** · rango 200 · **R 1 277 verdadero** · **VENT 55 591** · EHPp/EHPm 32 546/33 626 · DPSf 444 · hps 197 · **Smite+R vs épico 3 290** (min 20).
+> **Oro total: 17 200 g** · HP ~7 300 · **VENT 24 798** · **R 1 426 verdadero** · DPSf **702** · **clear 6.5 s** · **dragón TTK 5.7 s** · Smite+R 3 290-3 337 · netHP/clear **+1 169**. Score jungla (tanque×0.75 + clear .13 + épicos .12): 0.685; la óptima de barón queda #23 en jungla (0.678, −1.1 %) con clear 10.6 s.
 
 ### 0.2 El tamaño como CONSECUENCIA (indicación del autor)
 
@@ -61,18 +66,29 @@ verified_patch: "7.3a"
 
 Ser gigante sin ventana no sirve (tanque puro pierde 6 000 de VENT por 400 HP); ser puro daño tampoco (AP puro vive 1.3 s menos en cada pelea). **La óptima es el punto donde el HP comprable, los escudos en ventana y la rotación se multiplican**: el tamaño (+110 %) llega solo, como subproducto de Feast + Twinguard, y cada punto de tamaño agrega rango de E y objetivos de cono (A6: ~2.9 objetivos a S=15).
 
-### Tabla B — Ruta de compra cronológica (jungla)
+### 0.3 Tempo vs ventana (por qué la jungla deriva de barón)
+
+| Build | VENT 5 s | DPS fighter | Clear 4 camps | Dragón TTK | Smite+R | Score jungla |
+|---|---|---|---|---|---|---|
+| **Óptima jungla batch4 (Tabla A)** | 24 798 | **702** | **6.5 s** | **5.7 s** | 3 290 | **0.685** |
+| Óptima barón evaluada en jungla | **55 591** | 444 | 10.6 s | 7.5 s | 3 287 | 0.678 (#23) |
+| Publicada jungla 28/09 | 26 292 | 554 | **4.5 s** | 5.9 s | **3 444** | ~0.67 |
+| Híbrida #5 (Sunfire+Liandry+FoN+UD+TW) | 37 649 | 547 | 7.4 s | 6.0 s | 3 240 | 0.681 |
+
+La publicada cleara más rápido (doble Immolate Hollow+Liandry sin Riftmaker) pero cede R y DPS de campeón; la de barón gana peleas y pierde el mapa. **La derivación jungla es el punto medio que el score del rol pide**: clear suficiente (6.5 s), épicos primeros (5.7 s) y el doble de DPS de campeón que la de barón.
+
+### Tabla B — Ruta de compra cronológica (jungla, checkpoints del módulo J8)
 
 | # | Compra | Oro acum. | Minuto típico |
 |---|---|---|---|
 | 1 | Ruby Crystal + ward | 500 | 0:00 |
-| 2 | **Plated Steelcaps** (T2; Mercury's vs jungla AP) | 1 700 | ~4:30 |
-| 3 | Giant's Belt + Kindlegem → **Heartsteel** | 4 700 | ~8:30 (regla: ≤ min 10-11 o cambiar orden §5) |
-| 4 | ⬆️ **Armored Advance** (mismo slot, +1 000 g) | 5 700 | 10:00 (regla T3) |
-| 5 | Componentes → **Unending Despair** | 8 700 | ~13:00 |
-| 6 | Giant's Belt + Chain Vest + Negatron → **Amaranth's Twinguard** | 11 900 | ~15:30 |
-| 7 | Kindlegem + Chain Vest + Negatron → **Gargoyle Stoneplate** | 14 800 | ~18:00 |
-| 8 | Winged Moonplate + Negatron + Ruby → **Force of Nature** | 17 600 | ~20:30 |
+| 2 | **Mercury's Treads** (T2; Plated vs jungla AD) | 1 700 | ~4:30 (CPJ1: Liandry 1.º mide 0.783) |
+| 3 | Fiendish + Kindlegem → **Liandry's Torment** | 4 700 | ~9:00 |
+| 4 | Kindlegem + Chain Vest → **Unending Despair** | 7 700 | ~12:00 (CPJ2 #1: 0.728) |
+| 5 | ⬆️ **Chainlaced Crushers** (mismo slot, +1 000 g) | 8 700 | ~14:00 |
+| 6 | Giant's Belt + Ruby → **Sunfire Aegis** | 11 600 | ~16:00 (CPJ3: Sunfire+Liandry+FoN lideran) |
+| 7 | Fiendish + Gem → **Riftmaker** | 14 700 | ~18:30 (CPJ4 #1: 0.688) |
+| 8 | Giant's Belt → **Heartsteel** | 17 700 | ~21:00 (growth tardío: proca solo en champions/épicos) |
 
 ### Runas · Hechizos · Habilidades
 
@@ -171,6 +187,20 @@ EHP físico .15 + EHP mágico .15 + **VENT .20** + execute R .15 + DPS fighter .
 - **Steal defensivo:** R monstruo es verdadero: el tanque enemigo NO lo mitiga; posiciona el cast desde 200 de rango + Feast.
 
 ---
+
+
+### 3.4 Módulo jungla (batch4, `model/chogath_jungla.py`)
+
+```text
+clear_s   = 9 500 HP (4 camps proxy, arm/MR 30 "increased monster resistances" 7.3)
+            / [rotación Q/W/E (E base capada 100 vs monstruos — D1/J) + Immolate×1.25-1.3
+               + Torment 2 %/s + autos + 2×Smite(execute 600/1 000/1 400 + burn 3 ticks)]
+netHP     = sustain recibido: daño monstruos (−50 % al smiter: 500→250 dps) − Carnivore − regen
+epic_TTK  = dragón 10 000 HP (60/60) · Baron 15 000 (60/60) con Smite+R+Torment+rotación
+score_jg  = 0.75·score_tanque§A.5 + 0.13·clear + 0.12·épicos      # pesos J declarados
+```
+Sensibilidad D1 (E %-vida capado vs monstruos): la óptima NO cambia (misma 6 slots); el clear sube 6.5→8.5 s y el dragón 5.7→13.5 s en TODAS las builds por igual: es un factor de escala, no de ranking.
+
 
 ## 4. LEYES APLICADAS A CHO'GATH
 

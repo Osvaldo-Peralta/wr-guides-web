@@ -5,7 +5,7 @@ tags:
   - Crítico
   - Híbrido
   - Bot-Lane
-version: 1.2
+version: 2.0
 Status: Beta
 champion: Yunara
 slug: yunara
@@ -27,6 +27,17 @@ verified_patch: "7.3a"
 **Arquetipo:** Crítico AoE híbrido — su pasiva convierte cada crítico en daño mágico adicional (8 % + 8 % por 100 AP), lo que la hace difícil de contrarrestar con resistencias tradicionales
 **Enfoque:** Maximizar el DPS en área (AoE) con críticos al 230 % y spread de Q que también critica durante la R (Transcendent State). La build prioriza el umbral exacto de 100 % de crítico, AS sin sobrepasar el tope, y penetración física para el late game.
 
+<!-- WRLAB-VERIF:7.3a:START — generado por model/update_reports.py · no editar a mano -->
+> [!NOTE] ✅ ANOTAR Verificación automática (08/10/2026) — **NO requiere regeneración — hotfix 7.3a**
+> **Cambios directos a Yunara:** ninguno en 7.3a.
+> **Modelo:** sin hook cuantitativo (sin modelo cuantitativo para este campeón/arquetipo) → triage por intersección (champion/ítems/sistemas). Métricas publicadas sin cambios medibles.
+> **Build publicada (6 slots, Ley 0):** Gunmetal Greaves + Hexoptics C44 + Runaan's Hurricane + Infinity Edge + Lord Dominik's Regards + Kraken Slayer — **sin cambios**.
+> **Ítems cambiados fuera de la build final:** Yun Tal Wildarrows (BUFF) — verificar variantes/rechazados del reporte.
+> **Sistema (7.3a):** Nexus: 5 500 → **4 000 HP** → Partidas terminan antes tras inhibidores
+> **Sistema (7.3a):** Placas de torreta: Al perder placa: +30→**+20** arm/MR y 20→**10 s** → **Siege más fácil** → sube el valor de Jinx/Kalista/Yunara (siege) y de Runaan's/Energized
+> **Veredicto:** ✅ ANOTAR — build, ruta de compra y veredictos siguen vigentes; este bloque es la constancia de verificación.
+<!-- WRLAB-VERIF:7.3a:END -->
+
 > [!NOTE]
 > **Estado Meta Actual (Diamond+, 05/10/2026):**
 > Win Rate 51.64 % | Pick Rate 16.83 % | Ban 23.80 % | Tendencia ↓ 1 | Tier S+ | Rol DUO (ADC).
@@ -36,46 +47,49 @@ verified_patch: "7.3a"
 
 ---
 
+> [!WARNING]
+> **Auditoría batch4 (13/10/2026, `model/yunara_model.py`):** los titulares de v1.2 NO se reproducen con sus propios supuestos: el AD omitía el growth (268 vs 310 real), el "AS 2.83" es irrazastreable (2.647 con esos ítems; 2.84 con la build nueva) y los términos mágicos (pasiva 8 %, Q, W, spread) no se mitigaban por MR del objetivo (3v3 −42 %). Los RANKINGS internos sí se sostenían. Esta v2.0 re-deriva build y números con el motor dedicado riesgo-ajustado.
+
 ## 0. RESUMEN EJECUTIVO
 
-### Tabla A — BUILD FINAL (Ruta Estándar / AoE)
+### Tabla A — BUILD FINAL (óptima riesgo-ajustada batch4)
 
 | Slot | Ítem | Oro | Rol en la build |
-|------|------|-----|-----------------|
-| 1 (botas) | **Berserker's → ⬆️ Gunmetal Greaves** (min 10:00, MISMO slot) | 2 200 | 50 % AS, 5 % Lifesteal, Noxian Gait (+7 % MS al atacar campeón) |
-| 2 | **Hexoptics C44** | 2 900 | 55 AD, 25 % Crit, Magnification (+10 % dmg a ≥550u) |
-| 3 | **Runaan's Hurricane** | 2 650 | 40 % AS, 25 % Crit, rayos que **critican** y aplican on-hit |
-| 4 | **Infinity Edge** | 3 400 | 75 AD, 25 % Crit, Crit Dmg 200 % → **230 %** |
-| 5 | **Lord Dominik's Regards** | 3 300 | 35 AD, 25 % Crit, 35 % Pen, Giant Slayer +12 % |
-| 6 | **Kraken Slayer** | 2 900 | 45 AD, 35 % AS, Bring It Down (missing HP) |
+|---|---|---|---|
+| 1 (botas) | **Berserker's → ⬆️ Gunmetal Greaves** (min 10:00, MISMO slot) | 2 200 | 50 % AS (rinde completo: B 3.39 → AS 2.84) + 5 % LS |
+| 2 | **Infinity Edge** | 3 400 | 230 % crit; la pasiva Vow (8 % AD mágico por crit) escala con crit |
+| 3 | **Runaan's Hurricane** | 2 650 | Rayos que critican y aplican on-hit; el spread de Q los multiplica en 3v3 |
+| 4 | **Lord Dominik's Regards** | 3 300 | 35 % pen (Ley 3) + Giant Slayer; único pen_pct de la build (Ley 3b) |
+| 5 | **Yun Tal Wildarrows** | 3 100 | Flurry +35 % AS (buff 7.3a): el AS que faltaba sin C44 |
+| 6 | **Blade of the Ruined King** | 3 100 | 6 % vida actual por auto: supervivencia-asesina (surv 5 325 vs 4 551 de Kraken) |
 
-> **Oro total: 17 350 g** · AD 268 · AS 2.83 (con Pow-Pow x3 equivalente) · Crit 100 % · Pen 35 % · Lifesteal 5 %
+> **Oro total: 17 750 g** · AD 310+ · AS 2.84 · Crit 100 % exacto (Ley 1) · Pen 35 % · **1v1 2 702 · 3v3 6 270 · vs120 1 549 · vsTanque 1 391 · heal 469** · score riesgo-ajustado 81.2 % (óptima en los 4 juegos de pesos: DPS puro, riesgo-ajustado, vs dive y —con C44— anti-tanque).
 
 ### Tabla A2 — BUILD FINAL (Variante Anti-Tanques: Cho'Gath / Dr. Mundo / Malphite)
 
 | Slot | Ítem | Oro | Rol en la build |
-|------|------|-----|-----------------|
-| 1 (botas) | **Berserker's → ⬆️ Gunmetal Greaves** (min 10:00, MISMO slot) | 2 200 | 50 % AS, Lifesteal, MS condicional |
-| 2 | **Hexoptics C44** | 2 900 | 55 AD, 25 % Crit, Magnification |
-| 3 | **Yun Tal Wildarrows** | 3 100 | 50 AD, 35 % AS, Flurry (+35 % AS), Crit progresivo |
-| 4 | **Blade of the Ruined King** | 3 100 | 40 AD, 30 % AS, 12 % LS, **6 % HP actual on-hit** |
-| 5 | **Lord Dominik's Regards** | 3 300 | 35 AD, 25 % Crit, 35 % Pen, Giant Slayer +12 % |
-| 6 | **Infinity Edge** | 3 400 | 75 AD, 25 % Crit, Crit Dmg 230 % |
+|---|---|---|---|
+| 1 (botas) | **Berserker's → ⬆️ Gunmetal Greaves** (min 10:00, MISMO slot) | 2 200 | Ídem |
+| 2 | **Hexoptics C44** | 2 900 | Magnification: vuelve en la variante vs tanques (1 715 vs120 / 1 516 vsT) |
+| 3 | **Infinity Edge** | 3 400 | Ídem |
+| 4 | **Lord Dominik's Regards** | 3 300 | Giant Slayer +12 % vs ≥1 200 HP bonus |
+| 5 | **Yun Tal Wildarrows** | 3 100 | Flurry vs targets lentos de tanque |
+| 6 | **Blade of the Ruined King** | 3 100 | %-vida: el execute sostenido contra 4 500 HP |
 
-> **Oro total: 18 000 g** · AD 275 · AS 2.95 · Crit 100 % (Yun Tal a 125 stacks) · Pen 35 % · Lifesteal 17 %
+> **Oro total: 18 000 g** · 1v1 2 995 · 3v3 4 473 · vs120 1 715 · vsTanque 1 516 · heal 515 · óptima del peso ANTI-TANQUE (vsT .35) con 85.4 %.
 
 ### Tabla B — Ruta de compra cronológica (Estándar)
 
 | # | Compra | Oro acum. | Minuto típico |
-|---|--------|-----------|---------------|
-| 1 | Long Sword + Poción (Start) | 500 | 0:00 |
+|---|---|---|---|
+| 1 | Long Sword + Poción | 500 | 0:00 |
 | 2 | **Berserker's Greaves** (T2) | 1 700 | ~4:30 |
-| 3 | Noonquiver + Pickaxe → **Hexoptics C44** | 4 600 | ~7:30 |
-| 4 | Recurve Bow + Zeal → **Runaan's Hurricane** | 7 250 | ~10:30 |
-| 5 | ⬆️ **Gunmetal Greaves** (mismo slot, +1 000 g) | 8 250 | ~11:30 (post 10:00) |
-| 6 | B. F. Sword + Pickaxe + Brawler's → **Infinity Edge** | 11 650 | ~14:30 |
-| 7 | Noonquiver + Last Whisper → **Lord Dominik's Regards** | 14 950 | ~17:30 |
-| 8 | Recurve Bow + Long Sword → **Kraken Slayer** | 17 350 | ~20:00 |
+| 3 | Pickaxe + Vampiric Scepter → **Blade of the Ruined King** | 4 800 | ~7:30 (checkpoint lvl 9: 683 vs 496 de C44) |
+| 4 | ⬆️ **Gunmetal Greaves** (mismo slot, +1 000 g) | 5 800 | 10:00 (regla T3) |
+| 5 | Pickaxe + Kircheis → **Infinity Edge** | 9 200 | ~12:30 |
+| 6 | Recurve + Cloak → **Runaan's Hurricane** | 11 850 | ~15:00 |
+| 7 | Recurve + Long Sword → **Yun Tal Wildarrows** | 14 950 | ~17:30 |
+| 8 | Last Whisper + Pickaxe → **Lord Dominik's Regards** | 18 250 | ~20:30 |
 
 ### Runas · Hechizos · Habilidades
 
@@ -89,19 +103,18 @@ verified_patch: "7.3a"
 | Hechizos | **Flash + Ghost** (o Heal si el support no lo trae) |
 | Skills | **Q → W → E** (R en 5/9/13). Maxear Q primero por el spread y AS. |
 
-### Resultado del modelo (Nivel 15, LT full, 100 % crit — datos post-7.3a)
+### Resultado del modelo (Nivel 15, LT+Alacrity full, ventana q_up/r_up 1.0 — motor batch4)
 
-| Escenario | Build Estándar | Variante Anti-Tanques |
-|-----------|----------------|-----------------------|
-| **1v1** (pre-mitigación) | **3 042** | **3 115** |
-| **3v3** (AoE teamfight) | **10 551** | **9 285** (−12 %) |
-| **vs 120 armadura** | **2 150** | **2 451** (+14 %) |
-| **vs Tanque** (220 arm, 4 500 HP) | **1 480** | **1 850** (+25 %) |
-| **Heal / Sustain** | 186 | 525 |
+| Escenario | Óptima v2.0 | A2 anti-tanques | Publicada v1.2 (re-auditada) | Comunidad wr-meta |
+|---|---|---|---|---|
+| **1v1** (pre-mitigación) | **2 702** | 2 995 | 2 613 | 2 643 |
+| **3v3** (spread + rayos) | **6 270** | 4 473 | 6 142 | 4 097 |
+| **vs 120 armadura** | **1 549** | 1 715 | 1 498 | 1 515 |
+| **vs Tanque** (220 arm, 4 500 HP) | **1 391** | **1 516** | 1 199 | 1 211 |
+| **Heal / sustain** | **469** | 515 | 155 | 157 |
+| **Supervivencia (EHP+escudos+heal)** | **5 325** | 5 449 | 4 551 | — |
 
-> **Titular:** La build estándar domina el AoE en teamfights (+13 % DPS 3v3 vs la variante anti-tanques), pero la **variante anti-tanques** es matemáticamente obligatoria contra composiciones de Baron Lane/Support con +4 000 HP (Cho'Gath, Mundo), superando a la estándar en un **+25 % de daño efectivo** gracias al sinergismo BotRK + LDR.
-
----
+> **Titular:** la óptima v2.0 gana en 1v1, 3v3 y supervivencia a la vez: BotRK+YunTal reemplazan a C44+Kraken porque el 6 % de vida actual y el Flurry rinden más por oro que la Magnification en una campeona cuyo spread ya es AoE. El único escenario donde C44 vuelve es vs doble tanque (A2).
 
 ## 1. CONTEXTO DEL CAMPEÓN EN ESTE PARCHE
 
@@ -262,18 +275,13 @@ C44 al minuto 7:30 (2 900 g) gracias a Noonquiver (1 300 g) que da AD + Crit sua
 
 ## 5. ANÁLISIS DEL PRIMER ÍTEM
 
-| Candidato | Oro | DPS lvl 9 (1v1) | DPS lvl 9 (3v3) | DPS lvl 12 (1v1) | Nota |
-|-----------|-----|-----------------|-----------------|------------------|------|
-| **Hexoptics C44** | 2 900 | 495 | 1 380 | 860 | Magnification +10 % permanente (rango 575) |
-| Kraken Slayer | 2 900 | 560 | 1 290 | 930 | Gana 1v1 temprano, pierde sinergia con spread de Q |
-| Yun Tal Wildarrows | 3 100 | 480 | 1 250 | 820 | Ramp lento; retrasa el pico de Crit |
-| Stormrazor | 3 000 | 520 | 1 320 | 880 | Alternativa anti-presión (Energized 120 + 45 % MS) |
-
-**Veredicto:** C44 primero. Kraken gana el duelo de autos planos (+13 %), pero Yunara **no es un ADC de autos planos**. El spread de Q durante la R es su identidad, y C44 multiplica tanto el auto principal como el spread gracias al AD plano y Magnification. A nivel 12 con IE, la ventaja de C44 se amplifica (+17 % AoE con spread + Q).
-
-**Nota crítica:** El buff 7.3a a Yun Tal Wildarrows (AS 25→35, Flurry 35 %) hace que esta sea una opción viable como **1.er ítem** si el jugador prioriza el ramp de crítico sobre el pico temprano. En el modelo, C44 sigue ganando por la Magnification y la sinergia con el spread.
-
----
+| Candidato (lvl 9, 1v1 / 3v3) | Veredicto | Números del motor |
+|---|---|---|
+| **Blade of the Ruined King** | ✅ **Core 1** | 683 / 916 — el %-vida no depende de su AD temprano ni del crit |
+| **Yun Tal Wildarrows** | ✅ Core 2-3 | 539 / 821 (Flurry 50 % uptime) — buff 7.3a confirmado como core |
+| **Kraken Slayer** | ✅ Core alternativo | 522 / 814 — pierde el slot 6 contra BotRK en supervivencia (4 551 vs 5 325) |
+| **Hexoptics C44** | ⚠️ Solo variante anti-tanque | 496 / 741 — el veredicto "C44 1.º" de v1.2 queda REVERTIDO por el checkpoint medido |
+| **Stormrazor / Fiendhunter** | ❌ | 519/774 y 393/599 — energized no sinergiza con el spread |
 
 ## 6. BUILD FINAL RANURA POR RANURA
 
@@ -444,6 +452,16 @@ Yunara: WR 51.64 %, pick 16.83 %, ban 23.80 %, Tier S+. El nerf de 7.3 (pasiva 1
 - Spread de Q post-7.3a: 0.30 × 268 × 2.30 × 1.10 = **203.6** por objetivo adicional. ✓
 
 ---
+
+
+### Auditoría batch4 (discrepancias Y1–Y4, protocolo §D)
+
+| # | Tema | Resolución |
+|---|---|---|
+| Y1 | AD publicado 268 omitía growth 3.0×14 | Corregido: AD base de la óptima 310 + ítems |
+| Y2 | "AS 2.83 con Pow-Pow x3" irrazastreable (Yunara no tiene Pow-Pow; B real 3.072 → AS 2.647 con ítems v1.2) | Re-derivado: AS 2.84 con YunTal+BotRK |
+| Y3 | Términos mágicos sin mitigar por MR | Mitigados por proxy (40/80/150): 3v3 −42 % vs titular v1.2 |
+| Y4 | Spread crítico permanente + Magnification sobre spread | Modelado solo durante R (Transcendent) y con magn_up declarada (1.0 ventana / 0.6 dive) |
 
 ## APÉNDICE A — POOL DE ÍTEMS DEL ROL: veredicto para Yunara
 

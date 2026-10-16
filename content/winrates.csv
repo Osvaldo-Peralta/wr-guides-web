@@ -1,33 +1,33 @@
 champion,role,tier,win_pct,pick_pct,ban_pct,trend,confidence,bucket,updated_utc,actualizado
-Ahri,MID,A,50.24,4.23,0.13,↓ 8,Confidence Med,Diamond +,15 OCT 2026 UTC 00:00,2026-10-15
-Caitlyn,DUO,A,49.63,18.90,7.31,0,Confidence High,Diamond +,15 OCT 2026 UTC 00:00,2026-10-15
-Cho'Gath,SOLO,S,50.64,10.68,35.44,↑ 2,Confidence High,Diamond +,15 OCT 2026 UTC 00:00,2026-10-15
-Cho'Gath,JUNGLE,S,50.71,8.78,35.44,0,Confidence High,Diamond +,15 OCT 2026 UTC 00:00,2026-10-15
-Diana,MID,B,47.89,1.05,0.15,↑ 3,Confidence Low,Diamond +,15 OCT 2026 UTC 00:00,2026-10-15
-Diana,JUNGLE,A,50.22,1.45,0.15,0,Confidence Low,Diamond +,15 OCT 2026 UTC 00:00,2026-10-15
-Heimerdinger,MID,A,49.88,1.69,1.32,↓ 1,Confidence Low,Diamond +,15 OCT 2026 UTC 00:00,2026-10-15
-Jinx,DUO,A,50.55,12.51,0.44,0,Confidence High,Diamond +,15 OCT 2026 UTC 00:00,2026-10-15
-Kalista,DUO,A,50.68,6.15,7.48,0,Confidence Med,Diamond +,15 OCT 2026 UTC 00:00,2026-10-15
-Kalista,SOLO,S+,53.63,2.51,7.48,0,Confidence Low,Diamond +,15 OCT 2026 UTC 00:00,2026-10-15
-Karma,SUPPORT,A,49.73,4.27,0.35,↓ 1,Confidence Med,Diamond +,15 OCT 2026 UTC 00:00,2026-10-15
-Malphite,SUPPORT,S,51.26,8.12,41.03,↓ 2,Confidence High,Diamond +,15 OCT 2026 UTC 00:00,2026-10-15
-Malphite,SOLO,S+,55.35,6.97,41.03,0,Confidence Med,Diamond +,15 OCT 2026 UTC 00:00,2026-10-15
-Malphite,MID,S+,52.04,1.00,41.03,0,Confidence Low,Diamond +,15 OCT 2026 UTC 00:00,2026-10-15
-Mordekaiser,SOLO,S+,50.64,11.54,30.14,↑ 4,Confidence High,Diamond +,15 OCT 2026 UTC 00:00,2026-10-15
-Nocturne,JUNGLE,S+,55.51,10.04,56.95,↑ 1,Confidence High,Diamond +,15 OCT 2026 UTC 00:00,2026-10-15
-Norra,MID,A,50.70,1.38,7.09,↓ 1,Confidence Low,Diamond +,15 OCT 2026 UTC 00:00,2026-10-15
-Orianna,MID,A,51.48,4.41,0.28,↓ 3,Confidence Med,Diamond +,15 OCT 2026 UTC 00:00,2026-10-15
-Ornn,SOLO,A,51.26,1.95,0.18,↓ 3,Confidence Low,Diamond +,15 OCT 2026 UTC 00:00,2026-10-15
-Ornn,SUPPORT,B,48.80,1.18,0.18,↓ 11,Confidence Low,Diamond +,15 OCT 2026 UTC 00:00,2026-10-15
-Rammus,JUNGLE,S+,57.38,4.44,6.49,0,Confidence Med,Diamond +,15 OCT 2026 UTC 00:00,2026-10-15
-Senna,DUO,S+,55.82,3.09,31.97,0,Confidence Med,Diamond +,15 OCT 2026 UTC 00:00,2026-10-15
-Senna,SUPPORT,S+,54.34,12.83,31.97,0,Confidence High,Diamond +,15 OCT 2026 UTC 00:00,2026-10-15
-Seraphine,SUPPORT,A,49.22,6.26,1.04,↑ 7,Confidence Med,Diamond +,15 OCT 2026 UTC 00:00,2026-10-15
-Shyvana,JUNGLE,B,46.10,3.43,1.11,↑ 1,Confidence Med,Diamond +,15 OCT 2026 UTC 00:00,2026-10-15
-Sivir,DUO,A,48.81,3.34,0.05,0,Confidence Med,Diamond +,15 OCT 2026 UTC 00:00,2026-10-15
-Syndra,MID,S,51.18,6.12,18.61,↓ 5,Confidence Med,Diamond +,15 OCT 2026 UTC 00:00,2026-10-15
-Volibear,SOLO,B,48.22,4.73,4.30,↓ 1,Confidence Med,Diamond +,15 OCT 2026 UTC 00:00,2026-10-15
-Volibear,JUNGLE,B,48.06,2.41,4.30,0,Confidence Low,Diamond +,15 OCT 2026 UTC 00:00,2026-10-15
-Xayah,DUO,A,50.18,4.37,0.18,0,Confidence Med,Diamond +,15 OCT 2026 UTC 00:00,2026-10-15
-Yunara,DUO,S+,51.31,15.42,23.32,0,Confidence High,Diamond +,15 OCT 2026 UTC 00:00,2026-10-15
-Yuumi,SUPPORT,A,49.14,9.13,33.03,↑ 2,Confidence High,Diamond +,15 OCT 2026 UTC 00:00,2026-10-15
+Ahri,MID,A,50.95,4.28,0.12,↑ 5,Confidence Med,Diamond +,16 OCT 2026 UTC 00:00,2026-10-16
+Caitlyn,DUO,A,49.71,18.50,6.96,↑ 1,Confidence High,Diamond +,16 OCT 2026 UTC 00:00,2026-10-16
+Cho'Gath,SOLO,S,50.58,10.64,35.48,↓ 4,Confidence High,Diamond +,16 OCT 2026 UTC 00:00,2026-10-16
+Cho'Gath,JUNGLE,A,50.34,8.91,35.48,↓ 2,Confidence High,Diamond +,16 OCT 2026 UTC 00:00,2026-10-16
+Diana,MID,B,47.48,1.05,0.16,↓ 4,Confidence Low,Diamond +,16 OCT 2026 UTC 00:00,2026-10-16
+Diana,JUNGLE,B,49.66,1.42,0.16,↓ 4,Confidence Low,Diamond +,16 OCT 2026 UTC 00:00,2026-10-16
+Heimerdinger,MID,A,50.89,1.66,1.33,↑ 9,Confidence Low,Diamond +,16 OCT 2026 UTC 00:00,2026-10-16
+Jinx,DUO,A,50.63,12.52,0.45,0,Confidence High,Diamond +,16 OCT 2026 UTC 00:00,2026-10-16
+Kalista,DUO,A,50.86,6.21,7.60,0,Confidence Med,Diamond +,16 OCT 2026 UTC 00:00,2026-10-16
+Kalista,SOLO,S+,53.91,2.51,7.60,0,Confidence Low,Diamond +,16 OCT 2026 UTC 00:00,2026-10-16
+Karma,SUPPORT,A,49.84,4.20,0.34,↓ 1,Confidence Med,Diamond +,16 OCT 2026 UTC 00:00,2026-10-16
+Malphite,SUPPORT,S+,51.37,8.14,40.82,↑ 1,Confidence High,Diamond +,16 OCT 2026 UTC 00:00,2026-10-16
+Malphite,SOLO,S+,55.12,6.88,40.82,0,Confidence Med,Diamond +,16 OCT 2026 UTC 00:00,2026-10-16
+Malphite,MID,A,50.27,1.01,40.82,↓ 16,Confidence Low,Diamond +,16 OCT 2026 UTC 00:00,2026-10-16
+Mordekaiser,SOLO,S+,50.82,11.33,30.24,↑ 2,Confidence High,Diamond +,16 OCT 2026 UTC 00:00,2026-10-16
+Nocturne,JUNGLE,S+,55.79,9.92,58.62,↓ 1,Confidence High,Diamond +,16 OCT 2026 UTC 00:00,2026-10-16
+Norra,MID,S,50.95,1.43,6.91,↑ 2,Confidence Low,Diamond +,16 OCT 2026 UTC 00:00,2026-10-16
+Orianna,MID,A,50.88,4.46,0.27,↓ 8,Confidence Med,Diamond +,16 OCT 2026 UTC 00:00,2026-10-16
+Ornn,SOLO,A,50.78,1.94,0.17,↓ 7,Confidence Low,Diamond +,16 OCT 2026 UTC 00:00,2026-10-16
+Ornn,SUPPORT,A,50.17,1.19,0.17,↑ 13,Confidence Low,Diamond +,16 OCT 2026 UTC 00:00,2026-10-16
+Rammus,JUNGLE,S+,57.11,4.43,6.47,0,Confidence Med,Diamond +,16 OCT 2026 UTC 00:00,2026-10-16
+Senna,DUO,S+,56.46,2.99,31.68,0,Confidence Low,Diamond +,16 OCT 2026 UTC 00:00,2026-10-16
+Senna,SUPPORT,S+,53.95,12.75,31.68,0,Confidence High,Diamond +,16 OCT 2026 UTC 00:00,2026-10-16
+Seraphine,SUPPORT,A,48.90,6.19,1.03,↓ 7,Confidence Med,Diamond +,16 OCT 2026 UTC 00:00,2026-10-16
+Shyvana,JUNGLE,B,46.13,3.56,1.09,↓ 1,Confidence Med,Diamond +,16 OCT 2026 UTC 00:00,2026-10-16
+Sivir,DUO,B,48.45,3.31,0.05,↓ 2,Confidence Med,Diamond +,16 OCT 2026 UTC 00:00,2026-10-16
+Syndra,MID,S+,51.26,6.07,18.35,↑ 3,Confidence Med,Diamond +,16 OCT 2026 UTC 00:00,2026-10-16
+Volibear,SOLO,B,47.92,4.76,4.20,0,Confidence Med,Diamond +,16 OCT 2026 UTC 00:00,2026-10-16
+Volibear,JUNGLE,B,47.90,2.41,4.20,↓ 1,Confidence Low,Diamond +,16 OCT 2026 UTC 00:00,2026-10-16
+Xayah,DUO,A,50.43,4.44,0.17,↑ 1,Confidence Med,Diamond +,16 OCT 2026 UTC 00:00,2026-10-16
+Yunara,DUO,S+,51.79,15.26,23.37,0,Confidence High,Diamond +,16 OCT 2026 UTC 00:00,2026-10-16
+Yuumi,SUPPORT,A,49.00,9.06,32.98,↓ 4,Confidence High,Diamond +,16 OCT 2026 UTC 00:00,2026-10-16

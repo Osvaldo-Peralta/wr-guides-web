@@ -20,12 +20,12 @@
    "verification": "SIN_IMPACTO",
    "verified_patch": "7.3b",
    "win": {
-    "win_pct": "49.74",
-    "pick_pct": "16.80",
-    "ban_pct": "6.55",
+    "win_pct": "49.85",
+    "pick_pct": "16.30",
+    "ban_pct": "6.21",
     "tier": "A",
     "role": "DUO",
-    "actualizado": "2026-10-17"
+    "actualizado": "2026-10-18"
    }
   },
   {
@@ -47,12 +47,12 @@
    "verification": "SIN_IMPACTO",
    "verified_patch": "7.3b",
    "win": {
-    "win_pct": "50.35",
-    "pick_pct": "8.63",
-    "ban_pct": "36.00",
-    "tier": "A",
+    "win_pct": "50.15",
+    "pick_pct": "8.52",
+    "ban_pct": "36.27",
+    "tier": "S",
     "role": "JUNGLE",
-    "actualizado": "2026-10-17"
+    "actualizado": "2026-10-18"
    }
   },
   {
@@ -74,12 +74,12 @@
    "verification": "SIN_IMPACTO",
    "verified_patch": "7.3b",
    "win": {
-    "win_pct": "50.39",
-    "pick_pct": "10.22",
-    "ban_pct": "36.00",
-    "tier": "S",
+    "win_pct": "50.57",
+    "pick_pct": "9.79",
+    "ban_pct": "36.27",
+    "tier": "S+",
     "role": "SOLO",
-    "actualizado": "2026-10-17"
+    "actualizado": "2026-10-18"
    }
   },
   {
@@ -101,12 +101,12 @@
    "verification": "SIN_IMPACTO",
    "verified_patch": "7.3b",
    "win": {
-    "win_pct": "50.46",
-    "pick_pct": "1.42",
+    "win_pct": "49.85",
+    "pick_pct": "1.41",
     "ban_pct": "0.15",
     "tier": "A",
     "role": "JUNGLE",
-    "actualizado": "2026-10-17"
+    "actualizado": "2026-10-18"
    }
   },
   {
@@ -128,12 +128,12 @@
    "verification": "SIN_IMPACTO",
    "verified_patch": "7.3b",
    "win": {
-    "win_pct": "47.83",
-    "pick_pct": "1.05",
+    "win_pct": "47.18",
+    "pick_pct": "1.06",
     "ban_pct": "0.15",
     "tier": "B",
     "role": "MID",
-    "actualizado": "2026-10-17"
+    "actualizado": "2026-10-18"
    }
   },
   {
@@ -155,12 +155,12 @@
    "verification": "SIN_IMPACTO",
    "verified_patch": "7.3b",
    "win": {
-    "win_pct": "50.10",
+    "win_pct": "49.83",
     "pick_pct": "1.63",
-    "ban_pct": "1.35",
+    "ban_pct": "1.38",
     "tier": "A",
     "role": "MID",
-    "actualizado": "2026-10-17"
+    "actualizado": "2026-10-18"
    }
   },
   {
@@ -182,12 +182,12 @@
    "verification": "SIN_IMPACTO",
    "verified_patch": "7.3b",
    "win": {
-    "win_pct": "50.82",
-    "pick_pct": "12.63",
-    "ban_pct": "0.46",
+    "win_pct": "51.01",
+    "pick_pct": "12.64",
+    "ban_pct": "0.49",
     "tier": "S",
     "role": "DUO",
-    "actualizado": "2026-10-17"
+    "actualizado": "2026-10-18"
    }
   },
   {
@@ -209,12 +209,12 @@
    "verification": "SIN_IMPACTO",
    "verified_patch": "7.3b",
    "win": {
-    "win_pct": "51.08",
-    "pick_pct": "6.13",
-    "ban_pct": "7.81",
-    "tier": "S",
+    "win_pct": "50.79",
+    "pick_pct": "6.27",
+    "ban_pct": "8.10",
+    "tier": "A",
     "role": "DUO",
-    "actualizado": "2026-10-17"
+    "actualizado": "2026-10-18"
    }
   },
   {
@@ -236,12 +236,12 @@
    "verification": "SIN_IMPACTO",
    "verified_patch": "7.3b",
    "win": {
-    "win_pct": "51.02",
-    "pick_pct": "11.00",
-    "ban_pct": "30.52",
-    "tier": "S+",
+    "win_pct": "51.00",
+    "pick_pct": "11.07",
+    "ban_pct": "30.66",
+    "tier": "S",
     "role": "SOLO",
-    "actualizado": "2026-10-17"
+    "actualizado": "2026-10-18"
    }
   },
   {
@@ -263,12 +263,12 @@
    "verification": "REVISAR",
    "verified_patch": "7.3b",
    "win": {
-    "win_pct": "52.81",
-    "pick_pct": "8.15",
-    "ban_pct": "58.59",
+    "win_pct": "52.52",
+    "pick_pct": "7.14",
+    "ban_pct": "58.32",
     "tier": "S+",
     "role": "JUNGLE",
-    "actualizado": "2026-10-17"
+    "actualizado": "2026-10-18"
    }
   },
   {
@@ -290,12 +290,12 @@
    "verification": "SIN_IMPACTO",
    "verified_patch": "7.3b",
    "win": {
-    "win_pct": "50.10",
-    "pick_pct": "1.37",
-    "ban_pct": "6.79",
+    "win_pct": "50.00",
+    "pick_pct": "1.49",
+    "ban_pct": "6.86",
     "tier": "A",
     "role": "MID",
-    "actualizado": "2026-10-17"
+    "actualizado": "2026-10-18"
    }
   },
   {
@@ -317,12 +317,12 @@
    "verification": "SIN_IMPACTO",
    "verified_patch": "7.3b",
    "win": {
-    "win_pct": "51.48",
-    "pick_pct": "1.85",
+    "win_pct": "51.03",
+    "pick_pct": "1.79",
     "ban_pct": "0.18",
     "tier": "A",
     "role": "SOLO",
-    "actualizado": "2026-10-17"
+    "actualizado": "2026-10-18"
    }
   },
   {
@@ -344,12 +344,12 @@
    "verification": "SIN_IMPACTO",
    "verified_patch": "7.3b",
    "win": {
-    "win_pct": "56.80",
-    "pick_pct": "4.10",
-    "ban_pct": "6.81",
+    "win_pct": "56.56",
+    "pick_pct": "3.89",
+    "ban_pct": "6.89",
     "tier": "S+",
     "role": "JUNGLE",
-    "actualizado": "2026-10-17"
+    "actualizado": "2026-10-18"
    }
   },
   {
@@ -371,12 +371,12 @@
    "verification": "REVISAR",
    "verified_patch": "7.3b",
    "win": {
-    "win_pct": "50.25",
-    "pick_pct": "9.33",
-    "ban_pct": "26.20",
+    "win_pct": "49.41",
+    "pick_pct": "8.08",
+    "ban_pct": "22.45",
     "tier": "A",
     "role": "SUPPORT",
-    "actualizado": "2026-10-17"
+    "actualizado": "2026-10-18"
    }
   },
   {
@@ -398,12 +398,12 @@
    "verification": "SIN_IMPACTO",
    "verified_patch": "7.3b",
    "win": {
-    "win_pct": "49.99",
-    "pick_pct": "6.31",
-    "ban_pct": "1.02",
+    "win_pct": "49.88",
+    "pick_pct": "6.40",
+    "ban_pct": "1.05",
     "tier": "A",
     "role": "SUPPORT",
-    "actualizado": "2026-10-17"
+    "actualizado": "2026-10-18"
    }
   },
   {
@@ -425,12 +425,12 @@
    "verification": "SIN_IMPACTO",
    "verified_patch": "7.3b",
    "win": {
-    "win_pct": "48.89",
-    "pick_pct": "3.27",
-    "ban_pct": "0.05",
-    "tier": "A",
+    "win_pct": "48.64",
+    "pick_pct": "3.72",
+    "ban_pct": "0.06",
+    "tier": "B",
     "role": "DUO",
-    "actualizado": "2026-10-17"
+    "actualizado": "2026-10-18"
    }
   },
   {
@@ -452,12 +452,12 @@
    "verification": "REVISAR",
    "verified_patch": "7.3b",
    "win": {
-    "win_pct": "49.06",
-    "pick_pct": "4.26",
-    "ban_pct": "7.67",
+    "win_pct": "48.61",
+    "pick_pct": "4.60",
+    "ban_pct": "8.35",
     "tier": "A",
     "role": "JUNGLE",
-    "actualizado": "2026-10-17"
+    "actualizado": "2026-10-18"
    }
   },
   {
@@ -479,12 +479,12 @@
    "verification": "REVISAR",
    "verified_patch": "7.3b",
    "win": {
-    "win_pct": "48.82",
-    "pick_pct": "8.56",
-    "ban_pct": "7.67",
+    "win_pct": "48.79",
+    "pick_pct": "8.93",
+    "ban_pct": "8.35",
     "tier": "A",
     "role": "SOLO",
-    "actualizado": "2026-10-17"
+    "actualizado": "2026-10-18"
    }
   },
   {
@@ -506,12 +506,12 @@
    "verification": "SIN_IMPACTO",
    "verified_patch": "7.3b",
    "win": {
-    "win_pct": "50.42",
-    "pick_pct": "4.70",
-    "ban_pct": "0.17",
+    "win_pct": "50.33",
+    "pick_pct": "4.87",
+    "ban_pct": "0.19",
     "tier": "A",
     "role": "DUO",
-    "actualizado": "2026-10-17"
+    "actualizado": "2026-10-18"
    }
   },
   {
@@ -533,12 +533,12 @@
    "verification": "REVISAR",
    "verified_patch": "7.3b",
    "win": {
-    "win_pct": "50.13",
-    "pick_pct": "8.92",
-    "ban_pct": "20.77",
+    "win_pct": "49.06",
+    "pick_pct": "7.46",
+    "ban_pct": "18.62",
     "tier": "A",
     "role": "DUO",
-    "actualizado": "2026-10-17"
+    "actualizado": "2026-10-18"
    }
   },
   {
@@ -560,12 +560,12 @@
    "verification": "SIN_IMPACTO",
    "verified_patch": "7.3b",
    "win": {
-    "win_pct": "48.23",
-    "pick_pct": "8.92",
-    "ban_pct": "33.84",
+    "win_pct": "47.73",
+    "pick_pct": "8.56",
+    "ban_pct": "33.89",
     "tier": "A",
     "role": "SUPPORT",
-    "actualizado": "2026-10-17"
+    "actualizado": "2026-10-18"
    }
   }
  ]

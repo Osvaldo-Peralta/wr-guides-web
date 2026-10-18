@@ -1,33 +1,32 @@
 champion,role,tier,win_pct,pick_pct,ban_pct,trend,confidence,bucket,updated_utc,actualizado
-Ahri,MID,A,50.95,4.37,0.13,0,Confidence Med,Diamond +,17 OCT 2026 UTC 00:00,2026-10-17
-Caitlyn,DUO,A,49.74,16.80,6.55,↓ 1,Confidence High,Diamond +,17 OCT 2026 UTC 00:00,2026-10-17
-Cho'Gath,SOLO,S,50.39,10.22,36.00,0,Confidence High,Diamond +,17 OCT 2026 UTC 00:00,2026-10-17
-Cho'Gath,JUNGLE,A,50.35,8.63,36.00,↓ 5,Confidence High,Diamond +,17 OCT 2026 UTC 00:00,2026-10-17
-Diana,MID,B,47.83,1.05,0.15,↑ 1,Confidence Low,Diamond +,17 OCT 2026 UTC 00:00,2026-10-17
-Diana,JUNGLE,A,50.46,1.42,0.15,↑ 2,Confidence Low,Diamond +,17 OCT 2026 UTC 00:00,2026-10-17
-Heimerdinger,MID,A,50.10,1.63,1.35,↓ 6,Confidence Low,Diamond +,17 OCT 2026 UTC 00:00,2026-10-17
-Jinx,DUO,S,50.82,12.63,0.46,↑ 1,Confidence High,Diamond +,17 OCT 2026 UTC 00:00,2026-10-17
-Kalista,DUO,S,51.08,6.13,7.81,↑ 2,Confidence Med,Diamond +,17 OCT 2026 UTC 00:00,2026-10-17
-Kalista,SOLO,S+,53.77,2.50,7.81,0,Confidence Low,Diamond +,17 OCT 2026 UTC 00:00,2026-10-17
-Karma,SUPPORT,A,50.74,4.39,0.34,↑ 7,Confidence Med,Diamond +,17 OCT 2026 UTC 00:00,2026-10-17
-Malphite,SUPPORT,S+,51.58,8.89,41.47,0,Confidence High,Diamond +,17 OCT 2026 UTC 00:00,2026-10-17
-Malphite,SOLO,S+,54.94,7.12,41.47,0,Confidence Med,Diamond +,17 OCT 2026 UTC 00:00,2026-10-17
-Malphite,MID,A,50.04,1.01,41.47,↓ 2,Confidence Low,Diamond +,17 OCT 2026 UTC 00:00,2026-10-17
-Mordekaiser,SOLO,S+,51.02,11.00,30.52,↑ 2,Confidence High,Diamond +,17 OCT 2026 UTC 00:00,2026-10-17
-Nocturne,JUNGLE,S+,52.81,8.15,58.59,↓ 5,Confidence High,Diamond +,17 OCT 2026 UTC 00:00,2026-10-17
-Norra,MID,A,50.10,1.37,6.79,↓ 7,Confidence Low,Diamond +,17 OCT 2026 UTC 00:00,2026-10-17
-Orianna,MID,S,51.32,4.48,0.30,↑ 3,Confidence Med,Diamond +,17 OCT 2026 UTC 00:00,2026-10-17
-Ornn,SOLO,A,51.48,1.85,0.18,↑ 9,Confidence Low,Diamond +,17 OCT 2026 UTC 00:00,2026-10-17
-Ornn,SUPPORT,B,49.47,1.24,0.18,↓ 10,Confidence Low,Diamond +,17 OCT 2026 UTC 00:00,2026-10-17
-Rammus,JUNGLE,S+,56.80,4.10,6.81,0,Confidence Med,Diamond +,17 OCT 2026 UTC 00:00,2026-10-17
-Senna,DUO,S,50.98,1.54,26.20,↓ 6,Confidence Low,Diamond +,17 OCT 2026 UTC 00:00,2026-10-17
-Senna,SUPPORT,A,50.25,9.33,26.20,↓ 17,Confidence High,Diamond +,17 OCT 2026 UTC 00:00,2026-10-17
-Seraphine,SUPPORT,A,49.99,6.31,1.02,↑ 9,Confidence Med,Diamond +,17 OCT 2026 UTC 00:00,2026-10-17
-Shyvana,JUNGLE,B,46.27,3.42,1.07,0,Confidence Med,Diamond +,17 OCT 2026 UTC 00:00,2026-10-17
-Sivir,DUO,A,48.89,3.27,0.05,↑ 1,Confidence Med,Diamond +,17 OCT 2026 UTC 00:00,2026-10-17
-Syndra,MID,S+,51.77,5.95,19.32,↑ 4,Confidence Med,Diamond +,17 OCT 2026 UTC 00:00,2026-10-17
-Volibear,SOLO,A,48.82,8.56,7.67,↑ 5,Confidence High,Diamond +,17 OCT 2026 UTC 00:00,2026-10-17
-Volibear,JUNGLE,A,49.06,4.26,7.67,↑ 4,Confidence Med,Diamond +,17 OCT 2026 UTC 00:00,2026-10-17
-Xayah,DUO,A,50.42,4.70,0.17,↑ 1,Confidence Med,Diamond +,17 OCT 2026 UTC 00:00,2026-10-17
-Yunara,DUO,A,50.13,8.92,20.77,↓ 6,Confidence High,Diamond +,17 OCT 2026 UTC 00:00,2026-10-17
-Yuumi,SUPPORT,A,48.23,8.92,33.84,↓ 3,Confidence High,Diamond +,17 OCT 2026 UTC 00:00,2026-10-17
+Ahri,MID,S,51.38,4.45,0.14,↑ 2,Confidence Med,Diamond +,18 OCT 2026 UTC 00:00,2026-10-18
+Caitlyn,DUO,A,49.85,16.30,6.21,↑ 2,Confidence High,Diamond +,18 OCT 2026 UTC 00:00,2026-10-18
+Cho'Gath,SOLO,S+,50.57,9.79,36.27,↑ 5,Confidence High,Diamond +,18 OCT 2026 UTC 00:00,2026-10-18
+Cho'Gath,JUNGLE,S,50.15,8.52,36.27,↓ 1,Confidence High,Diamond +,18 OCT 2026 UTC 00:00,2026-10-18
+Diana,MID,B,47.18,1.06,0.15,↓ 1,Confidence Low,Diamond +,18 OCT 2026 UTC 00:00,2026-10-18
+Diana,JUNGLE,A,49.85,1.41,0.15,↓ 4,Confidence Low,Diamond +,18 OCT 2026 UTC 00:00,2026-10-18
+Heimerdinger,MID,A,49.83,1.63,1.38,↓ 1,Confidence Low,Diamond +,18 OCT 2026 UTC 00:00,2026-10-18
+Jinx,DUO,S,51.01,12.64,0.49,↑ 2,Confidence High,Diamond +,18 OCT 2026 UTC 00:00,2026-10-18
+Kalista,DUO,A,50.79,6.27,8.10,↓ 1,Confidence Med,Diamond +,18 OCT 2026 UTC 00:00,2026-10-18
+Kalista,SOLO,S+,53.71,2.49,8.10,0,Confidence Low,Diamond +,18 OCT 2026 UTC 00:00,2026-10-18
+Karma,SUPPORT,A,50.01,4.45,0.37,↓ 6,Confidence Med,Diamond +,18 OCT 2026 UTC 00:00,2026-10-18
+Malphite,SUPPORT,S+,51.63,9.28,41.74,↑ 1,Confidence High,Diamond +,18 OCT 2026 UTC 00:00,2026-10-18
+Malphite,SOLO,S+,54.78,7.17,41.74,0,Confidence Med,Diamond +,18 OCT 2026 UTC 00:00,2026-10-18
+Mordekaiser,SOLO,S,51.00,11.07,30.66,↑ 1,Confidence High,Diamond +,18 OCT 2026 UTC 00:00,2026-10-18
+Nocturne,JUNGLE,S+,52.52,7.14,58.32,↓ 1,Confidence Med,Diamond +,18 OCT 2026 UTC 00:00,2026-10-18
+Norra,MID,A,50.00,1.49,6.86,↑ 1,Confidence Low,Diamond +,18 OCT 2026 UTC 00:00,2026-10-18
+Orianna,MID,S,51.98,4.37,0.30,↑ 9,Confidence Med,Diamond +,18 OCT 2026 UTC 00:00,2026-10-18
+Ornn,SOLO,A,51.03,1.79,0.18,↓ 2,Confidence Low,Diamond +,18 OCT 2026 UTC 00:00,2026-10-18
+Ornn,SUPPORT,A,49.78,1.26,0.18,↑ 6,Confidence Low,Diamond +,18 OCT 2026 UTC 00:00,2026-10-18
+Rammus,JUNGLE,S+,56.56,3.89,6.89,0,Confidence Med,Diamond +,18 OCT 2026 UTC 00:00,2026-10-18
+Senna,DUO,A,49.08,1.01,22.45,↓ 9,Confidence Low,Diamond +,18 OCT 2026 UTC 00:00,2026-10-18
+Senna,SUPPORT,A,49.41,8.08,22.45,↓ 10,Confidence High,Diamond +,18 OCT 2026 UTC 00:00,2026-10-18
+Seraphine,SUPPORT,A,49.88,6.40,1.05,↑ 1,Confidence Med,Diamond +,18 OCT 2026 UTC 00:00,2026-10-18
+Shyvana,JUNGLE,B,46.64,3.38,1.06,↑ 1,Confidence Med,Diamond +,18 OCT 2026 UTC 00:00,2026-10-18
+Sivir,DUO,B,48.64,3.72,0.06,↓ 2,Confidence Med,Diamond +,18 OCT 2026 UTC 00:00,2026-10-18
+Syndra,MID,S+,51.87,5.91,19.15,0,Confidence Med,Diamond +,18 OCT 2026 UTC 00:00,2026-10-18
+Volibear,SOLO,A,48.79,8.93,8.35,↓ 1,Confidence High,Diamond +,18 OCT 2026 UTC 00:00,2026-10-18
+Volibear,JUNGLE,A,48.61,4.60,8.35,↓ 1,Confidence Med,Diamond +,18 OCT 2026 UTC 00:00,2026-10-18
+Xayah,DUO,A,50.33,4.87,0.19,↑ 1,Confidence Med,Diamond +,18 OCT 2026 UTC 00:00,2026-10-18
+Yunara,DUO,A,49.06,7.46,18.62,↓ 6,Confidence Med,Diamond +,18 OCT 2026 UTC 00:00,2026-10-18
+Yuumi,SUPPORT,A,47.73,8.56,33.89,↓ 1,Confidence High,Diamond +,18 OCT 2026 UTC 00:00,2026-10-18

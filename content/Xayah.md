@@ -35,10 +35,6 @@ verified_patch: "7.3b"
 > Win Rate 50.24 % | Pick Rate 4.37 % | Ban 0.17 % | Tendencia ↑3 1 | Tier A | Rol DUO (ADC).
 
 ---
-
-> [!NOTE]
-> **Verificación batch4 (12/10/2026, `model/xayah_model.py`):** motor independiente REPRODUCE las cifras publicadas con ±0.0 % (3 146 / 5 929 / 1 767 / 1 582 / heal 498) y la re-optimización extendida (engine + E/Q/R/pasiva en el objetivo, 27 720 hojas, crit=100 y pen≥30 por Leyes 1/3) confirma la MISMA Tabla A al 91.1 % (92.4 % con techo 7.3a: BotRK 7 % + Flurry 50 % + on-hit en rayos). Sensibilidades cerradas: D1 −1.3 % · D3 +2.2 %/+3.6 % (predicción del reporte: 3 210/1 712 → medido 3 214/1 640) · D7 −17.8 % sin W.
-
 ## 0. RESUMEN EJECUTIVO
 
 ### Tabla A — BUILD FINAL (DPS Máximo · óptima del optimizador, 91.6 %)

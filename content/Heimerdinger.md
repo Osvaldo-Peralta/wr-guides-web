@@ -15,8 +15,8 @@ generate: manual
 mode: sr
 published_at: "2026-10-08"
 updated_at: "2026-10-12"
-verification: AL_DIA
-verified_patch: "7.3a"
+verification: SIN_IMPACTO
+verified_patch: "7.3b"
 ---
 **Fecha del análisis:** 08/10/2026
 **Parche:** 7.3 (21-sep-2026) + hotfix 7.3a (29-sep-2026)
@@ -24,9 +24,10 @@ verified_patch: "7.3a"
 **Arquetipo:** Mago de zona
 **Enfoque:** Maximizar el daño sostenido de las torretas (AP + penetración mágica + mana para spamear Q)
 
+
 > [!NOTE]
 > **Estado Meta Actual (Diamond+, 05/10/2026):**
-> Win Rate 49.60 % | Pick Rate 1.58 % | Ban 1.11 % | Tendencia 0 | Tier A | Rol MID | Confianza Low.
+> Win Rate 49.82 % | Pick Rate 1.68 % | Ban 1.30 % | Tendencia ↑7 | Tier A | Rol MID | Confianza Low.
 
 ---
 

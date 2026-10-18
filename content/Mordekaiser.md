@@ -14,14 +14,15 @@ generate: manual
 mode: sr
 published_at: "2026-09-28"
 updated_at: "2026-10-12"
-verification: ANOTAR
-verified_patch: "7.3a"
+verification: SIN_IMPACTO
+verified_patch: "7.3b"
 ---
 **Fecha del análisis:** 28/09/2026
 **Parche:** 7.3 (21-sep-2026)
 **Rol principal:** Top (Baron Lane) / Secundario: Jungla
 **Arquetipo:** AP Juggernaut — daño mágico sostenido
 **Enfoque:** Explotar el daño porcentual de Vida Máxima
+
 
 > [!NOTE]
 > **Estado Meta Actual (Diamond+, 24/09/2026):**

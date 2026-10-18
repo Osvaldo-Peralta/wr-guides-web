@@ -17,8 +17,8 @@ generate: manual
 mode: sr
 published_at: "2026-10-04"
 updated_at: "2026-10-12"
-verification: AL_DIA
-verified_patch: "7.3a"
+verification: SIN_IMPACTO
+verified_patch: "7.3b"
 ---
 **Fecha del análisis:** 04/10/2026
 **Parche:** 7.3 (21-sep-2026) + hotfix 7.3a (29-sep-2026)
@@ -26,9 +26,10 @@ verified_patch: "7.3a"
 **Arquetipo:** Crítico AoE / Hiper-carry de resets
 **Enfoque:** Maximizar el daño en área (AoE) con críticos al 230% Incluye **Variante Anti-Tanques** validada matemáticamente para destruir a los meta-tanks de alta vida (Cho'Gath, Dr. Mundo, Malphite) respetando las exclusividades del parche 7.3a.
 
+
 > [!NOTE]
 > **Estado Meta Actual (Diamond+, 03/10/2026):**
-> Win Rate 50.91 % | Pick Rate 11.61 % | Ban 0.43 % | Tendencia 0 | Rol: DUO.
+> Win Rate 50.62 % | Pick Rate 12.50 % | Ban 0.44 % | Tendencia 0 | Rol: DUO.
 
 > [!TIP]
 > **Variante Anti-Tanques (Mundo / Cho'Gath / Malphite):**

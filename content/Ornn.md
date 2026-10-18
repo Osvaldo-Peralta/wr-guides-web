@@ -18,14 +18,15 @@ generate: manual
 mode: sr
 published_at: "2026-10-08"
 updated_at: "2026-10-12"
-verification: AL_DIA
-verified_patch: "7.3a"
+verification: SIN_IMPACTO
+verified_patch: "7.3b"
 ---
 **Fecha del análisis:** 08/10/2026
 **Parche:** 7.3 (21-sep-2026) + hotfix 7.3a (29-sep-2026)
 **Rol principal:** Top (Baron Lane)
 **Arquetipo:** Tanque AP híbrido — su kit convierte **HP bonus + resistencias + AP** en daño sostenido.
 **Enfoque:** **Maximizar daño equilibrando durabilidad.**
+
 
 > [!NOTE]
 > **Estado Meta Actual (Diamond+, 08/10/2026):**

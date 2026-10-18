@@ -18,8 +18,8 @@ generate: manual
 mode: sr
 published_at: "2026-10-08"
 updated_at: "2026-10-12"
-verification: AL_DIA
-verified_patch: "7.3a"
+verification: SIN_IMPACTO
+verified_patch: "7.3b"
 ---
 **Fecha del análisis:** 08/10/2026
 **Parche:** 7.3 (21-sep-2026) + hotfix 7.3a (29-sep-2026)
@@ -27,9 +27,10 @@ verified_patch: "7.3a"
 **Arquetipo:** Crítico AoE — sus habilidades **Q (Boomerang Blade)** y **W (Ricochet)** ahora escalan con crítico en 7.3, lo que consolida el crítico como único stat de daño
 **Enfoque:** Maximizar el DPS en área (AoE) con críticos al 230 % y el escalado de Q/W. La build prioriza el umbral exacto de 100 % crit y la sinergia Runaan's + IE, aprovechando que los rayos de Runaan's **critican** y que Q ahora multiplica ×1.52 con IE a 100 % crit.
 
+
 > [!NOTE]
 > **Estado Meta Actual (Diamond+, 05/10/2026):**
-> Win Rate 48.65 % | Pick Rate 3.49 % | Ban 0.05 % | Tendencia 0 | Tier B | Rol DUO (ADC).
+> Win Rate 48.77 % | Pick Rate 3.34 % | Ban 0.06 % | Tendencia ↑2 | Tier B | Rol DUO (ADC).
 
 ---
 

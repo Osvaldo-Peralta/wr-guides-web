@@ -17,8 +17,8 @@ generate: manual
 mode: sr
 published_at: "2026-10-08"
 updated_at: "2026-10-12"
-verification: AL_DIA
-verified_patch: "7.3a"
+verification: REVISAR
+verified_patch: "7.3b"
 ---
 **Fecha del análisis:** 08/10/2026
 **Parche:** 7.3 (21-sep-2026) + hotfix 7.3a (29-sep-2026)
@@ -26,9 +26,10 @@ verified_patch: "7.3a"
 **Arquetipo:** Asesino AD de Burst con ruta Diver (daño sostenido + durabilidad)
 **Enfoque:** Maximizar el burst de R+Q+E manteniendo supervivencia post-engage con escudos reactivos y mitigación diferida.
 
+
 > [!NOTE]
 > **Estado Meta Actual (Diamond+, 05/10/2026):**
-> Win Rate **55.13 %** | Pick Rate 9.42 % | Ban **39.95 %** | Tendencia → 0 | Tier **S+** | Rol: JUNGLE
+> Win Rate **55.13 %** | Pick Rate 10.23 % | Ban **39.95 %** | Tendencia ↓1 0 | Tier **S+** | Rol: JUNGLE
 
 > [!TIP]
 > **Variante principal (Asesino puro):** reemplazar **Death's Dance** y **Sterak's Gage** por **The Collector** (3 000 g) + **Edge of Night** (3 000 g). Ganas +18 % de burst en el combo R→Q→E→auto a cambio de perder ~1 200 EHP efectivo y el seguro contra burst mágico. Recomendada solo si tu equipo ya tiene frontline sólido.

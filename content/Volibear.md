@@ -18,8 +18,8 @@ generate: manual
 mode: sr
 published_at: "2026-10-08"
 updated_at: "2026-10-12"
-verification: AL_DIA
-verified_patch: "7.3a"
+verification: REVISAR
+verified_patch: "7.3b"
 ---
 **Fecha del análisis:** 08/10/2026
 **Parche:** 7.3 (21-sep-2026) + hotfix 7.3a (29-sep-2026)
@@ -27,9 +27,10 @@ verified_patch: "7.3a"
 **Arquetipo:** AP-Bruiser híbrido — su kit convierte HP en daño (W) y AP en escudos (E) + daño AoE (P)
 **Enfoque:** Explotar el escalado cruzado HP + AP para generar escudos masivos (~900 HP)
 
+
 > [!NOTE]
 > **Estado Meta Actual (Diamond+, 05/10/2026):**
-> Win Rate 47.74 % | Pick Rate 5.41 % | Ban 4.65 % | Tendencia ↓ 1 | Tier B | Rol SOLO (Top).
+> Win Rate 47.98 % | Pick Rate 4.76 % | Ban 4.34 % | Tendencia ↑1 1 | Tier B | Rol SOLO (Top).
 
 > [!TIP]
 > **Variante principal (vs composiciones de burst AD):** Cambia **Rabadon's Deathcap** por **Sterak's Gage** (3 200 g). Pierdes ~15 % de daño de E/P/R a cambio de **+55 AD**, escudo reactivo (~750 HP con 1 500 HP bonus), **+tamaño** y **+20 % tenacidad** durante 8 s.

@@ -19,8 +19,8 @@ generate: manual
 mode: sr
 published_at: "2026-10-08"
 updated_at: "2026-10-12"
-verification: AL_DIA
-verified_patch: "7.3a"
+verification: SIN_IMPACTO
+verified_patch: "7.3b"
 ---
 **Fecha del análisis:** 08/10/2026
 **Parche:** 7.3 (21-sep-2026) + hotfix 7.3a (29-sep-2026)
@@ -29,9 +29,10 @@ verified_patch: "7.3a"
 **DPS máximo sin compensaciones defensivas**: cada slot compra daño puro.
 **Enfoque:** **Maximizar el DPS al límite.** 100 % crit con IE (×2.30).
 
+
 > [!NOTE]
 > **Estado Meta Actual (Diamond+, 05/10/2026):**
-> Win Rate 49.87 % | Pick Rate 3.24 % | Ban 1.83 % | Tendencia ↑ 1 | Tier A | Rol DUO (ADC).
+> Win Rate 50.24 % | Pick Rate 4.37 % | Ban 0.17 % | Tendencia ↑3 1 | Tier A | Rol DUO (ADC).
 
 ---
 

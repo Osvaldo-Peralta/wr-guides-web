@@ -17,8 +17,8 @@ generate: manual
 mode: sr
 published_at: "2026-10-05"
 updated_at: "2026-10-12"
-verification: AL_DIA
-verified_patch: "7.3a"
+verification: SIN_IMPACTO
+verified_patch: "7.3b"
 ---
 **Fecha del análisis:** 05/10/2026 (regeneración post-7.3a)
 **Parche:** 7.3 (21-sep-2026) + hotfix 7.3a (29-sep-2026)
@@ -26,9 +26,10 @@ verified_patch: "7.3a"
 **Arquetipo:** Tanque de armadura — CC, mitigación física y utilidad de engage
 **Enfoque:** Maximizar EHP físico con armadura escalada (W + ítems) y CC de taunt para anular carries AD.
 
+
 > [!NOTE]
 > **Estado Meta Actual (Diamond+, 05/10/2026):**
-> Win Rate 57.42 % | Pick Rate 5.00 % | Ban 7.02 % | Tendencia 0 | Tier S+ | Rol: JUNGLE · Confidence Med.
+> Win Rate 56.97 % | Pick Rate 4.46 % | Ban 6.44 % | Tendencia 0 | Tier S+ | Rol: JUNGLE · Confidence Med.
 
 > [!TIP]
 > **Variante Anti-AP:** Si el equipo enemigo tiene 3+ fuentes AP, cambia Dead Man's Plate por Abyssal Mask (2 400 g) y Plated Steelcaps por Mercury's Treads → Chainlaced Crushers. Pierdes ~15 % de EHP físico pero ganas 12 % amp de daño mágico para tu equipo.

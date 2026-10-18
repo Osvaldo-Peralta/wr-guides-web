@@ -17,8 +17,8 @@ generate: manual
 mode: sr
 published_at: "2026-10-08"
 updated_at: "2026-10-12"
-verification: AL_DIA
-verified_patch: "7.3a"
+verification: SIN_IMPACTO
+verified_patch: "7.3b"
 ---
 **Fecha del análisis:** 08/10/2026
 **Parche:** 7.3 (21-sep-2026) + hotfix 7.3a (29-sep-2026)
@@ -29,7 +29,7 @@ verified_patch: "7.3a"
 
 > [!NOTE]
 > **Estado Meta Actual (Diamond+, 05/10/2026):**
-> Win Rate 47.98 % | Pick Rate 1.12 % | Ban 0.29 % | Tendencia ↓ 2 | Rol: MID · Confidence Low.
+> Win Rate 47.10 % | Pick Rate 1.07 % | Ban 0.15 % | Tendencia ↓1 2 | Rol: MID · Confidence Low.
 
 ---
 

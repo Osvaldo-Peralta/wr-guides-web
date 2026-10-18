@@ -18,8 +18,8 @@ generate: manual
 mode: sr
 published_at: "2026-10-08"
 updated_at: "2026-10-12"
-verification: AL_DIA
-verified_patch: "7.3a"
+verification: SIN_IMPACTO
+verified_patch: "7.3b"
 ---
 **Fecha del análisis:** 08/10/2026
 **Parche:** 7.3 (21-sep-2026) + hotfix 7.3a (29-sep-2026)
@@ -27,9 +27,10 @@ verified_patch: "7.3a"
 **Arquetipo:** Maga de burst AP con red de seguridad
 **Enfoque:** **Maximizar daño de burst en ventana de 2-3 s**. La build prioriza **daño > durabilidad pasiva**, pero incluye **Zhonya's** y **Cryptbloom** como red de seguridad para no morir al segundo engage.
 
+
 > [!NOTE]
 > **Estado Meta Actual (Diamond+, 05/10/2026):**
-> Win Rate 50.78 % | Pick Rate 1.52 % | Ban 7.62 % | Tendencia ↓ 1 | Tier A | Rol MID | Confianza Low.
+> Win Rate 50.50 % | Pick Rate 1.43 % | Ban 7.25 % | Tendencia 0 1 | Tier A | Rol MID | Confianza Low.
 
 > [!TIP]
 > **Variante principal (Support de poke):** Cambia **Stormsurge** y **Infinity Orb** por **Echoes of Helia** y **Imperial Mandate**. Sacrificas ~35 % de daño propio a cambio de **curar aliados con cada Q** y **marcar objetivos con CC (+7 % daño aliado)**. Viable si tu ADC es un hiper-carry (Jinx, Vayne) y no necesitas ser la fuente principal de daño.

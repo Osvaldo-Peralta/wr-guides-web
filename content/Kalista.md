@@ -18,8 +18,8 @@ generate: manual
 mode: sr
 published_at: "2026-10-08"
 updated_at: "2026-10-12"
-verification: AL_DIA
-verified_patch: "7.3a"
+verification: SIN_IMPACTO
+verified_patch: "7.3b"
 ---
 **Fecha del análisis:** 08/10/2026
 **Parche:** 7.3 (21-sep-2026) + hotfix 7.3a (29-sep-2026)
@@ -27,9 +27,10 @@ verified_patch: "7.3a"
 **Arquetipo:** On-hit ejecutor — su **E Rend** no critica
 **Enfoque:** Maximizar el daño sostenido on-hit
 
+
 > [!NOTE]
 > **Estado Meta Actual (Diamond+, 05/10/2026):**
-> **DUO (ADC):** Win Rate 50.88 % | Pick Rate 5.35 % | Ban 5.31 % | Tendencia ↓ 1 | Tier A | Confianza Med.
+> **DUO (ADC):** Win Rate 50.93 % | Pick Rate 6.19 % | Ban 7.30 % | Tendencia ↑2 1 | Tier A | Confianza Med.
 
 ---
 

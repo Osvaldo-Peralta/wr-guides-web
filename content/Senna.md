@@ -17,8 +17,8 @@ generate: manual
 mode: sr
 published_at: "2026-10-09"
 updated_at: "2026-10-11"
-verification: AL_DIA
-verified_patch: "7.3a"
+verification: REVISAR
+verified_patch: "7.3b"
 ---
 **Fecha del análisis:** 11/10/2026
 **Parche:** 7.3 (21-sep-2026) + hotfix 7.3a (29-sep-2026)
@@ -26,10 +26,11 @@ verified_patch: "7.3a"
 **Arquetipo:** Crítico modificado (`crit_dmg_mod` 0.9) + enchanter híbrida
 **Enfoque:** Valor-aliado (cura Q / escudo R / buff Censer) como columna support, con lado DPS medido por el motor de autos para la variante DUO y para el daño de asedio que Senna aporta aunque juegue de support.
 
+
 > [!NOTE]
 > **Estado Meta Actual (Diamond+, 09/10/2026):**
-> **SUPPORT Win Rate 54.11 %** | Pick Rate 13.33 % | Ban 36.40 % | Tendencia 0 | Tier S+ (Confidence High).
-> **DUO Win Rate 55.16 %** | Pick 3.45 % | Ban 36.40 % | Tier S+ (Confidence Med).
+> **SUPPORT Win Rate 54.11 %** | Pick Rate 12.82 % | Ban 32.49 % | Tendencia 0 | Tier S+ (Confidence High).
+> **DUO Win Rate 55.51 %** | Pick 3.45 % | Ban 32.49 % | Tier S+ (Confidence Med).
 
 ---
 

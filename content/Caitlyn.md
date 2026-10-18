@@ -14,8 +14,8 @@ generate: manual
 mode: sr
 published_at: "2026-09-29"
 updated_at: "2026-10-12"
-verification: AL_DIA
-verified_patch: "7.3a"
+verification: SIN_IMPACTO
+verified_patch: "7.3b"
 ---
 **Fecha del análisis:** 29/09/2026
 **Parche:** 7.3 (21-sep-2026) + hotfix 7.3a (29-sep-2026)
@@ -23,9 +23,10 @@ verified_patch: "7.3a"
 **Arquetipo:** Headshots potenciados por crítico y rango
 **Enfoque:** Magnification permanente + Headshot escalado a crítico 
 
+
 > [!NOTE]
 > **Estado Meta Actual (Diamond+, 28/09/2026 — pre-hotfix 7.3a):**
-> Win Rate 51.41 % | Pick Rate 35.85 % | Ban 42.81 % | Tendencia ↑ | Rol: ADC Bot Lane.
+> Win Rate 49.68 % | Pick Rate 19.08 % | Ban 7.65 % | Tendencia ↓1 | Rol: ADC Bot Lane.
 > ⚠️ Datos previos al nerf 7.3a;
 
 ---

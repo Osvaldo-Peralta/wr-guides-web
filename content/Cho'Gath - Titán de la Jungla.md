@@ -18,8 +18,8 @@ generate: manual
 mode: sr
 published_at: "2026-09-28"
 updated_at: "2026-10-12"
-verification: ANOTAR
-verified_patch: "7.3a"
+verification: SIN_IMPACTO
+verified_patch: "7.3b"
 ---
 **Fecha del análisis:** 11/10/2026 (regeneración v1.3 con motor dedicado batch4)
 **Parche:** 7.3 (21-sep-2026) + hotfix 7.3a (29-sep-2026)
@@ -27,8 +27,9 @@ verified_patch: "7.3a"
 **Arquetipo:** Tanque de rotación AP %-vida: el daño es Q/W/E + R verdadero + % de vida máxima; el tamaño es CONSECUENCIA de daño+durabilidad, no objetivo (ver §0.2).
 **Enfoque:** Maximizar la ventana de supervivencia (EHP en ventana de 5 s) y el execute de R sin sacrificar daño de rotación: el cuarteto Unending Despair + Gargoyle + Amaranth's Twinguard + Force of Nature aparece en las 10 mejores builds de 122 632 evaluadas y sobrevive a todas las sensibilidades.
 
+
 > [!NOTE]
-> **Estado Meta Actual (Diamond+, 09/10/2026):** JUNGLE Win Rate 50.85 % | Pick Rate 8.52 % | Ban 35.10 % | Tendencia ↑1 | Tier S (Confidence High). SOLO (hermano): 50.46 % | 11.10 % | ban 35.10 % | ↑3. Fuente: `data/estructurada/champion_winrates.csv` (vigía 2×/día).
+> **Estado Meta Actual (Diamond+, 09/10/2026):** JUNGLE Win Rate 50.91 % | Pick Rate 8.67 % | Ban 35.42 % | Tendencia ↑3 | Tier S (Confidence High). SOLO (hermano): 50.46 % | 11.10 % | ban 35.10 % | ↑3. Fuente: `data/estructurada/champion_winrates.csv` (vigía 2×/día).
 
 > [!TIP]
 > **Variante de ventanas/teamfight:** si tu comp necesita frontline de pelea larga en vez de tempo de objetivos, usá la óptima del hermano barón (Armored Advance + Heartsteel + Unending + Twinguard + Gargoyle + FoN): VENT 55 591 vs 24 798, a cambio de clear 10.6 s vs 6.5 s y dragón 7.5 s vs 5.7 s. El punto medio (VENT 37 649 · clear 7.4 s) es Chainlaced + Sunfire + Liandry + FoN + Unending + Twinguard (#5 del motor jungla).

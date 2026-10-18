@@ -16,8 +16,8 @@ generate: manual
 mode: sr
 published_at: "2026-09-29"
 updated_at: "2026-10-12"
-verification: ANOTAR
-verified_patch: "7.3a"
+verification: REVISAR
+verified_patch: "7.3b"
 ---
 **Fecha del análisis:** 29/09/2026
 **Parche:** 7.3 (21-sep-2026)
@@ -25,18 +25,10 @@ verified_patch: "7.3a"
 **Arquetipo:** AP-Bruiser de Inmersión (Dive, Shield & Tower Control)
 **Enfoque:** Explotar el escalado cruzado (AP + HP) para generar escudos
 
-<!-- WRLAB-VERIF:7.3a:START — generado por model/update_reports.py · no editar a mano -->
-> [!NOTE] ✅ ANOTAR Verificación automática (12/10/2026) — **NO requiere regeneración — hotfix 7.3a**
-> **Cambios directos a Volibear:** ninguno en 7.3a.
-> **Modelo:** sin hook cuantitativo (sin modelo cuantitativo para este campeón/arquetipo) → triage por intersección (champion/ítems/sistemas). Métricas publicadas sin cambios medibles.
-> **Build publicada (6 slots, Ley 0):** Chainlaced Crushers + Dusk and Dawn + Riftmaker + Nashor's Tooth + Zhonya's Hourglass + Rabadon's Deathcap — **sin cambios**.
-> **Sistema (7.3a):** Smite burn vs monstruos: 30–198/s → **22–162/s** → Jungla early más lenta → Diana jungla: Nashor's 1.º aún más correcto; Shyvana/Volibear/Cho'Gath jungla: clear early −15-20 %
-> **Veredicto:** ✅ ANOTAR — build, ruta de compra y veredictos siguen vigentes; este bloque es la constancia de verificación.
-<!-- WRLAB-VERIF:7.3a:END -->
 
 > [!NOTE]
 > **Estado Meta Actual (Diamond+, 24/09/2026):**
-> Win Rate 49.39 % (Top) / 49.04 % (Jungla) | Pick Rate 6.51 % | Ban 6.54 % | Tendencia ↓25 | Rol: Top/Jungla.
+> Win Rate 48.02 % (Top) / 49.04 % (Jungla) | Pick Rate 2.44 % | Ban 4.34 % | Tendencia ↓1 | Rol: Top/Jungla.
 > *Nota del Lab:* Su WR ha caído porque la comunidad lo construye como un tanque de ladrillo (Sunfire/Heartsteel) o AD puro (Trinity), ignorando que el 70 % de su daño y supervivencia escala con **Poder de Habilidad (AP)**. Esta build corrige el error sistémico.
 
 ---

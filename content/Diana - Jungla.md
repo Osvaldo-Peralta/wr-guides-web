@@ -16,8 +16,8 @@ generate: manual
 mode: sr
 published_at: "2026-09-29"
 updated_at: "2026-10-12"
-verification: AL_DIA
-verified_patch: "7.3a"
+verification: SIN_IMPACTO
+verified_patch: "7.3b"
 ---
 **Fecha del análisis:** 08/10/2026
 **Parche:** 7.3 (21-sep-2026) + hotfix 7.3a (29-sep-2026)
@@ -25,9 +25,10 @@ verified_patch: "7.3a"
 **Arquetipo:** AP-Assassin de rotación sostenida con ventanas de burst tras combo Q→E→W→R
 **Enfoque:** Lethal Tempo + Nashor's Tooth 1.º + Dusk and Dawn para explotar el ratio AS 0.694 de Diana
 
+
 > [!NOTE]
 > **Estado Meta Actual (Diamond+, 24/09/2026):**
-> Win Rate **50.82 %** | Pick Rate 1.90 % | Ban 0.29 % | Tendencia ↓ 12 | Rol: **Jungla**.
+> Win Rate **50.82 %** | Pick Rate 1.46 % | Ban 0.15 % | Tendencia ↓4 12 | Rol: **Jungla**.
 > Diana está débil en Mid (47.98 % WR); **Jungla es su rol viable y óptimo en 7.3**.
 
 > [!TIP]

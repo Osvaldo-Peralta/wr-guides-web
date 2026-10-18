@@ -16,8 +16,8 @@ generate: manual
 mode: sr
 published_at: "2026-09-30"
 updated_at: "2026-10-12"
-verification: AL_DIA
-verified_patch: "7.3a"
+verification: SIN_IMPACTO
+verified_patch: "7.3b"
 ---
 **Fecha del análisis:** 30/09/2026
 **Parche:** 7.3 (21-sep-2026) + hotfix 7.3a (29-sep-2026)
@@ -25,9 +25,10 @@ verified_patch: "7.3a"
 **Arquetipo:** Burst-Caster / Poke-Mage — maximizar daño en ventanas de 2-3 s
 **Enfoque:** Sacrificar ~40 % de escudo/cura a cambio de +55 % de daño directo.
 
+
 > [!NOTE]
 > **Estado Meta Actual (Diamond+, 30/09/2026):**
-> Win Rate 50.96 % | Pick Rate 8.38 % | Ban 1.72 % | Tendencia ↑ 3 (+1.04 pts últimos 30 días) | Rol: Support/Mid .
+> Win Rate 48.73 % | Pick Rate 6.27 % | Ban 1.05 % | Tendencia ↓4 3 (+1.04 pts últimos 30 días) | Rol: Support/Mid .
 
 > [!DANGER]
 > **Advertencia:** Esta build sacrifica ~40 % del escudo/curación de W (*Surround Sound*) y toda la utilidad de buff al carry (Ardent Censer, Staff) a cambio de +55 % de daño directo en rotación Q→E→R y un burst de ~1 350 mágico pre-mitigación en ventana de 2 s. Si fallas Q o E, esta build pierde valor comparada con la de enchanter puro. Requiere puntería alta y posicionamiento de mago, no de support tradicional.

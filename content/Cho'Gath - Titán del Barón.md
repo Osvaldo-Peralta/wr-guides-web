@@ -18,8 +18,8 @@ generate: manual
 mode: sr
 published_at: "2026-09-28"
 updated_at: "2026-10-12"
-verification: ANOTAR
-verified_patch: "7.3a"
+verification: SIN_IMPACTO
+verified_patch: "7.3b"
 ---
 **Fecha del análisis:** 11/10/2026 (regeneración v1.3 con motor dedicado batch4)
 **Parche:** 7.3 (21-sep-2026) + hotfix 7.3a (29-sep-2026)
@@ -27,8 +27,9 @@ verified_patch: "7.3a"
 **Arquetipo:** Tanque de rotación AP %-vida: split-pusher de ventanas enormes y execute verdadero.
 **Enfoque:** La misma óptima del motor que en jungla (cuarteto Unending + Gargoyle + Twinguard + FoN) con lecturas de top: Demolish + cristales + rango Feast para siege, y Rod of Ages como alternativa de lane 1v1 larga.
 
+
 > [!NOTE]
-> **Estado Meta Actual (Diamond+, 09/10/2026):** SOLO Win Rate 50.46 % | Pick Rate 11.10 % | Ban 35.10 % | Tendencia ↑3 | Tier S (Confidence High).
+> **Estado Meta Actual (Diamond+, 09/10/2026):** SOLO Win Rate 50.67 % | Pick Rate 10.74 % | Ban 35.42 % | Tendencia ↑3 | Tier S (Confidence High).
 
 > [!TIP]
 > **Variante lane 1v1 larga:** **Rod of Ages** (2 700) en lugar de Force of Nature cuando tu rival es AP de pelea sostenida (Vladimir-like, Mordekaiser sin grievous): 500 HP + 90 AP + Eternity convierten tu mana muerto en pool híbrido.

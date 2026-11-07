@@ -18,7 +18,7 @@ mode: sr
 published_at: "2026-09-27"
 updated_at: "2026-10-12"
 verification: SIN_IMPACTO
-verified_patch: "7.3b"
+verified_patch: "7.3d"
 ---
 **Fecha del análisis:** 18/10/2026 (rev. v2.1 — corrección de runas: la página publicada es LEGAL y vuelve a ser la base; motor `yuumi_agresiva_model.py`, batch5, constantes 7.3b)
 **Parche:** 7.3 (21-sep-2026) + hotfix 7.3a (29-sep-2026) + hotfix 7.3b (15-oct-2026)

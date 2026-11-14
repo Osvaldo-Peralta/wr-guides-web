@@ -18,8 +18,8 @@ generate: manual
 mode: sr
 published_at: "2026-09-28"
 updated_at: "2026-10-12"
-verification: SIN_IMPACTO
-verified_patch: "7.3d"
+verification: ANOTAR
+verified_patch: "7.3f"
 ---
 **Fecha del análisis:** 11/10/2026 (regeneración v1.3 con motor dedicado batch4)
 **Parche:** 7.3 (21-sep-2026) + hotfix 7.3a (29-sep-2026)

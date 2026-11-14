@@ -16,8 +16,8 @@ generate: manual
 mode: sr
 published_at: "2026-09-29"
 updated_at: "2026-10-12"
-verification: SIN_IMPACTO
-verified_patch: "7.3d"
+verification: ANOTAR
+verified_patch: "7.3f"
 ---
 **Fecha del análisis:** 29/09/2026
 **Parche:** 7.3 (21-sep-2026)

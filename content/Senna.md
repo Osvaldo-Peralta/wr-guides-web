@@ -18,7 +18,7 @@ mode: sr
 published_at: "2026-10-09"
 updated_at: "2026-10-11"
 verification: REVISAR
-verified_patch: "7.3d"
+verified_patch: "7.3f"
 ---
 **Fecha del análisis:** 11/10/2026
 **Parche:** 7.3 (21-sep-2026) + hotfix 7.3a (29-sep-2026)
